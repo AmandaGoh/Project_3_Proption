@@ -4,7 +4,7 @@ class CreateProperties < ActiveRecord::Migration[5.0]
       t.string :prop_type
       t.string :address
       t.integer :postal_code
-      t.string :Tenure
+      t.string :tenure
       t.integer :size
       t.text :description
 
