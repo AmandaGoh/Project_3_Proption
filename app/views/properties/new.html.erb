@@ -1,0 +1,46 @@
+<h1>Property Creation Page</h1>
+
+<!-- form for -->
+<%= form_for @property do |f| %>
+
+<p>
+  <%= f.label :'Property Type' %><br>
+  <%= f.select :prop_type, ['Landed', 'Condominium']%>
+</p>
+
+<p>
+<%= f.label :address %><br>
+<%= f.text_field :address %><br>
+</p>
+
+<p>
+<%= f.label :postal_code %><br>
+<%= f.text_field :postal_code %><br>
+</p>
+
+<p>
+  <%= f.label :tenure %><br>
+  <%= f.select :tenure, ['Freehold', '999', '99']%>
+</p>
+
+<p>
+<%= f.label :size %><br>
+<%= f.text_field :size %><br>
+</p>
+
+<p>
+<%= f.label :description %><br>
+<%= f.text_field :description %><br>
+</p>
+
+<p>
+  <%= f.submit "Submit" %>
+</p>
+<% end %>
+
+<!-- t.string :prop_type
+t.string :address
+t.integer :postal_code
+t.string :Tenure
+t.integer :size
+t.text :description -->
