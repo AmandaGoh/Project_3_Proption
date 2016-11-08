@@ -1,9 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  auction_date: 
-  duration: 
+  auction_date: 2016-11-08
+  duration: 2016-11-08 18:50:31
+  property_id: 1
+  bid_id: 1
 
 two:
-  auction_date: 
-  duration: 
+  auction_date: 2016-11-08
+  duration: 2016-11-08 18:50:31
+  property_id: 1
+  bid_id: 1

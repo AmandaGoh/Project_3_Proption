@@ -7,6 +7,8 @@ one:
   tenure: MyString
   size: 1
   description: MyText
+  picture: MyString
+  seller_id: 1
 
 two:
   prop_type: MyString
@@ -15,3 +17,5 @@ two:
   tenure: MyString
   size: 1
   description: MyText
+  picture: MyString
+  seller_id: 1
