@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161107101116) do
+ActiveRecord::Schema.define(version: 20161108070544) do
 
   create_table "bids", force: :cascade do |t|
     t.integer  "amount"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20161107101116) do
     t.string   "prop_type"
     t.string   "address"
     t.integer  "postal_code"
-    t.string   "Tenure"
+    t.string   "tenure"
     t.integer  "size"
     t.text     "description"
     t.datetime "created_at",  null: false
