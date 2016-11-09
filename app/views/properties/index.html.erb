@@ -1,1 +1,10 @@
 <h1>Property index page</h1>
+
+<ol>
+  <% @properties.each do |user| %>
+  <li>
+    <%= property.name %>
+    <%= user.email %>
+  </li>
+  <% end %>
+</ol>
