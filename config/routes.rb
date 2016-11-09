@@ -1,12 +1,16 @@
 Rails.application.routes.draw do
+
+  get 'bids/index'
+
+  get 'bids/new'
+
  devise_for :users
+
  root 'home#index'
 
  get 'about', to: 'home#about'
 
  get 'contact', to: 'home#contact'
-
-
 
  resources :properties
 
