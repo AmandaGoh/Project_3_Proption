@@ -1,15 +1,17 @@
 <div class="container">
-    <h2>Edit <%= resource_name.to_s.humanize %></h2>
+    <h1>Edit <%= resource_name.to_s.humanize %></h1>
     	<hr>
 
 <div class="row">
 
   <div class="col-md-9 personal-info">
 
+
+
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
-    <h3>Personal info</h3>
+
 
 
 
@@ -20,10 +22,12 @@
     <%= f.label :email, class: "col-lg-3 control-label"%>
     <div class="col-md-8">
     <%= f.email_field :email, autofocus: true, class: "form-control" %>
+    <br />
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <br />
   <% end %>
   </div>
 
@@ -44,6 +48,7 @@
   <%= f.label :password_confirmation, class: "col-lg-3 control-label"%>
   <div class="col-md-8">
   <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "6 characters minimum" %>
+  <br />
 </div>
 </div>
 
@@ -51,6 +56,7 @@
 <%= f.label :current_password, class: "col-lg-3 control-label"%>
 <div class="col-md-8">
 <%= f.password_field :current_password, autocomplete: "off" , class: "form-control",placeholder: "Leave it blank if you do not wish to change your password" %>
+<br />
 </div>
 </div>
 
@@ -83,7 +89,7 @@
       <!-- edit form column -->
       <div class="col-md-9 personal-info">
 
-        <h3>Personal info</h3>
+<h3>Personal info</h3>
 
         <form class="form-horizontal" role="form">
           <div class="form-group">
