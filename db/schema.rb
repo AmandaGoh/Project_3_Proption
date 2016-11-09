@@ -30,7 +30,6 @@ ActiveRecord::Schema.define(version: 20161108105107) do
   end
 
   create_table "properties", force: :cascade do |t|
-    t.string   "name"
     t.string   "prop_type"
     t.string   "address"
     t.integer  "postal_code"

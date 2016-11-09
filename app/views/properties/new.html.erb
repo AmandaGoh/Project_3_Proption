@@ -3,6 +3,7 @@
 <!-- form for -->
 <%= form_for @property do |f| %>
 
+
 <p>
   <%= f.label :'Property Type' %><br>
   <%= f.select :prop_type, ['Landed', 'Condominium']%>
@@ -48,9 +49,17 @@
 </p>
 <% end %>
 
-<!-- t.string :prop_type
-t.string :address
-t.integer :postal_code
-t.string :Tenure
-t.integer :size
-t.text :description -->
+<!-- create_table "properties", force: :cascade do |t|
+  t.string   "name"
+  t.string   "prop_type"
+  t.string   "address"
+  t.integer  "postal_code"
+  t.integer  "reserve_price"
+  t.string   "tenure"
+  t.integer  "size"
+  t.text     "description"
+  t.string   "picture"
+  t.integer  "seller_id"
+  t.datetime "created_at",    null: false
+  t.datetime "updated_at",    null: false
+end -->

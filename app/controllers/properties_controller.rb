@@ -10,6 +10,7 @@ class PropertiesController < ApplicationController
   end
   def create
     @new_property = Property.new()
+    @new_property.name = params[:property][:name]
     @new_property.prop_type = params[:property][:prop_type]
     @new_property.address = params[:property][:address]
     @new_property.postal_code = params[:property][:postal_code]
@@ -25,7 +26,8 @@ class PropertiesController < ApplicationController
   end
 end
 
-# create_table "properties", force: :cascade do |t|
+# <!-- create_table "properties", force: :cascade do |t|
+#   t.string   "name"
 #   t.string   "prop_type"
 #   t.string   "address"
 #   t.integer  "postal_code"
@@ -37,4 +39,4 @@ end
 #   t.integer  "seller_id"
 #   t.datetime "created_at",    null: false
 #   t.datetime "updated_at",    null: false
-# end
+# end -->
