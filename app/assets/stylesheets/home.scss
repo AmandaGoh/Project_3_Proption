@@ -205,6 +205,10 @@ header {
 	width: 100%;
 }
 
+.dropdown-options {
+	color: black;
+}
+
 .nav.navbar-nav.navbar-right.menu li a {
 	color: white;
 }
@@ -253,10 +257,6 @@ header {
 
 .icon-size {
 	font-size: 87px;
-}
-
-.dropdown-menu {
-	color: black;
 }
 
 .dropdown-toggle {
@@ -649,4 +649,11 @@ JUMBOTRON
 
 .aa-title {
 	text-align: center;
+}
+
+// ==============
+// ALERT MESSAGE
+//================
+.alertMessage {
+	z-index: 5;
 }

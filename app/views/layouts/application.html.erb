@@ -14,15 +14,22 @@
   </head>
 
   <body>
-    <%= render 'partials/header' %>
-    <% if notice %>
-      <p class ="alert alert-success"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-      <p class = "alert alert-danger"><%= alert %></p>
-    <% end %>
-    <%= yield %>
-    <%= render 'partials/footer' %>
+
+      <%= render 'partials/header' %>
+
+    <div class="alertMessage">
+      <% if notice %>
+        <p class ="alert alert-success"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class = "alert alert-danger"><%= alert %></p>
+      <% end %>
+    </div>
+
+      <%= yield %>
+
+      <%= render 'partials/footer' %>
+
   </body>
 
   <script src="https://code.jquery.com/jquery-2.2.4.min.js " integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin=" anonymous "></script>
