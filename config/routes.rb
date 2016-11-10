@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   get 'contact', to: 'home#contact'
 
- resources :properties
+  resources :properties
 
   resources :listings
 

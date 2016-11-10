@@ -11,13 +11,20 @@ class BidsController < ApplicationController
 
 
   def new
-    @new_bid = Bid.new()
-    @new_bid.bid_amount = params[:bid][:bid_amount]
-    @new_bid.user_id = params[:bid][:user_id]
-    @new_bid.listing_id = params[:bid][:listing_id]
-    @new_bid.save
+    #check if new bid is greater than the last bid
 
-    # display message to say bid successfully saved???
+    if Bid.last.bid_amount < params[:bid][:bid_amount]
+
+        @new_bid = Bid.new()
+        @new_bid.bid_amount = params[:bid][:bid_amount]
+        @new_bid.user_id = params[:bid][:user_id]
+        @new_bid.listing_id = params[:bid][:listing_id]
+        @new_bid.save
+        flash[:notice] = "Bid submitted successfully"
+
+    else
+        flash[:alert] = "Bid amount must be higher than last bid amount. Pls check and resubmit."
+    end
   end
 
 end
