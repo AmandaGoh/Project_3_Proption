@@ -1,71 +1,80 @@
-<h1>View ALL My Bids</h1>
+<div class="container">
+  <div class="row">
 
-<div class="wholetable">
+    <h1>MY BIDS</h1>
 
-<div class="pageHeader">
-<h1>My Properties</h1>
-
-  <div class="container">
-  	<div class="row">
-
-          <div class="col-md-3">
-              <form action="#" method="get">
-                  <div class="input-group">
-
-                      <!-- SEARCH BAR -->
-                      <input class="form-control" id="system-search" name="q" placeholder="Search all listings..." required>
-                      <span class="input-group-btn">
-                          <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
-                      </span>
-                  </div>
-              </form>
-          </div>
+    <div class="col-md-3">
+      <form action="#" method="get">
+        <div class="input-group">
+          <!-- SEARCH BAR -->
+          <input class="form-control" id="system-search" name="q" placeholder="Search my bids..." required>
+          <span class="input-group-btn">
+                        <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+          </span>
+        </div>
+      </form>
+    </div>
 
 
 
-  		<div class="col-md-9">
-      	 <table class="table table-list-search">
-                      <thead>
-                          <tr>
-                              <th>Listing Name</th>
-                              <th>Type</th>
-                              <th>Address</th>
-                              <th>Reserve Price</th>
-                              <th>Auction Date</th>
-                              <th>Auction Duration Left</th>
-                              <th>Your Last Bid Amount</th>
-                              <th> </th>
-                          </tr>
-                      </thead>
-                      <tbody>
-                          <tr>
-                              <td>East Coast</td>
-                              <td>Bungalow</td>
-                              <td>11 East Coast Street</td>
-                              <td>$1,200,000 ACTION CABLE HERE</td>
-                              <td>11 Nov 2016</td>
-                              <td>Countdown Timer Here</td>
-					  									<td>$1,200,000</td>
-															<td>form to resubmit new bid or bring them back to the listing in order to bid</td>
-                          </tr>
-                          <tr>
-															<% @bids.each do |bid| %>
-		                              <td> <%=  %> </td>
-		                              <td> </td>
-		                              <td> </td>
-		                              <td> </td>
-		                              <td> </td>
-		                              <td> </td>
-							                    <td> </td>
-		                              <td> </td>
-															<% end %>
-                          </tr>
-                      </tbody>
-                  </table>
-  		</div>
-  	</div>
+    <div class="col-md-9">
+      <table class="table table-list-search">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Picture</th>
+            <th>Property Type</th>
+            <th>Address</th>
+            <th>Auction Deadline</th>
+            <th>Reserve Price</th>
+            <th>Last Bid Price</th>
+            <th>My Bid</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="#">Sim Tower</a></td>
+            <td>
+              <a href="#">
+                <img src="http://assets.cromly.s3.amazonaws.com/stories/lime%20house/fish%20house/GUZ-SENTOSA-002.jpg" width="120" alt="">
+              </a>
+            </td>
+            <td>Condo</td>
+            <td>11 Orchard Street</td>
+            <td>25 November 2016 6pm</td>
+            <td>$1,200,000</td>
+            <td>$1,102,343</td>
+            <td>$1,200,000</td>
+            <td>
+              <div class="pull-left">
+                <form action="demo_form.asp">
+                  <button type="button" class="btn btn-success btn-md">
+                  <span class="glypicon glyphicon glyphicon-ice-lolly"></span>
+                  Submit Another Bid
+                  </button>
+                </form>
+              </div>
+            </td>
+          </tr>
+
+          <% @current_user_bids.each do |bid| %>
+              <tr>
+                <td> <%=  %> </td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+          <% end %>
+
+        </tbody>
+      </table>
+    </div>
+
   </div>
-
-</div>
-
 </div>
