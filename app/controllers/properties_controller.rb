@@ -1,6 +1,11 @@
 class PropertiesController < ApplicationController
   def index
     @properties=Property.all
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @properties }
+    end
   end
   def show
     @property = Property.find(params[:id])
@@ -21,22 +26,9 @@ class PropertiesController < ApplicationController
     @new_property.picture = params[:property][:picture]
     @new_property.seller_id = params[:property][:seller_id]
     @new_property.save
+    @new_property.errors.full_messages
+
 
     redirect_to properties_path
   end
 end
-
-# <!-- create_table "properties", force: :cascade do |t|
-#   t.string   "name"
-#   t.string   "prop_type"
-#   t.string   "address"
-#   t.integer  "postal_code"
-#   t.integer  "reserve_price"
-#   t.string   "tenure"
-#   t.integer  "size"
-#   t.text     "description"
-#   t.string   "picture"
-#   t.integer  "seller_id"
-#   t.datetime "created_at",    null: false
-#   t.datetime "updated_at",    null: false
-# end -->

@@ -1,1 +1,8 @@
 <h1>Property index page</h1>
+
+<ul>
+  <% @properties.each do |property| %>
+    <li><%= property.name  %></li>
+    <li><%= property.prop_type  %></li>
+  <% end %>
+</ul>

@@ -3,6 +3,10 @@
 <!-- form for -->
 <%= form_for @property do |f| %>
 
+<p>
+<%= f.label :'Property Name' %><br>
+<%= f.text_field :name %><br>
+</p>
 
 <p>
   <%= f.label :'Property Type' %><br>
