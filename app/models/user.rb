@@ -8,4 +8,5 @@ class User < ApplicationRecord
   has_many :bids
   has_many :listings, through: :properties
   has_many :listings, through: :bids
+
 end
