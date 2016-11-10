@@ -17,6 +17,29 @@
 
   <form class="form-horizontal" role="form">
 
+    <div class="form-group">
+    <%= f.label :name, class: "col-lg-3 control-label"%>
+    <div class="col-md-8">
+    <%= f.text_field :name, autofocus: true, class: "form-control" %>
+    <br />
+  </div>
+</div>
+
+<div class="form-group">
+<%= f.label :username, class: "col-lg-3 control-label"%>
+<div class="col-md-8">
+<%= f.text_field :username, autofocus: true, class: "form-control" %>
+<br />
+</div>
+</div>
+
+<div class="form-group">
+<%= f.label :contact_number, class: "col-lg-3 control-label"%>
+<div class="col-md-8">
+<%= f.text_field :contact_number, autofocus: true, class: "form-control" %>
+<br />
+</div>
+</div>
 
     <div class="form-group">
     <%= f.label :email, class: "col-lg-3 control-label"%>
@@ -77,71 +100,4 @@
 </div>
 </div>
 
-<%=link_to 'Log Out', destroy_user_session_path, method: :delete %>
-
-<div class="container">
-    <h1>Edit Profile</h1>
-  	<hr>
-	<div class="row">
-      <!-- left column -->
-
-
-
-
-      <!-- edit form column -->
-      <div class="col-md-9 personal-info">
-
-<h3>Personal info</h3>
-
-        <form class="form-horizontal" role="form">
-          <div class="form-group">
-            <label class="col-lg-3 control-label">Name</label>
-            <div class="col-lg-8">
-              <input class="form-control" type="text" value="">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-lg-3 control-label">User name</label>
-            <div class="col-lg-8">
-              <input class="form-control" type="text" value="">
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label class="col-lg-3 control-label">Email:</label>
-            <div class="col-lg-8">
-              <input class="form-control" type="text" value="">
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label class="col-md-3 control-label">Password:</label>
-            <div class="col-md-8">
-              <input class="form-control" type="password" value="">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-md-3 control-label">Confirm password:</label>
-            <div class="col-md-8">
-              <input class="form-control" type="password" value="">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-md-3 control-label">Current password:</label>
-            <div class="col-md-8">
-              <input class="form-control" type="password" value="">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-md-3 control-label"></label>
-            <div class="col-md-8">
-              <input type="button" class="btn btn-primary" value="Save Changes">
-              <span></span>
-              <input type="reset" class="btn btn-default" value="Cancel">
-            </div>
-          </div>
-        </form>
-      </div>
-  </div>
-</div>
-<hr>
+  <%= link_to "edit", destroy_user_session_path, method: :delete, :class => 'navbar-link navbarlink' %>
