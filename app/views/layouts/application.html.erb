@@ -19,14 +19,16 @@
 
     <div class="alertMessage">
       <% if notice %>
-        <p class ="alert alert-success"><%= notice %></p>
+        <p class ="alert alert-success alertMessage"><%= notice %></p>
       <% end %>
       <% if alert %>
-        <p class = "alert alert-danger"><%= alert %></p>
+        <p class = "alert alert-danger alertMessage"><%= alert %></p>
       <% end %>
     </div>
 
       <%= yield %>
+
+      <%= render 'partials/scrolltotop' %>
 
       <%= render 'partials/footer' %>
 
