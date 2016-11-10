@@ -4,8 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :properties
-  has_many :bids
-  has_many :listings, through: :properties
-  has_many :listings, through: :bids
+   has_many :properties, foreign_key: 'seller_id'
+   has_many :bids
+   has_many :listings, through: :properties
+   has_many :listings, through: :bids
 end

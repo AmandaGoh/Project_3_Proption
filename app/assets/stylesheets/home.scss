@@ -4,7 +4,15 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-// css for footer
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/*========================
+FOOTER
+========================*/
 .footer-distributed{
 	background-color: #292c2f;
 	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
@@ -24,14 +32,16 @@
 	vertical-align: top;
 }
 
-/* Footer left */
-
+/*========================
+FOOTER LEFT
+========================*/
 .footer-distributed .footer-left{
 	width: 40%;
 }
 
-/* The company logo */
-
+/*========================
+FOOTER LOGO
+========================*/
 .footer-distributed h3{
 	color:  #ffffff;
 	font: normal 36px 'Cookie', cursive;
@@ -42,8 +52,9 @@
 	color:  #5383d3;
 }
 
-/* Footer links */
-
+/*========================
+FOOTER LINKS
+========================*/
 .footer-distributed .footer-links{
 	color:  #ffffff;
 	margin: 20px 0 12px;
@@ -64,8 +75,9 @@
 	margin: 0;
 }
 
-/* Footer Center */
-
+/*========================
+FOOTER CENTER
+========================*/
 .footer-distributed .footer-center{
 	width: 35%;
 }
@@ -107,9 +119,9 @@
 	text-decoration: none;;
 }
 
-
-/* Footer Right */
-
+/*========================
+FOOTER RIGHT
+========================*/
 .footer-distributed .footer-right{
 	width: 20%;
 }
@@ -174,22 +186,28 @@
 
 }
 
-
-
-
-
-
-* {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-}
 /*========================
 NAVBAR
 ========================*/
 
 header {
 	height: 50px;
+}
+
+ul .dropdown-menu {
+	color: black;
+}
+
+.navbarlink {
+	color: white;
+}
+
+.navbarlink:hover {
+	color: white;
+}
+
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+	background-color: rgba(0, 0, 0, 0.5);
 }
 
 .navbar {
@@ -201,16 +219,8 @@ header {
 
 .navmenu {
 	height: 50px;
-	background: rgba(0, 0, 0, 0.2);
+	background-color: rgba(0, 0, 0, 0.2);
 	width: 100%;
-}
-
-.dropdown-options {
-	color: black;
-}
-
-.nav.navbar-nav.navbar-right.menu li a {
-	color: white;
 }
 
 .nav.navbar-nav.navbar-right li a:hover {
@@ -228,15 +238,11 @@ header {
 
 .logolong {
 	height: 36px;
-	margin: 7px 15px;
+	margin: 7px 20px;
 }
 
 .navbar-brand:hover {
 	background-color: rgba(0, 0, 0, 0.5);
-}
-
-.icon-bar {
-	background-color: white;
 }
 
 .navbar-collapse.collapse.in {
@@ -259,196 +265,6 @@ header {
 	font-size: 87px;
 }
 
-.dropdown-toggle {
-	color: white;
-}
-
-.dropdown-toggle:hover {
-	color: white;
-}
-
-.dropdown-toggle:visited {
-	color: white;
-}
-
-/*========================
-LOGIN & SIGNUP
-========================*/
-
-.at-login-form .btn-fb {
-	display: inline-block;
-	padding: 18px 20px;
-	margin-bottom: 0;
-	font-size: 14px;
-	font-weight: 400;
-	line-height: 1.42857143;
-	text-align: center;
-	white-space: nowrap;
-	vertical-align: middle;
-	-ms-touch-action: manipulation;
-	touch-action: manipulation;
-	cursor: pointer;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	background-image: none;
-	border: 1px solid transparent;
-	border-radius: 0px;
-	background-color: #4568B2;
-	width: 100%;
-	margin-top: 10px;
-	color: #fff;
-}
-
-.at-login-form .btn-gp {
-	display: inline-block;
-	padding: 18px 20px;
-	margin-bottom: 0;
-	font-size: 14px;
-	font-weight: 400;
-	line-height: 1.42857143;
-	text-align: center;
-	white-space: nowrap;
-	vertical-align: middle;
-	-ms-touch-action: manipulation;
-	touch-action: manipulation;
-	cursor: pointer;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	background-image: none;
-	border: 1px solid #eee;
-	border-radius: 0px;
-	background-color: #FFFFFF;
-	width: 100%;
-	margin-top: 10px;
-	color: #000;
-}
-
-.at-login-form .btn-lgin {
-	display: inline-block;
-	padding: 18px 20px;
-	margin-bottom: 0;
-	font-size: 14px;
-	font-weight: 400;
-	line-height: 1.42857143;
-	text-align: center;
-	white-space: nowrap;
-	vertical-align: middle;
-	-ms-touch-action: manipulation;
-	touch-action: manipulation;
-	cursor: pointer;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	background-image: none;
-	border: 1px solid #eee;
-	border-radius: 0px;
-	background-color: #1DB9EC;
-	width: 100%;
-	margin-top: 10px;
-	color: #fff;
-}
-
-.at-login-form .signup-or-separator {
-	background: none;
-	height: 34px;
-	position: relative;
-	text-align: center;
-}
-
-.at-login-form .signup-or-separator--text {
-	background-color: #fff;
-	display: inline-block;
-	padding: 8px;
-}
-
-.at-login-form .h6 {
-	font-size: 14px;
-	font-weight: bold;
-	color: #757575;
-	line-height: 1.1;
-	text-rendering: optimizelegibility;
-}
-
-.at-login-form .signup-or-separator hr {
-	margin: -25px auto 10px;
-	width: 100%;
-}
-
-.at-login-form .form-control-form {
-	display: block;
-	width: 100%;
-	height: 54px;
-	padding: 15px 12px;
-	font-size: 14px;
-	line-height: 1.42857143;
-	color: #555;
-	background-color: #fff;
-	background-image: none;
-	border: 1px solid #ccc;
-	border-radius: 0px;
-	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-	-webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
-	-o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-	margin-top: 3px;
-}
-
-.at-login-form .frgt-pswd {
-	margin: 5px 0 10px;
-	color: red;
-}
-
-.at-login-form .btn-gst {
-	display: inline-block;
-	padding: 6px 12px;
-	margin-bottom: 0;
-	font-size: 14px;
-	font-weight: 400;
-	line-height: 1.42857143;
-	text-align: center;
-	white-space: nowrap;
-	vertical-align: middle;
-	-ms-touch-action: manipulation;
-	touch-action: manipulation;
-	cursor: pointer;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	background-image: none;
-	border: 1px solid #000;
-	border-radius: 0px;
-	background-color: transparent;
-}
-
-.at-login-form .ta-l {
-	text-align: left;
-	margin-top: 5px;
-}
-
-.at-login-form .modal-dialog {
-	width: 500px;
-	margin: 30px auto;
-}
-
-.at-login-form .modal-content {
-	padding: 0px 10px;
-}
-
-.at-login-form .modal-header {
-	padding: 10px 10px;
-	border-bottom: 0px solid #e5e5e5;
-}
-
-.blue-bg-nav {
-	background-color: #1DB9EC;
-}
 /*========================
 JUMBOTRON
 ========================*/
@@ -470,7 +286,7 @@ JUMBOTRON
 }
 
 .jumbotron.btn.btn-primary.btn-lg {
-	z-index: +2;
+	// z-index: +2;
 }
 /*========================
 4 FEATURED LISTINGS
@@ -651,9 +467,58 @@ JUMBOTRON
 	text-align: center;
 }
 
-// ==============
-// ALERT MESSAGE
-//================
+/*========================
+ALERT MESSAGE
+========================*/
 .alertMessage {
-	z-index: 5;
+	position:absolute;
+	width: 200px;
+	right: 0px;
+	text-align: center;
+	opacity: 0.9;
+	z-index: 99999999;
+}
+
+/*========================
+SCROLL TO TOP
+========================*/
+
+.scroll-top-wrapper {
+  position: fixed;
+  opacity: 0;
+  visibility: hidden;
+	overflow: hidden;
+	text-align: center;
+	z-index: 99999999;
+  background-color: rgba(0, 0, 0, 0.2);
+	color: #eeeeee;
+	width: 50px;
+	height: 48px;
+	line-height: 48px;
+	right: 30px;
+	bottom: 30px;
+	padding-top: 2px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	-webkit-transition: all 0.5s ease-in-out;
+	-moz-transition: all 0.5s ease-in-out;
+	-ms-transition: all 0.5s ease-in-out;
+	-o-transition: all 0.5s ease-in-out;
+	transition: all 0.5s ease-in-out;
+}
+
+.scroll-top-wrapper:hover {
+	background-color: #888888;
+}
+
+.scroll-top-wrapper.show {
+  visibility:visible;
+  cursor:pointer;
+	opacity: 1.0;
+}
+
+.scroll-top-wrapper i.fa {
+	line-height: inherit;
 }
