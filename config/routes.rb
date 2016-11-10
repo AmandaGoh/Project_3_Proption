@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
+
+  devise_for :users, :controllers => { :registrations => 'users/registrations'}
+
 
   root 'home#index'
 
@@ -9,7 +11,11 @@ Rails.application.routes.draw do
 
   resources :properties
 
+
   resources :users, only: [:index, :show, :edit, :update]
+
+  resources :listings
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
