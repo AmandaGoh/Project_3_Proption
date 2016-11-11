@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 20161109144250) do
 
   create_table "bids", force: :cascade do |t|
     t.integer  "bid_amount"
-    t.integer  "user_id"
+    t.integer  "bidder_id"
     t.integer  "listing_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -24,7 +24,6 @@ ActiveRecord::Schema.define(version: 20161109144250) do
     t.date     "auction_date"
     t.time     "duration"
     t.integer  "property_id"
-    t.integer  "bid_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
