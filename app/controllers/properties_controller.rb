@@ -1,25 +1,38 @@
 class PropertiesController < ApplicationController
-  def new
-  @property = Property.new
-  end
+  def index
+    @properties=Property.all
 
+    respond_to do |format|
+      format.html
+      format.json { render json: @properties }
+    current_user
+    end
+  end
+  def show
+      # @property = Property.find(params[:id])
+  end
+  def new
+    @property = Property.new
+  end
   def create
+    current_user
     @new_property = Property.new()
+    @new_property.name = params[:property][:name]
     @new_property.prop_type = params[:property][:prop_type]
     @new_property.address = params[:property][:address]
     @new_property.postal_code = params[:property][:postal_code]
+    @new_property.reserve_price = params[:property][:reserve_price]
     @new_property.tenure = params[:property][:tenure]
     @new_property.size = params[:property][:size]
-    @new_property.description = params[:property][:email]
+    @new_property.description = params[:property][:description]
+    @new_property.picture = params[:property][:picture]
+    @new_property.seller_id = current_user.id
+    # reference current_user.id
+    # puts @current_user.properties
     @new_property.save
+    @new_property.errors.full_messages
+
 
     redirect_to properties_path
   end
 end
-
-# <!-- t.string :prop_type
-# t.string :address
-# t.integer :postal_code
-# t.string :Tenure
-# t.integer :size
-# t.text :description -->
