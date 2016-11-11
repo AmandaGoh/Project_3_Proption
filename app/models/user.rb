@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
    has_many :properties, foreign_key: 'seller_id'
-   has_many :bids
+   has_many :bids, foreign_key: 'bidder_id'
    has_many :listings, through: :properties
    has_many :listings, through: :bids
 end

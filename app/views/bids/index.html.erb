@@ -60,9 +60,9 @@
 
           <% @current_user_bids.each do |bid| %>
               <tr>
-                <td> <%=  %> </td>
-                <td></td>
-                <td></td>
+                <td> <%= bid.bid_amount %> </td>
+                <td> <%= bid.bidder_id %> </td>
+                <td> <%= bid.listing_id %> </td>
                 <td></td>
                 <td></td>
                 <td></td>
