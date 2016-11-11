@@ -1,7 +1,0 @@
-<h1>Bidding Exercise</h1>
-
-<%= form_tag bidtest_path(@bid), method: :post, remote: true do |f| %>
-  <%= label_tag(:bid_amount, "Bid Amount:")%>
-  <%= text_field_tag(:bid_amount) %>
-  <%= submit_tag "Submit Bid" %>
-<% end %>
