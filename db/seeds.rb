@@ -42,14 +42,29 @@ User.create! name: 'user8', username: 'username8', contact_number: 98901234, ema
 User.create! name: 'user9', username: 'username9', contact_number: 99012345, email: 'user9@email.com', password: 'password9', password_confirmation: 'password9'
 
 # seed properties
-Property.create! name: "Espada", prop_type: 'Condominium', address: '48 Saint Thomas Walk', postal_code: 238126, reserve_price: "1150000", tenure: "Freehold", size: 400, description: "Fully furnished", picture: "", seller_id: 1
+Property.create! name: "Espada", prop_type: 'Condominium', address: '48 Saint Thomas Walk', postal_code: 238126, reserve_price: "1150000", tenure: "Freehold", size: 400, description: "Fully furnished", picture: "", seller_id: 1, listed: 1
 
-Property.create! name: "Park Residences", prop_type: 'Condominium', address: '831 Upper Serangoon Rd', postal_code: 534679, reserve_price: "578000", tenure: "999", size: 800, description: "Available immediately, fully furnished!", picture: "", seller_id: 1
+Property.create! name: "Park Residences", prop_type: 'Condominium', address: '831 Upper Serangoon Rd', postal_code: 534679, reserve_price: "578000", tenure: "999", size: 800, description: "Available immediately, fully furnished!", picture: "", seller_id: 1, listed: 0
 
-Property.create! name: "Meyerise", prop_type: 'Condominium', address: '93 Meyer Rd', postal_code: 916000, reserve_price: "680000", tenure: "Freehold", size: 750, description: "Quick sale!", picture: "", seller_id: 2
+Property.create! name: "Meyerise", prop_type: 'Condominium', address: '93 Meyer Rd', postal_code: 916000, reserve_price: "680000", tenure: "Freehold", size: 750, description: "Quick sale!", picture: "", seller_id: 2, listed: 1
 
-Property.create! name: "Jalan Eunos", prop_type: 'Condominium', address: '31 Jalan Eunos', postal_code: 450890, reserve_price: "3500000", tenure: "Freehold", size: 2819, description: "Rare property!", picture: "", seller_id: 4
+Property.create! name: "Jalan Eunos", prop_type: 'Condominium', address: '31 Jalan Eunos', postal_code: 450890, reserve_price: "3500000", tenure: "Freehold", size: 2819, description: "Rare property!", picture: "", seller_id: 4, listed: 1
 
-Property.create! name: "Farrer Park Terrace House", prop_type: 'Landed', address: '1 Sturdee Rd', postal_code: 289789, reserve_price: "7200000", tenure: "Freehold", size: 1765, description: "Charming freehold Colonial-designed 2.5 torey house", picture: "", seller_id: 4
+Property.create! name: "Farrer Park Terrace House", prop_type: 'Landed', address: '1 Sturdee Rd', postal_code: 289789, reserve_price: "7200000", tenure: "Freehold", size: 1765, description: "Charming freehold Colonial-designed 2.5 torey house", picture: "", seller_id: 4, listed: 1
 
-Property.create! name: "Detached House", prop_type: 'Landed', address: '2 Garlick Avenue', postal_code: 160987, reserve_price: "14880000", tenure: "Freehold", size: 2404, description: "Detached house for sale", picture: "", seller_id: 6
+Property.create! name: "Detached House", prop_type: 'Landed', address: '2 Garlick Avenue', postal_code: 160987, reserve_price: "14880000", tenure: "Freehold", size: 2404, description: "Detached house for sale", picture: "", seller_id: 6, listed: 0
+
+
+# seed listings
+Listing.create! property_id:1
+Listing.create! property_id:3
+Listing.create! property_id:4
+Listing.create! property_id:5
+
+# seed listings
+Bid.create! bid_amount:100, bidder_id:3, listing_id:1
+Bid.create! bid_amount:1002, bidder_id:5, listing_id:2
+Bid.create! bid_amount:100004, bidder_id:6, listing_id:3
+Bid.create! bid_amount:1000000, bidder_id:6, listing_id:4
+Bid.create! bid_amount:1000001, bidder_id:8, listing_id:3
+Bid.create! bid_amount:1000002, bidder_id:9, listing_id:4

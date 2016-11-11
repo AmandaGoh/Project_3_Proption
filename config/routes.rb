@@ -9,8 +9,11 @@ Rails.application.routes.draw do
 
   get 'contact', to: 'home#contact'
 
-  resources :properties
+  get 'myproperties', to: 'properties#myproperties'
 
+  get 'mylistings', to: 'listings#mylistings'
+
+  resources :properties
 
   resources :users, only: [:index, :show, :edit, :update]
 
