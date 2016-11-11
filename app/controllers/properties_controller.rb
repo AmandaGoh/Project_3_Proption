@@ -8,6 +8,12 @@ class PropertiesController < ApplicationController
     current_user
     end
   end
+
+  def myproperties
+    @properties=Property.all
+    # session
+  end
+
   def show
       # @property = Property.find(params[:id])
   end
@@ -31,7 +37,6 @@ class PropertiesController < ApplicationController
     # puts @current_user.properties
     @new_property.save
     @new_property.errors.full_messages
-
 
     redirect_to properties_path
   end
