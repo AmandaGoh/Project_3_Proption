@@ -1,0 +1,96 @@
+<div class="container">
+    <div class="row">
+
+      <h1>ALL LISTINGS</h1>
+
+      <div class="col-md-3">
+        <form action="#" method="get">
+
+          <div class="input-group">
+
+            <!-- SEARCH BAR -->
+            <input class="form-control" id="system-search" name="q" placeholder="Search all listings..." required>
+            <span class="input-group-btn">
+                          <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+                      </span>
+
+          </div>
+
+        </form>
+      </div>
+
+
+
+      <div class="col-md-4">
+        <table class="table table-list-search">
+
+          <thead>
+            <tr>
+              <th>
+                <p>Listings:</p>
+              </th>
+            </tr>
+          </thead>
+
+
+
+          <tbody>
+
+            <% @listings.each do |listing| %>
+
+            <tr>
+              <td>
+                <div class="col-lg-12 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
+                  <article class="aa-properties-item">
+
+                    <a href="/underconstruction" class="aa-properties-item-img popular">
+                      <img src="house2.jpg" class="featured_img" alt="img">
+                    </a>
+<!-- <p><%= link_to "SPECIFIC LISTING", '', :class => 'btn btn-danger btn-lg'%></a></p> -->
+                    <div class="aa-properties-item-content">
+
+                      <!-- <div class="aa-properties-info">
+                        <span class="icons"><image src="bed.png"><b> 4</b></span>
+                        <span class="icons"><image src="bath.png"><b> 3</b></span>
+                        <span class="icons pull-right"><b> 1200 sqft</b></span>
+                      </div> -->
+
+                      <div class="aa-properties-about">
+
+                        <h3><a href="/underconstruction" class="propname"><%= listing.property_id %></a></h3>
+                        <h3><a href="/underconstruction" class="propname"><%= properties.name %></a></h3>
+                        <h3><a href="/underconstruction" class="propname"><%= listing.name %></a></h3>
+                        <h3><a href="/underconstruction" class="propname"><%= listing.properties.name %></a></h3>
+
+                        <p>Beautifully renovated bungalow. Located along a quiet street.</p>
+                      </div>
+
+                      <div class="aa-properties-detial">
+                        <span>Last Bid: <b class="bidlast">$1450000</b></span>
+                        <span class="pull-right">7 Bids</span>
+                        <br>
+                        <span>Ends: <b class="bidtime">07:54:03</b></span>
+                        <button type="button" class="btn btn-danger btn-md pull-right bidnow">
+                        <span class="glypicon glyphicon glyphicon-ice-lolly"></span>
+                        Bid Now
+                        </button>
+                      </div>
+
+                    </div>
+
+                  </article>
+                </div>
+              </td>
+            </tr>
+
+            <% end %>
+
+          </tbody>
+
+        </table>
+      </div>
+
+
+
+    </div>
+  </div>
