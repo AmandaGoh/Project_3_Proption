@@ -41,7 +41,8 @@
               <p class="text-left"><strong><%= current_user.username %></strong></p>
               <p class="text-left small"><%= current_user.email %></p>
               <p class="text-left">
-                <a href="#" class="btn btn-primary btn-sm">Edit Profile</a>
+
+                <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-primary btn-sm"%>
               </p>
             </div>
           </div>
