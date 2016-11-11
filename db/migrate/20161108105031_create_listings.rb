@@ -4,7 +4,6 @@ class CreateListings < ActiveRecord::Migration[5.0]
       t.date :auction_date
       t.time :duration
       t.integer :property_id
-      t.integer :bid_id
 
       t.timestamps
     end
