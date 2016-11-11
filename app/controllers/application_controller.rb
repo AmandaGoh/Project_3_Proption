@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-# to allow the new fields to be saved under edit
+
 
 
 
@@ -16,6 +16,7 @@ class ApplicationController < ActionController::Base
   #   end
   # end
 
+# to allow the new fields to be saved under edit
   before_action :configure_account_update_params, if: :devise_controller?
 
 protected
@@ -24,5 +25,6 @@ protected
   def configure_account_update_params
     devise_parameter_sanitizer.permit(:account_update, keys: [:name, :username, :contact_number, :email, :password, :password_confirmation])
   end
+
 
 end
