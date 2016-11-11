@@ -5,15 +5,17 @@ class PropertiesController < ApplicationController
     respond_to do |format|
       format.html
       format.json { render json: @properties }
+    current_user
     end
   end
   def show
-    @property = Property.find(params[:id])
+      # @property = Property.find(params[:id])
   end
   def new
     @property = Property.new
   end
   def create
+    current_user
     @new_property = Property.new()
     @new_property.name = params[:property][:name]
     @new_property.prop_type = params[:property][:prop_type]
@@ -24,7 +26,9 @@ class PropertiesController < ApplicationController
     @new_property.size = params[:property][:size]
     @new_property.description = params[:property][:description]
     @new_property.picture = params[:property][:picture]
-    @new_property.seller_id = params[:property][:seller_id]
+    @new_property.seller_id = current_user.id
+    # reference current_user.id
+    # puts @current_user.properties
     @new_property.save
     @new_property.errors.full_messages
 
