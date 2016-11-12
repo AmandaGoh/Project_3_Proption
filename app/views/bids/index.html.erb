@@ -5,3 +5,13 @@
   <%= text_field_tag :bid_amount %>
   <%= submit_tag "Submit Bid" %>
 <% end %>
+
+<p>Last Bid Amount:
+<div id = "bid-amount">
+<%= @last_bid.bid_amount %>
+</div>
+By:
+<div id = "bidder-username">
+  <%= @last_bid.bidder.username %>
+</div>
+</p>
