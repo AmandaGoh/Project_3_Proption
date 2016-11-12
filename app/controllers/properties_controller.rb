@@ -10,7 +10,7 @@ class PropertiesController < ApplicationController
   end
 
   def myproperties
-    @properties=Property.all
+    @my_properties=current_user.properties
     # session
   end
 

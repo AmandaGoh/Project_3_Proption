@@ -15,16 +15,9 @@
         </form>
         <br>
 
-
         <a><%= link_to "+ Create New Property" , new_property_path, :class => 'btn btn-primary btn-md' %></a>
 
-
       </div>
-
-<!-- link to delete property
-<%= link_to 'Destroy', idea, method: :delete, data: { confirm: 'Are you sure?' } -->
-
-
 
       <div class="col-md-9">
         <table class="table table-list-search">
@@ -39,18 +32,23 @@
               <th>Actions</th>
             </tr>
           </thead>
+
           <tbody>
+
+  <% @my_properties.each do |property| %>
+
+
             <tr>
-              <td><a href="#">Espada</a></td>
+              <td><a href="#"><%= property.name  %></a></td>
               <td>
                 <a href="#">
-                  <img src="http://assets.cromly.s3.amazonaws.com/stories/lime%20house/fish%20house/GUZ-SENTOSA-002.jpg" width="120" alt="">
+                  <%= image_tag(property.picture_url, width: 120) if property.picture.present? %>
                 </a>
               </td>
-              <td>Condo</td>
-              <td>11 Orchard Street</td>
-              <td>102343</td>
-              <td>$1200000</td>
+              <td><%= property.prop_type  %></td>
+              <td><%= property.address  %></td>
+              <td><%= property.postal_code  %></td>
+              <td>$<%= property.reserve_price  %></td>
               <td>
                 <div class="pull-left">
                   <button type="button" class="btn btn-primary btn-md" data-toggle="tooltip" data-placement="left" title="Edit Property">
@@ -65,56 +63,9 @@
                 </div>
               </td>
             </tr>
-            <tr>
-              <td><a href="#">Santorini</a></td>
-              <td>
-                <a href="#">
-                  <img src="http://www.reflectionskeppel.com/images/developer-keppel-corporation/reflections-at-keppel-bay-singapore-condo.jpg" width="120" alt="">
-                </a>
-              </td>
-              <td>Landed</td>
-              <td>3 Havelock Road</td>
-              <td>655311</td>
-              <td>$6500000</td>
-              <td>
-                <div class="pull-left">
-                  <button type="button" class="btn btn-primary btn-md" data-toggle="tooltip" data-placement="left" title="Edit Property">
-                  <span class="glypicon glyphicon glyphicon-edit"></span>
-                  </button>
-                  <button type="button" class="btn btn-danger btn-md" data-toggle="tooltip" data-placement="top" title="Delete Property">
-                  <span class="glypicon glyphicon glyphicon-trash"></span>
-                  </button>
-                  <button type="button" class="btn btn-success btn-md" data-toggle="tooltip" data-placement="right" title="Submit For Auction">
-                  <span class="glypicon glyphicon glyphicon-send"></span>
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td><a href="#">Sail @ Marina Bay</a></td>
-              <td>
-                <a href="#">
-                  <img src="http://propertyrocking1.propertyrockings.netdna-cdn.com/wp-content/uploads/2013/07/Condo-for-Rent-Singapore.png" width="120" alt="">
-                </a>
-              </td>
-              <td>Condo</td>
-              <td>18 Cherry Lane</td>
-              <td>342323</td>
-              <td>$3150000</td>
-              <td>
-                <div class="pull-left">
-                  <button type="button" class="btn btn-primary btn-md" data-toggle="tooltip" data-placement="left" title="Edit Property">
-                  <span class="glypicon glyphicon glyphicon-edit"></span>
-                  </button>
-                  <button type="button" class="btn btn-danger btn-md" data-toggle="tooltip" data-placement="top" title="Delete Property">
-                  <span class="glypicon glyphicon glyphicon-trash"></span>
-                  </button>
-                  <button type="button" class="btn btn-success btn-md" data-toggle="tooltip" data-placement="right" title="Submit For Auction">
-                  <span class="glypicon glyphicon glyphicon-send"></span>
-                  </button>
-                </div>
-              </td>
-            </tr>
+
+    <% end %>
+
             <tr>
               <td></td>
               <td></td>
