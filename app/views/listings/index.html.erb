@@ -37,7 +37,11 @@
 
           <tbody>
 
-            <% @listings.each do |listing| %>
+            <% @listed_properties.each do |property| %>
+            <%= property.id%>
+            <% end %>
+
+            <% @all_listings.each do |listing| %>
 
             <tr>
               <td>
@@ -47,7 +51,6 @@
                     <a href="/underconstruction" class="aa-properties-item-img popular">
                       <img src="house2.jpg" class="featured_img" alt="img">
                     </a>
-<!-- <p><%= link_to "SPECIFIC LISTING", '', :class => 'btn btn-danger btn-lg'%></a></p> -->
                     <div class="aa-properties-item-content">
 
                       <!-- <div class="aa-properties-info">
@@ -58,10 +61,10 @@
 
                       <div class="aa-properties-about">
 
-                        <h3><a href="/underconstruction" class="propname"><%= listing.property_id %></a></h3>
-                        <h3><a href="/underconstruction" class="propname"><%= properties.name %></a></h3>
-                        <h3><a href="/underconstruction" class="propname"><%= listing.name %></a></h3>
-                        <h3><a href="/underconstruction" class="propname"><%= listing.properties.name %></a></h3>
+                        <h3><a href="/underconstruction" class="propname"><%= listing.duration %></a></h3>
+                        <h3><a href="/underconstruction" class="propname"><%= listing.duration %></a></h3>
+                        <h3><a href="/underconstruction" class="propname"><%= listing.duration %></a></h3>
+                        <h3><a href="/underconstruction" class="propname"><%= listing.duration %></a></h3>
 
                         <p>Beautifully renovated bungalow. Located along a quiet street.</p>
                       </div>

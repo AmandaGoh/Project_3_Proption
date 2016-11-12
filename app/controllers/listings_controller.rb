@@ -1,6 +1,6 @@
 class ListingsController < ApplicationController
   def index
-    @listings = Listing.all
+    @all_listings = Property.listed
   end
 
   def show
@@ -9,6 +9,10 @@ class ListingsController < ApplicationController
 
   def mylistings
     @current_user_listings = current_user.owned_listings
+  end
+
+  def bidhistory
+
   end
 
 end
