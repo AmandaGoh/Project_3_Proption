@@ -1,15 +1,150 @@
-<p>
-  <strong>Name:</strong>
-  <%= @property.name %>
-</p>
+<div class="container bg-overlay">
+    <div class="row">
 
-<p>
-  <strong>Description:</strong>
-  <%= @property.description %>
-</p>
+      <!-- Modal -->
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="text-danger fa fa-times"></i></button>
+              <h2 class="modal-title" id="myModalLabel"> <b>
+              <%= @property.name %></b></h2>
+            </div>
+            <div class="modal-body">
 
-<p>
-  <strong>Picture:</strong>
-  <%= image_tag(@property.picture, width: 300) if @property.picture.present? %>
+              <div class="col-md-12">
+                <%= image_tag(@property.picture, width: 300, height: 200) if @property.picture.present? %>
+                <!-- add alt="house3" class="img-thumbnail" -->
+              </div>
 
-</p>
+              <table class="pull-left col-md-8 ">
+                <tbody>
+                  <tr>
+                    <td>
+                      <br>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="h4"><b>Property Type:</b></td>
+                    <td class="h4"><%=@property.prop_type%></td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <br>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="h4"><b>Address:</b></td>
+                    <td class="h4"><%=@property.address%></td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <br>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="h4"><b>Postal Code:</b></td>
+                    <td class="h4"><%=@property.postal_code%></td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <br>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="h4"><b>Tenure:</b></td>
+                    <td class="h4"><%=@property.tenure%></td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <br>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="h4"><b>Size (sqft):</b></td>
+                    <td class="h4"><%=@property.size%></td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <br>
+                    </td>
+                  </tr>
+
+                </tbody>
+
+              </table>
+
+              <div class="clearfix"></div>
+
+              <h4><b>Description:</b></h4>
+              <p class=""><%=@property.description%></p>
+
+            </div>
+            <div class="modal-footer">
+              <div class="text-left pull-left col-md-3">
+                Reserve Price: <br/>
+                <span class="h3 text-muted"><b class="reserveprice"><%= @property.reserve_price%></b></span></span>
+              </div>
+
+
+              <div class="pull-right col-md-3">
+                  <a><%= link_to "edit" , edit_property_path%>
+                  <button type="button" class="btn btn-primary btn-lg">
+                  <span class="glypicon glyphicon glyphicon-edit"></span>
+                  Edit Details
+                  </button>
+                </a>
+              </div>
+
+            <!-- <div class="modal-footer">
+
+              <div class="text-left col-md-3">
+                Bid Ends: <br/>
+                <span class="h3 text-muted"><b class="bidtime"> 02:33:42 </b></span></span>
+              </div>
+
+              <div class="text-left col-md-3">
+                Last Bid: <br/>
+                <span class="h3 text-muted"><b class="bidlast">$1122000</b></span>
+              </div> -->
+
+              <!-- <div class="text-left col-md-3">
+                Bid Amount: <br/>
+                <form class="" action="index.html" method="post">
+                  <div class="input-group">
+                    <span class="input-group-btn">
+                      <button type="button" class="btn btn-default">
+                      <span class="glyphicon glyphicon"><b>$</b></span>
+                    </button>
+                    </span>
+                    <input type="number" class="form-control" min="0">
+                  </div>
+                </form>
+              </div> -->
+
+              <!-- <div class="col-md-3">
+                <form class="" action="index.html" method="post">
+                  <button type="button" class="btn btn-success btn-lg">
+                  <span class="glypicon glyphicon glyphicon-ice-lolly"></span>
+                  Submit Bid
+                  </button>
+                </form>
+              </div> -->
+
+            <!-- </div> -->
+          </div>
+        </div>
+
+      <!-- fim Modal-->
+
+  </div>
+</div>

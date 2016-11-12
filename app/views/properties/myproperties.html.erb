@@ -41,7 +41,7 @@
               <td><a href="#"><%= property.name  %></a></td>
               <td>
                 <a href="#">
-                  <%= image_tag(property.picture_url, width: 120) if property.picture.present? %>
+                  <%= image_tag(property.picture_url, width: 120, height:100) if property.picture.present? %>
                 </a>
               </td>
               <td><%= property.prop_type  %></td>
@@ -56,6 +56,7 @@
                   </button>
 
                   <a><%= link_to "edit" , edit_property_path(property), :class => 'btn btn-primary btn-md' %></a>
+                  <%= link_to 'Destroy', property,:class => 'btn btn-primary btn-md', method: :delete, data: { confirm: 'This will delete your property' } %>
 
 
 

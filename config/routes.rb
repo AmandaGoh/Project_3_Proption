@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 # page for individual properties
   get 'myproperties', to: 'properties#myproperties'
 
+  get 'propertydetails', to: "properties#propertydetails"
+
   resources :properties
 
   resources :users, only: [:index, :show, :edit, :update]
