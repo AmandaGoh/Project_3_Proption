@@ -8,6 +8,7 @@
     <li><%= property.prop_type  %></li>
     <li><%= property.address  %></li>
     <li>seller id is<%= property.seller_id  %></li>
+    <%= image_tag(property.picture_url, width: 600) if property.picture.present? %>
 
   <% end %>
 </ul>

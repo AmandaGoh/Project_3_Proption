@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-
+      <%=session %>
       <h1>MY PROPERTIES - Not listed for bidding yet.</h1>
 
       <div class="col-md-3">
@@ -14,8 +14,15 @@
           </div>
         </form>
         <br>
-        <a href="#" class="btn btn-primary btn-md pull-right"><b>+</b> Create New Property</a>
+
+
+        <a><%= link_to "+ Create New Property" , new_property_path, :class => 'btn btn-primary btn-md' %></a>
+
+
       </div>
+
+<!-- link to delete property
+<%= link_to 'Destroy', idea, method: :delete, data: { confirm: 'Are you sure?' } -->
 
 
 
