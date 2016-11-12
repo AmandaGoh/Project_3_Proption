@@ -1,6 +1,5 @@
 <div class="container">
     <div class="row">
-      <%=session %>
       <h1>MY PROPERTIES - Not listed for bidding yet.</h1>
 
       <div class="col-md-3">
@@ -52,8 +51,14 @@
               <td>
                 <div class="pull-left">
                   <button type="button" class="btn btn-primary btn-md" data-toggle="tooltip" data-placement="left" title="Edit Property">
+
                   <span class="glypicon glyphicon glyphicon-edit"></span>
                   </button>
+
+                  <a><%= link_to "edit" , edit_property_path(property), :class => 'btn btn-primary btn-md' %></a>
+
+
+
                   <button type="button" class="btn btn-danger btn-md" data-toggle="tooltip" data-placement="top" title="Delete Property">
                   <span class="glypicon glyphicon glyphicon-trash"></span>
                   </button>

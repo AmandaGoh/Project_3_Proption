@@ -9,14 +9,32 @@ class PropertiesController < ApplicationController
     end
   end
 
-  def myproperties
-    @my_properties=current_user.properties
-    # session
+  #get properties/1
+  def show
+    @property = Property.find(params[:id])
   end
 
-  def show
-      # @property = Property.find(params[:id])
+  # GET /properties/1/edit
+  def edit
+    @property = Property.find(params[:id])
   end
+
+  # POST /properties
+  # POST /properties.json
+  def update
+    @property =Property.find(params[:id])
+    respond_to do |format|
+      if @property.update(property_params)
+        format.html { redirect_to @property, notice: 'Your property was successfully updated.' }
+        format.json { render :show, status: :ok, location: @property }
+      else
+        format.html { render :edit }
+        format.json { render json: @property.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  #get properties/new
   def new
     @property = Property.new
   end
@@ -37,7 +55,13 @@ class PropertiesController < ApplicationController
     # puts @current_user.properties
     @new_property.save
     @new_property.errors.full_messages
-
     redirect_to properties_path
   end
+
+  def myproperties
+    @my_properties=current_user.properties
+    # session
+  end
+
+
 end
