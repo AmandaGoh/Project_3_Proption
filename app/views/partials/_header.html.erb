@@ -23,7 +23,7 @@
 <!-- USER -->
 <ul class="nav navbar-nav navbar-right">
   <li class="dropdown">
-    <a href="#" class="dropdown-toggle navbarlink" data-toggle="dropdown">
+    <a href="#" class="dropdown navbarlink">
       <span class="glyphicon glyphicon-user navbarlink"></span>
       <strong class="navbarlink"><%= current_user.name %></strong>
       <span class="glyphicon glyphicon-chevron-down navbarlink"></span>
@@ -50,16 +50,27 @@
       </li>
 
       <li class="divider navbar-login-session-bg"></li>
-      <li><a class="dropdowntext" href="#">View All Listings <span class="glyphicon glyphicon-search pull-right"></span></a></li>
+      <li><%= link_to listings_path, :class => "dropdowntext" do %>
+      View All Listings <span class="glyphicon glyphicon-search pull-right"></span><% end %>
+      </li>
 
       <li class="divider"></li>
-      <li><a class="dropdowntext" href="#">My Properties <span class="badge pull-right">5</span></a></li>
+
+      <li><%= link_to myproperties_path, :class => "dropdowntext" do %>
+      My Properties <span class="badge pull-right">10</span><% end %>
+      </li>
+
+      <!-- <li><a class="dropdowntext" href="/myproperties">My Properties <span class="badge pull-right">5</span></a></li> -->
 
       <li class="divider"></li>
-      <li><a class="dropdowntext" href="#">My Listings <span class="badge pull-right"> 2 </span></a></li>
+      <li><%= link_to mylistings_path, :class => "dropdowntext" do %>
+      My Listings <span class="badge pull-right">5</span><% end %>
+      </li>
 
       <li class="divider"></li>
-      <li><a class="dropdowntext"href="#">My Bids <span class="badge pull-right"> 10 </span></a></li>
+      <li><a class = 'dropdowntext'>
+      My Bids <span class="badge pull-right">7</span></a>
+      </li>
 
     </ul>
   </li>
