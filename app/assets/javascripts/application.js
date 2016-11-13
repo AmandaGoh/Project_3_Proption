@@ -17,6 +17,11 @@
 
 $( document ).on('turbolinks:load', function() {
 
+
+// NAVBAR DROPDOWN MENU
+
+  $('.dropdown-toggle').dropdown()
+
 // SCROLL TO TOP
 
   $(document).on( 'scroll', function() {
@@ -116,5 +121,6 @@ setTimeout(function() {
     placement : 'auto',
     html : true
   });
+
 
 });
