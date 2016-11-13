@@ -53,3 +53,17 @@ Property.create! name: "Jalan Eunos", prop_type: 'Condominium', address: '31 Jal
 Property.create! name: "Farrer Park Terrace House", prop_type: 'Landed', address: '1 Sturdee Rd', postal_code: 289789, reserve_price: "7200000", tenure: "Freehold", size: 1765, description: "Charming freehold Colonial-designed 2.5 torey house", picture: "", seller_id: 4
 
 Property.create! name: "Detached House", prop_type: 'Landed', address: '2 Garlick Avenue', postal_code: 160987, reserve_price: "14880000", tenure: "Freehold", size: 2404, description: "Detached house for sale", picture: "", seller_id: 6
+
+# seed listings
+Listing.create! property_id:1
+Listing.create! property_id:3
+Listing.create! property_id:4
+Listing.create! property_id:5
+
+# seed listings
+Bid.create! bid_amount:100, bidder_id:3, listing_id:1
+Bid.create! bid_amount:1002, bidder_id:5, listing_id:2
+Bid.create! bid_amount:100004, bidder_id:6, listing_id:3
+Bid.create! bid_amount:1000000, bidder_id:6, listing_id:4
+Bid.create! bid_amount:1000001, bidder_id:8, listing_id:3
+Bid.create! bid_amount:1000002, bidder_id:9, listing_id:4

@@ -1,12 +1,28 @@
 class BidsController < ApplicationController
   def index
     @current_user_bids = current_user.bids
-    # current_user.bids.listing.property
 
     respond_to do |format|
       format.html
       format.json { render json: @bids }
     end
+  end
+
+
+
+  def last_bid_price
+    logger.debug "The listing_id is #{params[:listing_id]}"
+    checking_id = params[:listing_id].to_i
+    logger.debug "yyyyyyy #{checking_id}"
+
+
+    @bid_price = Bid.last(:conditions => ["listing_id = ?", params[:listing_id].to_i])
+    # @bid_price = Bid.last(:conditions => ["listing_id = ?", checking_id])
+
+    # Bid.last.bid_amount(:conditions => "listing_id = 4")
+
+    logger.debug "xxxxxx #{@bid_price}"
+
   end
 
 

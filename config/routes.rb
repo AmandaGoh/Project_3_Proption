@@ -7,7 +7,9 @@ Rails.application.routes.draw do
 
   get 'mybids', to: 'bids#index'
 
-  get 'newbid', to: 'bids#new'
+  get 'last_bid_price', to: 'bids#last_bid_price'
+
+  # get 'newbid', to: 'bids#new'
 
   get 'about', to: 'home#about'
 
