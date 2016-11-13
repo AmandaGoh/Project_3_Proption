@@ -1,5 +1,15 @@
 class ListingsController < ApplicationController
   def index
-    @user = current_user
+    @listings = Property.where(listed: 1)
   end
+
+  def show
+    @listing = Listing.find(params[:id])
+    @last_bid = Bid.last
+  end
+
+  def mylistings
+    @current_user_listings = current_user.owned_listings
+  end
+
 end

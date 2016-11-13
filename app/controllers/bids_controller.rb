@@ -5,16 +5,15 @@ class BidsController < ApplicationController
     end
 
     def create
-      # debugger
       @new_bid = Bid.new
 
       if bid_params[:bid_amount].to_i > Bid.last.bid_amount
-
           @new_bid.bid_amount = bid_params[:bid_amount]
-          @new_bid.listing_id = params[:listing_id]
+          @new_bid.listing_id = params[:id]
           @new_bid.bidder_id = current_user.id
 
           if @new_bid.save
+          # flash[:message] = "Bid Successful!"
             ActionCable.server.broadcast 'bid_details',
               bid: @new_bid.bid_amount,
               user: current_user.username
@@ -22,8 +21,9 @@ class BidsController < ApplicationController
           end
       else
         flash[:message] = "Please place a bid amount higher than " + Bid.last.bid_amount.to_s
-        redirect_to listing_bids_path
       end
+      redirect_to listing_path
+      puts @new_bid.errors.full_messages
     end
 
     private

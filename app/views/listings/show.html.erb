@@ -1,0 +1,159 @@
+<div class="container bg-overlay">
+    <div class="row">
+
+      <!-- Modal -->
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+
+              <!-- <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="text-danger fa fa-times"></i></button> -->
+              <%= link_to "", '/listings', :class => 'close text-danger fa fa-times fa-3x'%>
+
+              <h2 class="modal-title" id="myModalLabel"> <b><%= @listing.property.name %></b></h2>
+            </div>
+            <div class="modal-body">
+
+              <div class="col-md-12">
+                <img src="/house2.jpg" alt="house1" class="img-thumbnail">
+                <!-- <img src="/house3.jpg" alt="house2" class="img-thumbnail">
+                <img src="/house1.jpg" alt="house3" class="img-thumbnail"> -->
+                <%= @listing.property.picture %>
+              </div>
+
+              <table class="pull-left col-md-8 ">
+                <tbody>
+
+                  <tr>
+                    <td>
+                      <br>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="h4"><b>Property Type:</b></td>
+                    <td class="h4"><%= @listing.property.prop_type %></td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <br>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="h4"><b>Address:</b></td>
+                    <td class="h4"><%= @listing.property.address %></td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <br>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="h4"><b>Postal Code:</b></td>
+                    <td class="h4"><%= @listing.property.postal_code %></td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <br>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="h4"><b>Tenure:</b></td>
+                    <td class="h4"><%= @listing.property.tenure %></td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <br>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="h4"><b>Size (sqft):</b></td>
+                    <td class="h4"><%= @listing.property.size %></td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <br>
+                    </td>
+                  </tr>
+
+                </tbody>
+
+              </table>
+
+              <div class="clearfix"></div>
+
+              <h4><b>Description:</b></h4>
+              <p class=""><%= @listing.property.description %></p>
+
+              <% flash.each do |name, msg| %>
+              <p><%= content_tag :div, msg, class: "alert alert-warning" %></p>
+              <% end %>
+            </div>
+
+            <div class="modal-footer">
+
+              <div class="text-left col-md-3">
+                Bid Ends: <br/>
+                <span class="h3 text-muted"><b class="bidtime"> 02:33:42 </b></span></span>
+              </div>
+
+              <div class="text-left col-md-3">
+                Last Bid: <br/>
+                <span class="h3 text-muted"><b class="bidlast">
+                <div id= "bid-amount">
+                  <%= @last_bid.bid_amount %></b></span>
+                </div>
+              </div>
+
+              <div class="text-left col-md-3">
+                <%= form_tag listing_path + '/bids', method: :post, remote: true do %>
+                <%= label_tag "Bid Amount:"%><br/>
+                  <div class="input-group">
+                    <span class="input-group-btn">
+                      <button type="button" class="btn btn-default">
+                      <span class="glyphicon glyphicon"><b>$</b></span>
+                    </button>
+                    </span>
+                    <%= text_field_tag :bid_amount %>
+                  </div>
+              </div>
+
+              <div class="col-md-3">
+                  <span class="glypicon glyphicon glyphicon-ice-lolly"></span>
+                  <%= submit_tag "Submit Bid", class: "btn btn-success btn-lg" %>
+                <% end %>
+              </div>
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+          </div>
+        </div>
+
+      <!-- fim Modal-->
+
+
+
+
+
+
+
+
+  </div>
+</div>
