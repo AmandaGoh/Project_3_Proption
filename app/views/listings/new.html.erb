@@ -1,0 +1,16 @@
+<%= form_for @listing do |f| %>
+
+<p>
+<%= f.label :'Property Name' %><br>
+<%= f.text_field :name %><br>
+</p>
+
+<p>
+  <%= f.label :'Property Type' %><br>
+  <%= f.select :prop_type, ['Landed', 'Condominium']%>
+</p>
+
+<p>
+  <%= f.submit "Submit" %>
+</p>
+<% end %>

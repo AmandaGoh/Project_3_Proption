@@ -55,8 +55,6 @@ class PropertiesController < ApplicationController
     @new_property.description = params[:property][:description]
     @new_property.picture = params[:property][:picture]
     @new_property.seller_id = current_user.id
-    # reference current_user.id
-    # puts @current_user.properties
     @new_property.save
     @new_property.errors.full_messages
     redirect_to myproperties_path
