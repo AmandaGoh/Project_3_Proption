@@ -553,3 +553,42 @@ SCROLL TO TOP
 .scroll-top-wrapper i.fa {
 	line-height: inherit;
 }
+
+/*========================
+INDEX PAGE - FEATURED LISTINGS
+========================*/
+.propname {
+  color:#599bf8;
+}
+
+.icons img {
+  opacity: 0.7;
+  height: 20px;
+}
+
+.bidtime {
+  font-size: 26px;
+  color:#ff5252;
+}
+
+.bidlast {
+  font-size: 20px;
+  color:#16a861;
+}
+
+/*========================
+LISTING DETAILS
+========================*/
+.bg-overlay {
+    background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7));
+    height: 100%;
+    width: 100%;
+    padding-top: 50px;
+}
+
+/*========================
+PROPERTY DETAILS
+========================*/
+.reserveprice {
+  color: #ff5252;
+}

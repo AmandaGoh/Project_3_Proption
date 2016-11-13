@@ -15,8 +15,14 @@ Rails.application.routes.draw do
 
   get 'contact', to: 'home#contact'
 
-  resources :properties
 
+  get 'mylistings', to: 'listings#mylistings'
+# page for individual properties
+  get 'myproperties', to: 'properties#myproperties'
+
+  get 'propertydetails', to: "properties#propertydetails"
+
+  resources :properties
 
   resources :users, only: [:index, :show, :edit, :update]
 

@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20161109144250) do
     t.text     "description"
     t.string   "picture"
     t.integer  "seller_id"
+    t.integer  "listed"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
