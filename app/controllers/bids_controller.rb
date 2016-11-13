@@ -5,9 +5,10 @@ class BidsController < ApplicationController
     end
 
     def create
+      listing = Listing.find(params[:id])
       @new_bid = Bid.new
 
-      if bid_params[:bid_amount].to_i > Bid.last.bid_amount
+      if bid_params[:bid_amount].to_i > listing.bids.last.bid_amount
           @new_bid.bid_amount = bid_params[:bid_amount]
           @new_bid.listing_id = params[:id]
           @new_bid.bidder_id = current_user.id
@@ -19,11 +20,11 @@ class BidsController < ApplicationController
               user: current_user.username
             head :ok
           end
+          puts 'errors here!!!'
+          puts @new_bid.errors.full_messages
       else
-        flash[:message] = "Please place a bid amount higher than " + Bid.last.bid_amount.to_s
+        flash[:message] = "Please place a bid amount higher than " + listing.bids.last.bid_amount.to_s
       end
-      redirect_to listing_path
-      puts @new_bid.errors.full_messages
     end
 
     private

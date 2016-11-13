@@ -5,7 +5,7 @@ class ListingsController < ApplicationController
 
   def show
     @listing = Listing.find(params[:id])
-    @last_bid = Bid.last
+    @last_bid = @listing.bids.last
   end
 
   def mylistings
