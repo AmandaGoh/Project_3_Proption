@@ -15,9 +15,48 @@
 //= require turbolinks
 //= require_tree .
 
+$( document ).on('turbolinks:load', function() {
+
+
+// NAVBAR DROPDOWN MENU
+
+  $('.dropdown-toggle').dropdown()
+
+// SCROLL TO TOP
+
+  $(document).on( 'scroll', function() {
+    if ($(window).scrollTop() > 100) {
+		    $('.scroll-top-wrapper').addClass('show');
+		} else {
+		    $('.scroll-top-wrapper').removeClass('show');
+		}
+  });
+
+	$('.scroll-top-wrapper').on('click', scrollToTop);
+
+  function scrollToTop() {
+    console.log('scroll to top works!')
+  	verticalOffset = typeof(verticalOffset) != 'undefined' ? verticalOffset : 0;
+  	element = $('body');
+  	offset = element.offset()
+  	offsetTop = offset.top
+  	$('html, body').animate({scrollTop: offsetTop}, 500, 'linear')
+}
+
+// ALERT MESSAGE
+
+$(".alertMessage").show()
+// setTimeout(function() { $(".alertMessage").hide(); }, 1500);
+setTimeout(function() {
+  $(".alertMessage").fadeOut(5000).remove(5000)
+})
+  // $('.message').show('fast').delay(2000).hide('fast')
+  // $('.message').remove();
+
+// .fadeOut(300, function() { $(this).remove(); })
+
 // SEARCH/FILTER FUNCTION FOR ALL LISTINGS, MY PROPERTIES, MY BIDS
 
-$(document).ready(function() {
   var activeSystemClass = $('.list-group-item.active');
 
   //something is entered in search form
@@ -52,7 +91,6 @@ $(document).ready(function() {
       }
     });
 
-
 // TOOLTIPS
 
   // Method 1 - uses 'data-toggle' to initialize
@@ -84,32 +122,5 @@ $(document).ready(function() {
     html : true
   });
 
-
-
-// SCROLL TO TOP
-$(function(){
-
-  $(document).on( 'scroll', function() {
-    if ($(window).scrollTop() > 100) {
-		    $('.scroll-top-wrapper').addClass('show');
-		} else {
-		    $('.scroll-top-wrapper').removeClass('show');
-		}
-	});
-
-	$('.scroll-top-wrapper').on('click', scrollToTop);
-});
-
-function scrollToTop() {
-	verticalOffset = typeof(verticalOffset) != 'undefined' ? verticalOffset : 0;
-	element = $('body');
-	offset = element.offset();
-	offsetTop = offset.top;
-	$('html, body').animate({scrollTop: offsetTop}, 500, 'linear');
-}
-
-// ALERT MESSAGE
-$(".alertMessage").show();
-setTimeout(function() { $(".alertMessage").hide(); }, 1500);
 
 });

@@ -1,3 +1,4 @@
+<div class='container'>
 <h1>Property Creation Page</h1>
 
 <!-- form for -->
@@ -45,11 +46,15 @@
 
 <p>
   <%= f.label :'Property Photographs' %><br>
-  <%= f.file_field :prop_photo %>
+  <%= f.file_field :picture %>
 </p>
 
 <p>
-<%= f.hidden_field :seller_id, value: current_user.id %><br>
+<%= f.hidden_field :seller_id, value: current_user.id %>
+</p>
+
+<p>
+<%= f.hidden_field :listed, value: 0 %>
 </p>
 
 
@@ -72,3 +77,5 @@
   t.datetime "created_at",    null: false
   t.datetime "updated_at",    null: false
 end -->
+
+</div>

@@ -11,6 +11,7 @@ class CreateProperties < ActiveRecord::Migration[5.0]
       t.text :description
       t.string :picture
       t.integer :seller_id
+      t.integer :listed
 
       t.timestamps
     end
