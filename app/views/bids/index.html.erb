@@ -1,9 +1,15 @@
 <h1>Bidding Test</h1>
 
-<%= form_tag listing_bids_path, method: :post, remote: true do %>
+<div id="bid_form">
+  <%= form_tag listing_bids_path, method: :post, remote: true do %>
   <%= label_tag "Bid Amount:"%>
   <%= text_field_tag :bid_amount %>
   <%= submit_tag "Submit Bid" %>
+  <% end %>
+</div>
+
+<% flash.each do |name, msg| %>
+<p><%= content_tag :div, msg, class: "alert alert-warning" %></p>
 <% end %>
 
 <p>Last Bid Amount:
