@@ -18,12 +18,18 @@ class BidsController < ApplicationController
             ActionCable.server.broadcast 'bid_details',
               bid: @new_bid.bid_amount,
               user: current_user.username
-            head :ok
           end
+          render json: {
+            'message' => 'Bid Successful!',
+            'status' => 'successful'
+          }
           puts 'errors here!!!'
           puts @new_bid.errors.full_messages
       else
-        flash[:message] = "Please place a bid amount higher than " + listing.bids.last.bid_amount.to_s
+        render json: {
+          'message' => "Please place a bid amount higher than " + listing.bids.last.bid_amount.to_s,
+          'status' => 'fail'
+        }
       end
     end
 

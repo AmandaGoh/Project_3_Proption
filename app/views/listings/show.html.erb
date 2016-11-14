@@ -93,9 +93,8 @@
               <h4><b>Description:</b></h4>
               <p class=""><%= @listing.property.description %></p>
 
-              <% flash.each do |name, msg| %>
-              <p><%= content_tag :div, msg, class: "alert alert-warning" %></p>
-              <% end %>
+              <div id="bid-message">
+              </div>
             </div>
 
             <div class="modal-footer">
@@ -108,29 +107,29 @@
               <div class="text-left col-md-3">
                 Last Bid: <br/>
                 <span class="h3 text-muted"><b class="bidlast">
-                <div id= "bid-amount">
-                  <%= @last_bid.bid_amount %></b></span>
-                </div>
-              </div>
-
-              <div class="text-left col-md-3">
-                <%= form_tag listing_path + '/bids', method: :post, remote: true do %>
-                <%= label_tag "Bid Amount:"%><br/>
-                  <div class="input-group">
-                    <span class="input-group-btn">
-                      <button type="button" class="btn btn-default">
-                      <span class="glyphicon glyphicon"><b>$</b></span>
-                    </button>
-                    </span>
-                    <%= text_field_tag :bid_amount %>
+                  <div id= "bid-amount">
+                    <%= @last_bid.bid_amount %></b></span>
                   </div>
               </div>
+
+              <%= form_tag listing_path + '/bids', method: :post, remote: true, id: 'bid-form' do %>
+              <div class="text-left col-md-3">
+                  <%= label_tag "Bid Amount:"%><br/>
+                    <div class="input-group">
+                      <span class="input-group-btn">
+                        <button type="button" class="btn btn-default">
+                        <span class="glyphicon glyphicon"><b>$</b></span>
+                      </button>
+                      </span>
+                      <%= text_field_tag :bid_amount %>
+                    </div>
+                </div>
 
               <div class="col-md-3">
                   <span class="glypicon glyphicon glyphicon-ice-lolly"></span>
                   <%= submit_tag "Submit Bid", class: "btn btn-success btn-lg" %>
-                <% end %>
               </div>
+              <% end %>
 
 
 
