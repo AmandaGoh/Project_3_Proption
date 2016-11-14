@@ -1,7 +1,8 @@
 <div class="container">
     <div class="row">
 
-      <h1>LISTING - BID HISTORY</h1>
+      <h1>BID HISTORY FOR LISTING </h1>
+
 
       <div class="col-md-3">
         <form action="#" method="get">
@@ -15,38 +16,33 @@
         </form>
       </div>
 
-
-
       <div class="col-md-9">
         <table class="table table-list-search">
           <thead>
             <tr>
-              <th>Bid No.</th>
-              <th>Bid Date</th>
-              <th>Bid Time</th>
+              <th>No.</th>
+              <th>Bid Date/Time</th>
               <th>Bid Amount</th>
+              <th>Bidder User Name</th>
             </tr>
           </thead>
           <tbody>
 
+              <% if @bid_info_for_listing.exists? %>
+                  <% @bid_info_for_listing.each_with_index do |bid_info, index| %>
+                    <tr>
+                      <td> <%= index + 1 %> </td>
+                      <td> <%= bid_info.created_at %> </td>
+                      <td>$<%= bid_info.bid_amount %> </td>
+                      <td> <%= bid_info.bidder.username %> </td>
+                    </tr>
+                  <% end %>
 
-<%  %>
-
-            <tr>
-              <td><%=  %></td>
-              <td><%=  %></td>
-              <td>$<%=  %></td>
-              <td>$<%=  %></td>
-            </tr>
-
-  <%  %>
-
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
+              <% else %>
+                  <tr>
+                    <td>No bids found</td>
+                  </tr>
+              <% end %>
 
           </tbody>
         </table>

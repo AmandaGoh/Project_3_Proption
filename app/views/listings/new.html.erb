@@ -1,0 +1,21 @@
+<%= form_for @listing do |f| %>
+
+<p>
+<%= f.text_field :auction_date, value: Date.today %><br>
+</p>
+
+<p>
+  <%= f.text_field :duration, value: 48 %>
+</p>
+
+<% @my_properties.each do |property| %>
+<%= property.id  %>
+<% end %>
+
+
+
+
+<p>
+  <%= f.submit "Submit" %>
+</p>
+<% end %>
