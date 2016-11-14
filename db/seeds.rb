@@ -54,7 +54,6 @@ Property.create! name: "Farrer Park Terrace House", prop_type: 'Landed', address
 
 Property.create! name: "Detached House", prop_type: 'Landed', address: '2 Garlick Avenue', postal_code: 160987, reserve_price: "14880000", tenure: "Freehold", size: 2404, description: "Detached house for sale", picture: "", seller_id: 6, listed: 0
 
-
 # seed listings
 Listing.create! property_id:1
 Listing.create! property_id:3

@@ -48,7 +48,8 @@ $( document ).on('turbolinks:load', function() {
 $(".alertMessage").show()
 // setTimeout(function() { $(".alertMessage").hide(); }, 1500);
 setTimeout(function() {
-  $(".alertMessage").fadeOut(5000).remove(5000)
+  // TODO: Fix this code below
+  // $(".alertMessage").fadeOut(5000).remove(5000)
 })
   // $('.message').show('fast').delay(2000).hide('fast')
   // $('.message').remove();
