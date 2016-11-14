@@ -48,7 +48,8 @@
               <td><%= property.prop_type  %></td>
               <td><%= property.address  %></td>
               <td><%= property.postal_code  %></td>
-              <td>$<%= property.reserve_price  %></td>
+            
+              <td>$<%= number_with_delimiter(property.reserve_price)  %></td>
               <td><%= property.listed%>
               <%= form_tag listings_path, method: :post do %>
               <%= hidden_field_tag :property_id, property.id %></td>
