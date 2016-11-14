@@ -8,6 +8,11 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
+  get 'bids', to: 'bids#index'
+
+  get 'bid_history', to: 'bids#history'
+
+
   get 'about', to: 'home#about'
 
   get 'contact', to: 'home#contact'
@@ -29,4 +34,5 @@ Rails.application.routes.draw do
   post '/listings/:id/bids', to: "bids#create"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
 end

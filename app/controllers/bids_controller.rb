@@ -1,10 +1,26 @@
 class BidsController < ApplicationController
 
-    def index
-      @last_bid = Bid.last
-    end
+  def index
+      @current_user_bids = current_user.bids
 
-    def create
+      respond_to do |format|
+          format.html
+          format.json { render json: @current_user_bids }
+      end
+  end
+
+
+  def history
+      @bid_info_for_listing = Bid.where(["listing_id = ?", params[:listing_id]])
+
+      respond_to do |format|
+          format.html
+          format.json { render json: @bid_info_for_listing }
+      end
+  end
+
+
+  def create
       listing = Listing.find(params[:id])
       @new_bid = Bid.new
 
@@ -31,12 +47,13 @@ class BidsController < ApplicationController
           'status' => 'fail'
         }
       end
-    end
+  end
 
-    private
 
-    def bid_params
+  private
+
+  def bid_params
       params.permit(:bid_amount)
-    end
+  end
 
 end
