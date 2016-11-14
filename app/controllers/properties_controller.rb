@@ -55,15 +55,13 @@ class PropertiesController < ApplicationController
     @new_property.description = params[:property][:description]
     @new_property.picture = params[:property][:picture]
     @new_property.seller_id = current_user.id
-    # reference current_user.id
-    # puts @current_user.properties
     @new_property.save
     @new_property.errors.full_messages
     redirect_to myproperties_path
   end
 
   def destroy
-    @property =Property.find(params[:id])
+    @property = Property.find(params[:id])
     @property.destroy
     respond_to do |format|
       format.html { redirect_to myproperties_url, notice: 'You have successfully deleted your property' }
