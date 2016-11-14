@@ -54,6 +54,12 @@
     <%= f.text_area :description %>
   </div>
 
+  <div>
+    <a href="#">
+      <%= image_tag(property.picture_url, width: 120, height:100) if property.picture.present? %>
+    </a>
+  </div>
+
   <div class="field">
     <%= f.label :'Property Photographs' %><br>
     <%= f.file_field :picture %>

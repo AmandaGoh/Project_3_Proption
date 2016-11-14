@@ -61,7 +61,7 @@ class PropertiesController < ApplicationController
   end
 
   def destroy
-    @property =Property.find(params[:id])
+    @property = Property.find(params[:id])
     @property.destroy
     respond_to do |format|
       format.html { redirect_to myproperties_url, notice: 'You have successfully deleted your property' }
