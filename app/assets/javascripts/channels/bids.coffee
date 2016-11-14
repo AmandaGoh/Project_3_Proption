@@ -11,5 +11,6 @@ App.bids = App.cable.subscriptions.create "BidsChannel",
     bidAmount = JSON.stringify(data['bid'])
     $('#bid-amount').text(bidAmount).addClass('bid-amount')
     # console.log($('#bid-amount').text())
-    bidder = JSON.stringify(data['user'])
+    bidder = data['user']
+    # console.log(bidder)
     $('#bidder-username').text(bidder)
