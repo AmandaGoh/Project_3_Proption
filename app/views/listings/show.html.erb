@@ -93,6 +93,8 @@
               <h4><b>Description:</b></h4>
               <p class=""><%= @listing.property.description %></p>
 
+              <div id="bid-message">
+              </div>
             </div>
 
             <div class="modal-footer">
@@ -104,31 +106,30 @@
 
               <div class="text-left col-md-3">
                 Last Bid: <br/>
-                <span class="h3 text-muted"><b class="bidlast">$1122000</b></span>
+                <span class="h3 text-muted"><b class="bidlast">
+                  <div id= "bid-amount">
+                    <%= @last_bid.bid_amount %></b></span>
+                  </div>
               </div>
 
+              <%= form_tag listing_path + '/bids', method: :post, remote: true, id: 'bid-form' do %>
               <div class="text-left col-md-3">
-                Bid Amount: <br/>
-                <form class="" action="index.html" method="post">
-                  <div class="input-group">
-                    <span class="input-group-btn">
-                      <button type="button" class="btn btn-default">
-                      <span class="glyphicon glyphicon"><b>$</b></span>
-                    </button>
-                    </span>
-                    <input type="number" class="form-control" min="0">
-                  </div>
-                </form>
-              </div>
+                  <%= label_tag "Bid Amount:"%><br/>
+                    <div class="input-group">
+                      <span class="input-group-btn">
+                        <button type="button" class="btn btn-default">
+                        <span class="glyphicon glyphicon"><b>$</b></span>
+                      </button>
+                      </span>
+                      <%= text_field_tag :bid_amount %>
+                    </div>
+                </div>
 
               <div class="col-md-3">
-                <form class="" action="index.html" method="post">
-                  <button type="button" class="btn btn-success btn-lg">
                   <span class="glypicon glyphicon glyphicon-ice-lolly"></span>
-                  Submit Bid
-                  </button>
-                </form>
+                  <%= submit_tag "Submit Bid", class: "btn btn-success btn-lg" %>
               </div>
+              <% end %>
 
 
 
