@@ -15,8 +15,6 @@
       </form>
     </div>
 
-
-
     <div class="col-md-9">
       <table class="table table-list-search">
         <thead>
@@ -57,6 +55,7 @@
             </td>
           </tr> -->
 
+          <% if @current_user.bids.exists? %>
           <% @current_user_bids.each do |bid| %>
               <tr>
                 <td> <%= bid.listing.property.name %> </td>
@@ -66,12 +65,13 @@
                 <td>$<%= bid.listing.property.reserve_price %> </td>
                 <td>
 
-                  <div id="last_bid_price">
-                    <%= form_tag last_bid_price_path, method: :get, remote: true do %>
-                    <%= hidden_field_tag :listing_id, bid.listing_id %>
-                    <%= submit_tag "Show Last Price" %>
+
+                    <% @last_bid_price_for_bid_listings.each do |user_bid_listing| %>
+
+
                     <% end %>
-                  </div>
+
+
 
                 </td>
                 <td>$<%= bid.bid_amount %> </td>
@@ -85,6 +85,25 @@
                     </form>
                   </div>
                 </td>
+              </tr>
+
+
+
+              <div>
+                <%= form_tag bid_history_path, method: :get do %>
+                <%= hidden_field_tag :listing_id, bid.listing_id %>
+                <%= submit_tag "Show Bid History - listing #{bid.listing_id}" %>
+                <% end %>
+              </div>
+
+
+
+
+          <% end %>
+
+          <% else %>
+              <tr>
+              <td>No bids found</td>
               </tr>
           <% end %>
 

@@ -14,8 +14,4 @@ class ListingsController < ApplicationController
     @current_user_listings = current_user.owned_listings
   end
 
-  def bidhistory
-
-  end
-
 end

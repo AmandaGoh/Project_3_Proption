@@ -1,46 +1,49 @@
 class BidsController < ApplicationController
   def index
-    @current_user_bids = current_user.bids
+      @current_user_bids = current_user.bids
 
-    respond_to do |format|
-      format.html
-      format.json { render json: @bids }
-    end
+
+
+
+      current_user_bid_listings = current_user.bid_listings
+
+
+      current_user_bid_listings.each do |user_bid_listing|
+          last_bid_price_for_bid_listings = Bid.where(["listing_id = ?", user_bid_listing.id]).last.bid_amount
+      end
+
+
+
+
+
+      respond_to do |format|
+          format.html
+          format.json { render json: @current_user_bids }
+      end
   end
+
+
+  def history
+    @bid_info_for_listing = Bid.where(["listing_id = ?", params[:listing_id]])
+  end
+
+
 
 
 
   def last_bid_price
-    logger.debug "The listing_id is #{params[:listing_id]}"
-    checking_id = params[:listing_id].to_i
-    logger.debug "yyyyyyy #{checking_id}"
+    logger.debug "listing_id is #{params[:listing_id]}"
 
+    @bid_price = Bid.where(["listing_id = ?", params[:listing_id]]).last.bid_amount
 
-    @bid_price = Bid.last(:conditions => ["listing_id = ?", params[:listing_id].to_i])
-    # @bid_price = Bid.last(:conditions => ["listing_id = ?", checking_id])
+    logger.debug "Highest bid price for the listing is #{@bid_price}"
 
-    # Bid.last.bid_amount(:conditions => "listing_id = 4")
-
-    logger.debug "xxxxxx #{@bid_price}"
+    render json: {
+      'result': @bid_price
+    }
 
   end
 
 
-      # def new
-      #   #check if new bid is greater than the last bid
-      #
-      #   if Bid.last.bid_amount < params[:bid][:bid_amount]
-      #
-      #       @new_bid = Bid.new()
-      #       @new_bid.bid_amount = params[:bid][:bid_amount]
-      #       @new_bid.bidder_id = params[:bid][:bidder_id]
-      #       @new_bid.listing_id = params[:bid][:listing_id]
-      #       @new_bid.save
-      #       flash[:notice] = "Bid submitted successfully"
-      #
-      #   else
-      #       flash[:alert] = "Unsuccessful bid, pls check and resubmit. Bid amount must be higher than last bid amount."
-      #   end
-      # end
 
 end

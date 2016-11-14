@@ -5,11 +5,15 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  get 'mybids', to: 'bids#index'
+  get 'bids', to: 'bids#index'
+
+  get 'bid_history', to: 'bids#history'
 
   get 'last_bid_price', to: 'bids#last_bid_price'
 
   # get 'newbid', to: 'bids#new'
+
+
 
   get 'about', to: 'home#about'
 
