@@ -50,10 +50,13 @@
                 <td>
                   <div class="pull-left">
 
-                    <%= form_tag bid_history_path, method: :get do %>
+                    <%= form_tag seller_bid_history_path, method: :get do %>
                         <%= hidden_field_tag :listing_id, listing.id %>
 
-                        <%= link_to '', bid_history_path, :class => 'btn btn-warning btn-md glypicon glyphicon glyphicon-list tip-right', title: 'Bid History' %>
+                        <%= button_tag(type: 'submit', class: 'btn btn-warning btn-md tip-right', title: 'Bid History') do %>
+                        <span class='glyphicon glyphicon-list'></span>
+
+                        <% end %>
                     <% end %>
 
                   </div>

@@ -1,6 +1,6 @@
 class BidsController < ApplicationController
 
-  def index
+  def bidder_bid_history
       @current_user_bids = current_user.bids
 
       respond_to do |format|
@@ -10,7 +10,7 @@ class BidsController < ApplicationController
   end
 
 
-  def history
+  def seller_bid_history
       @bid_info_for_listing = Bid.where(["listing_id = ?", params[:listing_id]])
 
       respond_to do |format|
