@@ -1,13 +1,11 @@
 class ListingsController < ApplicationController
   def index
-
-    @listings = Listing.all
-    @all_listings = Property.listed
-
+    @listings = Property.where(listed: 1)
   end
 
   def show
     @listing = Listing.find(params[:id])
+    @last_bid = @listing.bids.last
   end
 
   def mylistings

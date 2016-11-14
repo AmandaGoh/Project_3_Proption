@@ -8,6 +8,14 @@
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
+	margin:0;
+}
+
+.container {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto;
 }
 
 /*========================
@@ -46,10 +54,9 @@ FOOTER
 	width: 100%;
 	text-align: left;
 	font: bold 16px sans-serif;
+	margin-top: 25%;
 	padding: 40px 50px;
-	margin-top: 80px;
-	position: absolute;
-	margin-bottom: 0;
+	position: relative;
 }
 
 .footer-distributed .footer-left,
@@ -227,6 +234,10 @@ header {
 
 ul .dropdown-menu {
 	color: black;
+}
+
+.dropdown:hover .dropdown-menu {
+display: block;
 }
 
 .navbarlink {

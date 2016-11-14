@@ -31,10 +31,10 @@
               <% if @bid_info_for_listing.exists? %>
                   <% @bid_info_for_listing.each_with_index do |bid_info, index| %>
                     <tr>
-                      <td><%= index + 1 %> </td>
-                      <td><%= bid_info.created_at %></td>
-                      <td>$<%= bid_info.bid_amount %></td>
-                      <td><%= bid_info.bidder.username %></td>
+                      <td> <%= index + 1 %> </td>
+                      <td> <%= bid_info.created_at %> </td>
+                      <td>$<%= bid_info.bid_amount %> </td>
+                      <td> <%= bid_info.bidder.username %> </td>
                     </tr>
                   <% end %>
 

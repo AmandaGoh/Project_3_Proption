@@ -1,3 +1,15 @@
-// Place all the styles related to the Bids controller here.
+// Place all the styles related to the bids controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.fail-bid-message{
+  color: rgb(244, 52, 10);
+  font-size: 1.5em;
+}
+
+.success-bid-message{
+  color: rgb(14, 163, 7);
+  font-size: 1.5em;
+}

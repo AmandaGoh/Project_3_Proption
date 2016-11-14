@@ -49,23 +49,17 @@
               <td><%= property.postal_code  %></td>
               <td>$<%= property.reserve_price  %></td>
               <td>
+
                 <div class="pull-left">
-                  <button type="button" class="btn btn-primary btn-md" data-toggle="tooltip" data-placement="left" title="Edit Property">
 
-                  <span class="glypicon glyphicon glyphicon-edit"></span>
-                  </button>
+                  <%= link_to '' , edit_property_path(property), class: 'btn btn-primary btn-md glypicon glyphicon glyphicon-edit tip-left', title: "Edit Property" %>
 
-                  <a><%= link_to "edit" , edit_property_path(property), :class => 'btn btn-primary btn-md' %></a>
-                  <%= link_to 'Destroy', property,:class => 'btn btn-primary btn-md', method: :delete, data: { confirm: 'This will delete your property' } %>
+                  <%= link_to '', property, class: 'btn btn-danger btn-md glypicon glyphicon glyphicon-trash tip-top', title: 'Delete Property', method: :delete, data: { confirm: 'This will delete your property' } %>
 
-
-
-                  <button type="button" class="btn btn-danger btn-md" data-toggle="tooltip" data-placement="top" title="Delete Property">
-                  <span class="glypicon glyphicon glyphicon-trash"></span>
-                  </button>
                   <button type="button" class="btn btn-success btn-md" data-toggle="tooltip" data-placement="right" title="Submit For Auction">
                   <span class="glypicon glyphicon glyphicon-send"></span>
                   </button>
+
                 </div>
               </td>
             </tr>

@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
 
-    <h1>MY BIDS</h1>
+    <h1>MY BID HISTORY</h1>
 
     <div class="col-md-3">
       <form action="#" method="get">
@@ -63,17 +63,7 @@
                 <td> <%= bid.listing.property.prop_type %> </td>
                 <td> <%= bid.listing.property.address %> </td>
                 <td>$<%= bid.listing.property.reserve_price %> </td>
-                <td>
-
-
-                    <% @last_bid_price_for_bid_listings.each do |user_bid_listing| %>
-
-
-                    <% end %>
-
-
-
-                </td>
+                <td>$<%= bid.listing.bids.last.bid_amount %> </td>
                 <td>$<%= bid.bid_amount %> </td>
                 <td>
                   <div class="pull-left">
