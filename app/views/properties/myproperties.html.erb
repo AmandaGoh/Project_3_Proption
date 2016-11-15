@@ -1,98 +1,119 @@
 <div class="container">
     <div class="row">
-      <h1>MY PROPERTIES - Not listed for bidding yet.</h1>
+        <h1>MY PROPERTIES - Not listed for bidding yet.</h1>
 
-      <div class="col-md-2">
-        <form action="#" method="get">
-          <div class="input-group">
-            <!-- SEARCH BAR -->
-            <input class="form-control" id="system-search" name="q" placeholder="Search my properties..." required>
-            <span class="input-group-btn">
-                          <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
-                      </span>
-          </div>
-        </form>
-        <br>
-
-        <a><%= link_to "+ Create New Property" , new_property_path, :class => 'btn btn-primary btn-md' %></a>
-
-      </div>
-
-      <div class="col-md-10">
-        <table class="table table-list-search">
-          <thead>
-            <tr>
-              <th>Title</th>
-              <th>Picture</th>
-              <th>Property Type</th>
-              <th>Address</th>
-              <th>Postal Code</th>
-              <th>Reserve Price</th>
-              <th>Status</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-
-          <tbody>
-
-  <% @my_properties.each do |property| %>
-
-
-            <tr>
-              <td><a href="#"><%= link_to property.name, property_path(property) %></a></td>
-              <td>
-                <%= link_to property_path(property) do %>
-                  <%= image_tag(property.picture_url, width: 120, height:100) if property.picture.present? %>
-                <% end %>
-              </td>
-              <td><%= property.prop_type  %></td>
-              <td><%= property.address  %></td>
-              <td><%= property.postal_code  %></td>
-
-              <td>$<%= number_with_delimiter(property.reserve_price)  %></td>
-
-              <% if property.listed == 1 %>
-              <td><span>Listed </span>
-              <% else %>
-              <td><span> Not listed </span>
-              <% end %>
-
-              <%= form_tag listings_path, method: :post do %>
-              <%= hidden_field_tag :property_id, property.id %></td>
-              <td>
-
-
-                <div class="pull-left">
-
-                  <%= link_to '' , edit_property_path(property), class: 'btn btn-primary btn-md glypicon glyphicon glyphicon-edit tip-left', title: "Edit Property" %>
-
-                  <%= link_to '', property, class: 'btn btn-danger btn-md glypicon glyphicon glyphicon-trash tip-top', title: 'Delete Property', method: :delete, data: { confirm: 'This will delete your property. Are you sure?' } %>
-
-                  <%= button_tag(type: "submit", class: "btn btn-success btn-md tip-right", title: 'Submit For Listing') do %>
-                  <span class="glyphicon glyphicon-send"></span>
-                  <% end %>
-
-                  <% end %>
-
-
+        <div class="col-md-2">
+            <form action="#" method="get">
+                <div class="input-group">
+                    <!-- SEARCH BAR -->
+                    <input class="form-control" id="system-search" name="q" placeholder="Search my properties..." required>
+                    <span class="input-group-btn">
+                        <button type="submit" class="btn btn-default">
+                            <i class="glyphicon glyphicon-search"></i>
+                        </button>
+                    </span>
                 </div>
-              </td>
-            </tr>
+            </form>
+            <br>
 
-    <% end %>
+            <a><%= link_to "+ Create New Property" , new_property_path, :class => 'btn btn-primary btn-md' %></a>
 
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+        </div>
 
+        <div class="col-md-10">
+            <table class="table table-list-search">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Picture</th>
+                        <th>Property Type</th>
+                        <th>Address</th>
+                        <th>Postal Code</th>
+                        <th>Reserve Price</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <% if @my_properties.exists? %>
+                    <% @my_properties.each do |property| %>
+                    <tr>
+                        <td>
+                            <a href="#"><%= link_to property.name, property_path(property) %></a>
+                        </td>
+                        <td>
+                            <%= link_to property_path(property) do %>
+                            <%= image_tag(property.picture_url, width: 120, height:100) if property.picture.present? %>
+                            <% end %>
+                        </td>
+                        <td><%= property.prop_type  %></td>
+                        <td><%= property.address  %></td>
+                        <td><%= property.postal_code  %></td>
+
+                        <td>$<%= number_with_delimiter(property.reserve_price)  %></td>
+
+                        <% if property.listed == 1 %>
+                        <td>
+                            <span>Listed
+                            </span>
+                        <% else %>
+                            <td>
+                                <span>
+                                    Not listed
+                                </span>
+                                <% end %>
+
+                                <%= form_tag listings_path, method: :post do %>
+                                <%= hidden_field_tag :property_id, property.id %></td>
+                            <td>
+
+                                <div class="pull-left">
+
+                                  <% unless property.listed == 1 %>
+
+
+
+                                    <div id= "to_hide">
+                                    <%= link_to '' , edit_property_path(property), class: 'btn btn-primary btn-md glypicon glyphicon glyphicon-edit tip-left', title: "Edit Property" %>
+                                    </div>
+
+                                    <div id= "to_hide">
+                                    <%= link_to '', property, class: 'btn btn-danger btn-md glypicon glyphicon glyphicon-trash tip-top', title: 'Delete Property', method: :delete, data: { confirm: 'This will delete your property. Are you sure?' } %>
+                                    </div>
+
+                                    <div id= "to_hide">
+                                    <%= button_tag(type: "submit", class: "btn btn-success btn-md tip-right", title: 'Submit For Listing') do %>
+                                    <span class="glyphicon glyphicon-send"></span>
+                                    <% end %>
+                                    </div>
+                                    <% end %>
+<% end %>
+
+                                </div>
+                            </td>
+                        </tr>
+
+                        <% end %>
+
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    <% else %>
+                        <tr>
+                            <td>No Property Listed</td>
+                        </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
     </div>
-  </div>
