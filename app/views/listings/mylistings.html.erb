@@ -33,7 +33,8 @@
           <tbody>
 
 
-<% @current_user_listings.each do |listing| %>
+            <% @current_user_listings.each do |listing| %>
+
 
             <tr>
               <td><a href="#"><%= listing.property.name %></a></td>
@@ -47,31 +48,31 @@
               <td><%= listing.property.address %></td>
               <td>$<%= number_with_delimiter(listing.property.reserve_price) %></td>
               <td>$<%= number_with_delimiter(listing.property.reserve_price) %></td>
+
+
+
+
               <td>
-                <div class="pull-left">
-                  <button type="button" class="btn btn-warning btn-md">
-                  <span class="glypicon glyphicon glyphicon-list"></span> Bid History
-                  <!-- <p><%= link_to "Bid History", 'listings', :class => 'btn btn-warning btn-md'%></p> -->
-                  </button>
-                </div>
+                <%= form_tag seller_bid_history_path, method: :get do %>
+                    <%= hidden_field_tag :listing_id, listing.id %>
+
+                    <%= button_tag(type: 'submit', class: 'btn btn-warning btn-md tip-right', title: 'Bid History') do %>
+                    <span class='glyphicon glyphicon-list'></span>
+
+                    <% end %>
+                <% end %>
               </td>
+
             </tr>
 
 
 
-  <% end %>
+
+      </div>
 
 
+            <% end %>
 
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
           </tbody>
         </table>
       </div>
