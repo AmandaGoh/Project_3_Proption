@@ -70,7 +70,6 @@
                       <% if listing.listing.bids.exists? %>
 
                       <div class="aa-properties-detial">
-
                         <span>Reserve Price: <b class="bidlast"><%= number_with_delimiter(listing.reserve_price) %></b></span>
                         <br>
                         <span>Last Bid: <b class="bidlast"><%= listing.listing.bids.last.bid_amount %></b></span>
@@ -86,6 +85,7 @@
                       <% else %>
 
                   <div class="aa-properties-detial">
+
                     <span>Reserve Price: <b class="bidlast"><%= number_with_delimiter(listing.reserve_price) %></b></span>
                     <br>
                     <span>Last Bid: <b class="bidlast">No bids yet</b></span>
