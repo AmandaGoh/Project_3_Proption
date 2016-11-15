@@ -48,9 +48,8 @@
                     <!-- <a class="aa-properties-item-img popular featured_img">
                       <img src="house2.jpg" class="featured_img" alt="img">
                     </a> -->
-                    <%= link_to listing.picture, listing_path(listing) %>
-                    <a class="aa-properties-item-img popular featured_img" alt="property image" width='314' height='200'>
-                    <!-- <%= listing.picture %> -->
+                    <a href="#">
+                      <%= image_tag(listing.picture_url, width: 314, height:200) if listing.picture.present? %>
                     </a>
                     <div class="aa-properties-item-content">
 
@@ -71,8 +70,7 @@
                       <% if listing.listing.bids.exists? %>
 
                       <div class="aa-properties-detial">
-
-                        <span>Reserve Price: <b class="bidlast"><%= listing.reserve_price %></b></span>
+                        <span>Reserve Price: <b class="bidlast"><%= number_with_delimiter(listing.reserve_price) %></b></span>
                         <br>
                         <span>Last Bid: <b class="bidlast"><%= listing.listing.bids.last.bid_amount %></b></span>
                         <span class="pull-right"><%= listing.listing.bids.length %> Bids</span>
@@ -87,7 +85,8 @@
                       <% else %>
 
                   <div class="aa-properties-detial">
-                    <span>Reserve Price: <b class="bidlast"><%= listing.reserve_price %></b></span>
+
+                    <span>Reserve Price: <b class="bidlast"><%= number_with_delimiter(listing.reserve_price) %></b></span>
                     <br>
                     <span>Last Bid: <b class="bidlast">No bids yet</b></span>
                     <span class="pull-right">0 Bids</span>
