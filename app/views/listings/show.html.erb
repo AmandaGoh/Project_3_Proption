@@ -105,6 +105,9 @@
 
               <div id="bid-message">
               </div>
+
+              <div class="listing-id", style="display: none"><%= @listing.id %></div>
+              <div id="duration", style="display: none"><%= @listing.duration.to_f %></div>
             </div>
 
             <div class="modal-footer">
@@ -112,7 +115,7 @@
               <div class="text-left col-md-3">
                 Bid's Endding In: <br/>
                 <span class="h3 text-muted">
-                  <div class="bidtime">
+                  <div class="<%= "bidtime " + @listing.id.to_s %>">
                  </div>
                </span>
               </div>
@@ -173,7 +176,7 @@
 
               <div class="col-md-3">
                   <span class="glypicon glyphicon glyphicon-ice-lolly"></span>
-                  <%= submit_tag "Submit Bid", class: "btn btn-success btn-lg" %>
+                  <%= submit_tag "Submit Bid", class: "btn btn-success btn-lg submit-button"+@listing.id.to_s %>
               </div>
               <% end %>
 

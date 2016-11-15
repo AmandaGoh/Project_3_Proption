@@ -4,17 +4,42 @@ $( document ).on('turbolinks:load', function() {
   var startTime = new Date()
   var endTime = $('#duration').text()* 1000
 
-  initializeClock(startTime, endTime)
+  var listingID = $('.listing-id').text()
+  //
+  // console.log($('.listing-id').text())
+  // console.log($('#duration').text())
 
-  function initializeClock (startTime, endTime) {
+  initializeClock(startTime, endTime, listingID)
+
+  function initializeClock (startTime, endTime, listingID) {
     var timeinterval = setInterval(function(){
       var t = getTimeRemaining(startTime, endTime)
       // console.log(t.total)
-      $('.bidtime').text(t.hours + ':' + t.minutes + ':' + t.seconds)
+      if (t.hours < 10) {
+        hours = '0' + t.hours
+      } else {
+        hours = t.hours
+      }
+
+      if (t.minutes <10) {
+        minutes = '0' + t.minutes
+      } else {
+        minutes = t.minutes
+      }
+
+      if (t.seconds <10) {
+        seconds = '0' + t.seconds
+      } else {
+        seconds = t.seconds
+      }
+
+      $('.bidtime').text(hours + ' : ' + minutes + ' : ' + seconds)
 
       if (t.total <= 0) {
         clearInterval(timeinterval)
         $('.bidtime').text('Bid has ended')
+        $('.submit-button' + listingID).prop('disabled', true)
+        $('#bid-message').remove()
       }
 
     }, 1000)
