@@ -33,13 +33,15 @@ $( document ).on('turbolinks:load', function() {
         seconds = t.seconds
       }
 
-      $('.bidtime').text(hours + ' : ' + minutes + ' : ' + seconds)
+      $('.bidtime' + listingID).text(hours + ' : ' + minutes + ' : ' + seconds)
 
       if (t.total <= 0) {
         clearInterval(timeinterval)
-        $('.bidtime').text('Bid has ended')
+        $('.bidtime' + listingID).text('Bid has ended')
         $('.submit-button' + listingID).prop('disabled', true)
         $('#bid-message').remove()
+        $('.bid-input' + listingID).remove()
+        $('.modal-content').addClass('listing-greyed-out')
       }
 
     }, 1000)

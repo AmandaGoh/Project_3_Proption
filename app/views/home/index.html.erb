@@ -36,14 +36,14 @@
               <p><%= listing.description %></p>
             </div>
 
-            <div class="listing-id"><%= listing.listing.id %></div>
-            <div class="duration"><%= listing.listing.duration.to_f %></div>
+            <div class="listing-id", style="display: none"><%= listing.listing.id %></div>
+            <div class="duration", style="display: none"><%= listing.listing.duration.to_f %></div>
 
             <div class="aa-properties-detial">
               <span>Last Bid: <b class="bidlast">$1450000</b></span>
               <span class="pull-right">7 Bids</span>
               <br>
-              <span>Ends test: <b class="<%= "bidtime" + listing.listing.id.to_s %>"> <%= listing.listing.duration.in_time_zone("Singapore") %></b></span>
+              <span>Ends: <b class="<%= "bidtime" + listing.listing.id.to_s %>"> <%= listing.listing.duration.in_time_zone("Singapore") %></b></span>
               <button type="button" class="btn btn-danger btn-md pull-right">
               <span class="glypicon glyphicon glyphicon-ice-lolly"></span>
               Bid
