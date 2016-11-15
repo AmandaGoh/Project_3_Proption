@@ -9,6 +9,7 @@ App.bids = App.cable.subscriptions.create "BidsChannel",
     # Called when there's incoming data on the websocket for this channel
     # console.log(JSON.stringify(data['bid']))
     bidAmount = JSON.stringify(data['bid'])
+    # console.log(bidAmount)
     $('#bid-amount').text(bidAmount).addClass('bid-amount')
     # console.log($('#bid-amount').text())
     bidder = data['user']
