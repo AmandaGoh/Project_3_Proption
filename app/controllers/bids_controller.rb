@@ -24,16 +24,18 @@ class BidsController < ApplicationController
       listing = Listing.find(params[:id])
       @new_bid = Bid.new
 
-      if bid_params[:bid_amount].to_i > listing.bids.last.bid_amount
+      if listing.bids.exists?
+
+        if bid_params[:bid_amount].to_i > listing.bids.last.bid_amount
           @new_bid.bid_amount = bid_params[:bid_amount]
           @new_bid.listing_id = params[:id]
           @new_bid.bidder_id = current_user.id
 
           if @new_bid.save
-          # flash[:message] = "Bid Successful!"
+            # flash[:message] = "Bid Successful!"
             ActionCable.server.broadcast 'bid_details',
-              bid: @new_bid.bid_amount,
-              user: current_user.username
+            bid: @new_bid.bid_amount,
+            user: current_user.username
           end
           render json: {
             'message' => 'Bid Successful!',
@@ -41,12 +43,41 @@ class BidsController < ApplicationController
           }
           puts 'errors here!!!'
           puts @new_bid.errors.full_messages
+        else
+          render json: {
+            'message' => "Please place a bid amount higher than " + listing.bids.last.bid_amount.to_s,
+            'status' => 'fail'
+          }
+        end
+
       else
-        render json: {
-          'message' => "Please place a bid amount higher than " + listing.bids.last.bid_amount.to_s,
-          'status' => 'fail'
-        }
+
+        reserve_price = listing.property.reserve_price
+
+        if bid_params[:bid_amount].to_i > reserve_price
+            @new_bid.bid_amount = bid_params[:bid_amount]
+            @new_bid.listing_id = params[:id]
+            @new_bid.bidder_id = current_user.id
+
+            if @new_bid.save
+              # flash[:message] = "Bid Successful!"
+              ActionCable.server.broadcast 'bid_details',
+              bid: @new_bid.bid_amount,
+              user: current_user.username
+            end
+            render json: {
+              'message' => 'Bid Successful!',
+              'status' => 'successful'
+            }
+        else
+          render json: {
+            'message' => "Please place a bid amount higher than " + listing.property.reserve_price.to_s,
+            'status' => 'fail'
+          }
+        end
+
       end
+
   end
 
 

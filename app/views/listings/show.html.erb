@@ -83,6 +83,17 @@
                     </td>
                   </tr>
 
+                  <tr>
+                    <td class="h4"><b>Reserve Price:</b></td>
+                    <td class="h4">$<%= number_with_delimiter(@listing.property.reserve_price) %></td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <br>
+                    </td>
+                  </tr>
+
                 </tbody>
 
               </table>
@@ -123,7 +134,7 @@
                 </span>
               </div>
 
-              <% else %>
+      <% else %>
 
               <div class="text-left col-md-2">
                 Last Bid: <br/>
@@ -131,6 +142,15 @@
                   <div id= "bid-amount">
                     No bids yet</b></span>
                   </div>
+              </div>
+
+              <div class="text-left col-md-2">
+                By User: <br/>
+                <span class="h3 text-muted"><b class="bidlast">
+                  <div id = "bidder-username">
+                    </b>
+                  </div>
+                </span>
               </div>
 
           <% end %>
