@@ -27,7 +27,9 @@
               <th>Address</th>
               <th>Reserve Price</th>
               <th>Last Bid Price</th>
-              <th>Actions</th>
+              <th>Status</th>
+              <th>Bids History</th>
+              <th>Accept Bid</th>
             </tr>
           </thead>
           <tbody>
@@ -50,6 +52,11 @@
               <td>$<%= number_with_delimiter(listing.property.reserve_price) %></td>
 
 
+              <% if listing.property.listed == 1 %>
+              <td><span> Listed </span>
+              <% elsif listing.property.listed == 2 %>
+              <td><span> Bidding Accepted </span>
+              <% end %>
 
 
               <td>
@@ -63,15 +70,28 @@
                 <% end %>
               </td>
 
+
+              <td>
+
+
+                <%= form_tag accept_bid_path, method: :get do %>
+                    <%= hidden_field_tag :id, listing.property.id %>
+
+                    <%= button_tag(type: 'submit', class:"btn btn-success btn-md", title: 'Accept Bid') do %>
+                    <span class='glyphicon glyphicon-list'></span>
+
+                    <% end %>
+                <% end %>
+
+              </td>
+
             </tr>
 
 
+          </div>
 
 
-      </div>
-
-
-            <% end %>
+          <% end %>
 
           </tbody>
         </table>

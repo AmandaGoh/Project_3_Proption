@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   get 'seller_bid_history', to: 'bids#seller_bid_history'
 
+  get 'accept_bid', to: 'listings#accept_bid'
 
   get 'about', to: 'home#about'
 
