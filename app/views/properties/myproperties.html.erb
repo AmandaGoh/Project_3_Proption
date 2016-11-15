@@ -39,18 +39,24 @@
 
 
             <tr>
-              <td><a href="#"><%= property.name  %></a></td>
+              <td><a href="#"><%= link_to property.name, property_path(property) %></a></td>
               <td>
-                <a href="#">
+                <%= link_to property_path(property) do %>
                   <%= image_tag(property.picture_url, width: 120, height:100) if property.picture.present? %>
-                </a>
+                <% end %>
               </td>
               <td><%= property.prop_type  %></td>
               <td><%= property.address  %></td>
               <td><%= property.postal_code  %></td>
 
               <td>$<%= number_with_delimiter(property.reserve_price)  %></td>
-              <td><%= property.listed%>
+
+              <% if property.listed == 1 %>
+              <td><span>Listed </span>
+              <% else %>
+              <td><span> Not listed </span>
+              <% end %>
+
               <%= form_tag listings_path, method: :post do %>
               <%= hidden_field_tag :property_id, property.id %></td>
               <td>
