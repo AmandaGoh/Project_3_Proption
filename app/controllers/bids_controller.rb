@@ -3,6 +3,9 @@ class BidsController < ApplicationController
   def bidder_bid_history
       @current_user_bids = current_user.bids
 
+      @unique_bidder_listing = current_user.bids.select(:listing_id).uniq
+      # @unique_bidder_listing = current_user.bids.distinct.pluck(:listing_id)
+
       respond_to do |format|
           format.html
           format.json { render json: @current_user_bids }
