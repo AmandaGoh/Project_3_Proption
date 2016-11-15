@@ -67,3 +67,6 @@ Bid.create! bid_amount:100004, bidder_id:6, listing_id:3
 Bid.create! bid_amount:1000000, bidder_id:6, listing_id:4
 Bid.create! bid_amount:1000001, bidder_id:8, listing_id:3
 Bid.create! bid_amount:1000002, bidder_id:9, listing_id:4
+
+Bid.create! bid_amount:999999, bidder_id:6, listing_id:3
+Bid.create! bid_amount:8888888, bidder_id:6, listing_id:4
