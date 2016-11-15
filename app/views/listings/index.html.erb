@@ -1,4 +1,4 @@
-
+<div class="container">
 
     <div class="row">
 
@@ -62,17 +62,14 @@
 
                       <div class="aa-properties-about">
 
-                        <h3 class="propname"><%= link_to listing.name, listing_path(listing) %></h3>
+                        <h3 class="propname"><%= link_to listing.name, listing_path(listing.listing) %></h3>
 
 
                         <p><%= listing.description %></p>
                       </div>
 
-
-
-
-
                       <% if listing.listing.bids.exists? %>
+
                       <div class="aa-properties-detial">
                         <span>Last Bid: <b class="bidlast"><%= listing.listing.bids.last.bid_amount %></b></span>
                         <span class="pull-right"><%= listing.listing.bids.length %> Bids</span>

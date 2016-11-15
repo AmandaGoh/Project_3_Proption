@@ -4,11 +4,13 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-* {
+html, body, * {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
-	margin:0;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	margin: 0;
+	padding: 0;
 }
 
 .container {
@@ -44,185 +46,6 @@ LISTINGS SMALL
   color:#16a861;
 }
 
-/*========================
-FOOTER
-========================*/
-.footer-distributed {
-	background-color: #292c2f;
-	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
-	box-sizing: border-box;
-	width: 100%;
-	text-align: left;
-	font: bold 16px sans-serif;
-	margin-top: 25%;
-	padding: 40px 50px;
-	position: relative;
-}
-
-.footer-distributed .footer-left,
-.footer-distributed .footer-center,
-.footer-distributed .footer-right{
-	display: inline-block;
-	vertical-align: top;
-}
-
-/*========================
-FOOTER LEFT
-========================*/
-.footer-distributed .footer-left{
-	width: 40%;
-}
-
-/*========================
-FOOTER LOGO
-========================*/
-.logoshort {
-	width: 80px;
-}
-
-.footer-distributed h3{
-	color:  #ffffff;
-	font: normal 36px 'Cookie', cursive;
-	margin: 0;
-}
-
-.footer-distributed h3 span{
-	color:  #5383d3;
-}
-
-/*========================
-FOOTER LINKS
-========================*/
-.footer-distributed .footer-links{
-	color:  #ffffff;
-	margin: 20px 0 12px;
-	padding: 0;
-}
-
-.footer-distributed .footer-links a{
-	display:inline-block;
-	line-height: 1.8;
-	text-decoration: none;
-	color:  inherit;
-}
-
-.footer-distributed .footer-company-name{
-	color:  #8f9296;
-	font-size: 14px;
-	font-weight: normal;
-	margin: 0;
-}
-
-/*========================
-FOOTER CENTER
-========================*/
-.footer-distributed .footer-center{
-	width: 35%;
-}
-
-.footer-distributed .footer-center i{
-	background-color:  #33383b;
-	color: #ffffff;
-	font-size: 25px;
-	width: 38px;
-	height: 38px;
-	border-radius: 50%;
-	text-align: center;
-	line-height: 42px;
-	margin: 10px 15px;
-	vertical-align: middle;
-}
-
-.footer-distributed .footer-center i.fa-envelope{
-	font-size: 17px;
-	line-height: 38px;
-}
-
-.footer-distributed .footer-center p{
-	display: inline-block;
-	color: #ffffff;
-	vertical-align: middle;
-	margin:0;
-}
-
-.footer-distributed .footer-center p span{
-	display:block;
-	font-weight: normal;
-	font-size:14px;
-	line-height:2;
-}
-
-.footer-distributed .footer-center p a{
-	color:  #ffffff;
-	text-decoration: none;;
-}
-
-/*========================
-FOOTER RIGHT
-========================*/
-.footer-distributed .footer-right{
-	width: 20%;
-}
-
-.footer-distributed .footer-company-about{
-	line-height: 20px;
-	color:  #92999f;
-	font-size: 13px;
-	font-weight: normal;
-	margin: 0;
-}
-
-.footer-distributed .footer-company-about span{
-	display: block;
-	color:  #ffffff;
-	font-size: 14px;
-	font-weight: bold;
-	margin-bottom: 20px;
-}
-
-.footer-distributed .footer-icons{
-	margin-top: 25px;
-}
-
-.footer-distributed .footer-icons a{
-	display: inline-block;
-	width: 35px;
-	height: 35px;
-	cursor: pointer;
-	background-color:  #33383b;
-	border-radius: 2px;
-
-	font-size: 20px;
-	color: #ffffff;
-	text-align: center;
-	line-height: 35px;
-
-	margin-right: 3px;
-	margin-bottom: 5px;
-}
-
-/* If you don't want the footer to be responsive, remove these media queries */
-
-@media (max-width: 880px) {
-
-	.footer-distributed{
-		font: bold 14px sans-serif;
-	}
-
-	.footer-distributed .footer-left,
-	.footer-distributed .footer-center,
-	.footer-distributed .footer-right{
-		display: block;
-		width: 100%;
-		margin-bottom: 40px;
-		text-align: center;
-	}
-
-	.footer-distributed .footer-center i{
-		margin-left: 0;
-	}
-
-}
 
 /*========================
 NAVBAR
@@ -230,10 +53,20 @@ NAVBAR
 
 header {
 	height: 50px;
+	width: 100%;
 }
 
-ul .dropdown-menu {
-	color: black;
+.navbar-fixed-top {
+	background-color: rgba(0, 0, 0, 0.8);
+}
+
+.navbar-collapse.collapse.in {
+	height: 100%;
+	width: 100%;
+}
+
+.collapse.navbar-collapse {
+	margin-right: 15px;
 }
 
 .dropdown:hover .dropdown-menu {
@@ -248,30 +81,8 @@ display: block;
 	color: white;
 }
 
-.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
-	background-color: rgba(0, 0, 0, 0.5);
-}
-
-.navbar {
-	position: relative;
-	z-index: 1;
-	width: 100%;
-	border: 0;
-}
-
-.navmenu {
-	height: 50px;
-	background-color: rgba(0, 0, 0, 0.2);
-	width: 100%;
-}
-
 .nav.navbar-nav.navbar-right li a:hover {
 	background-color: rgba(0, 0, 0, 0.5);
-	width: auto;
-}
-
-.nav.navbar-nav.navbar-right {
-	margin: 0 15px;
 }
 
 .navbar-brand {
@@ -279,16 +90,12 @@ display: block;
 }
 
 .logolong {
-	height: 36px;
-	margin: 7px 20px;
+	height: 25px;
+	margin: 12.5px;
 }
 
 .navbar-brand:hover {
 	background-color: rgba(0, 0, 0, 0.5);
-}
-
-.navbar-collapse.collapse.in {
-	background-color: rgba(0, 0, 0, 0.2);
 }
 
 .navbar-login {
@@ -307,29 +114,39 @@ display: block;
 	font-size: 87px;
 }
 
+.navbar-toggle .icon-bar {
+	background-color: #fff;
+}
+
 /*========================
 JUMBOTRON
 ========================*/
 
 .jumbotron {
-	height: 500px;
+	height: 600px;
 	position: relative;
-	top: -50px;
-	padding: 100px;
-	background-image: url('./houses/house4.jpg');
-	background-size: cover;
-	background-repeat: no-repeat;
+	background-image: url('');
+
 	text-align: center;
+	margin: 0 auto;
+	background-color: rgba(0, 0, 0, 0.5);
+	background:
+    /* top, transparent black, faked with gradient */
+    linear-gradient(
+      rgba(0, 0, 0, 0.1),
+      rgba(0, 0, 0, 0.1)
+    ),
+    /* bottom, image */
+    url('./houses/house4.jpg');
+		background-size: cover;
+		background-repeat: no-repeat;
 }
 
 .bigtitle {
 	color: white;
-	margin-top: 75px;
+	margin-top: 150px;
 }
 
-.jumbotron.btn.btn-primary.btn-lg {
-	// z-index: +2;
-}
 /*========================
 4 FEATURED LISTINGS
 ========================*/
@@ -338,9 +155,12 @@ JUMBOTRON
 	height: 200px;
 }
 
+.latesttransaction {
+	text-align: center;
+}
+
 .tm-home-section-1 {
 	position: relative;
-	top: -200px;
 }
 
 .tm-home-box-2 {
