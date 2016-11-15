@@ -108,7 +108,7 @@
                 Last Bid: <br/>
                 <span class="h3 text-muted"><b class="bidlast">
                   <div id= "bid-amount">
-                    <%= @last_bid.bid_amount %></b></span>
+                    <%= number_with_delimiter(@last_bid.bid_amount) %></b></span>
                   </div>
               </div>
 
@@ -130,7 +130,7 @@
                         <span class="glyphicon glyphicon"><b>$</b></span>
                       </button>
                       </span>
-                      <%= text_field_tag :bid_amount %>
+                      <%= text_field_tag :bid_amount, :value => number_with_delimiter(f.object.bid amount) %>
                     </div>
                 </div>
 
