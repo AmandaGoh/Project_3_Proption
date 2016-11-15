@@ -68,7 +68,8 @@
                         <p><%= listing.description %></p>
                       </div>
 
-                      <% if listing.listing.bids.exits? %>
+                      <% if listing.listing.bids.exists? %>
+
                       <div class="aa-properties-detial">
                         <span>Last Bid: <b class="bidlast"><%= listing.listing.bids.last.bid_amount %></b></span>
                         <span class="pull-right"><%= listing.listing.bids.length %> Bids</span>
@@ -82,16 +83,16 @@
 
                       <% else %>
 
-                      <div class="aa-properties-detial">
-                        <span>Last Bid: <b class="bidlast">No bids yet</b></span>
-                        <span class="pull-right">0 Bids</span>
-                        <br>
-                        <span>Ends: <b class="bidtime">07:54:03</b></span>
-                        <button type="button" class="btn btn-danger btn-md pull-right bidnow">
-                        <span class="glypicon glyphicon glyphicon-ice-lolly"></span>
-                        Bid Now
-                        </button>
-                      </div>
+                  <div class="aa-properties-detial">
+                    <span>Last Bid: <b class="bidlast">No bids yet</b></span>
+                    <span class="pull-right">0 Bids</span>
+                    <br>
+                    <span>Ends: <b class="bidtime">07:54:03</b></span>
+                    <button type="button" class="btn btn-danger btn-md pull-right bidnow">
+                    <span class="glypicon glyphicon glyphicon-ice-lolly"></span>
+                    Bid Now
+                    </button>
+                  </div>
 
                       <% end %>
 

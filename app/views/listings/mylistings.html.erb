@@ -45,8 +45,8 @@
               </td>
               <td><%= listing.property.prop_type %></td>
               <td><%= listing.property.address %></td>
-              <td>$<%= listing.property.reserve_price %></td>
-              <td>$<%= listing.property.reserve_price %></td>
+              <td>$<%= number_with_delimiter(listing.property.reserve_price) %></td>
+              <td>$<%= number_with_delimiter(listing.property.reserve_price) %></td>
               <td>
                 <div class="pull-left">
                   <button type="button" class="btn btn-warning btn-md">

@@ -48,7 +48,8 @@
               <td><%= property.prop_type  %></td>
               <td><%= property.address  %></td>
               <td><%= property.postal_code  %></td>
-              <td>$<%= property.reserve_price  %></td>
+
+              <td>$<%= number_with_delimiter(property.reserve_price)  %></td>
               <td><%= property.listed%>
               <%= form_tag listings_path, method: :post do %>
               <%= hidden_field_tag :property_id, property.id %></td>
@@ -61,9 +62,9 @@
 
                   <%= link_to '', property, class: 'btn btn-danger btn-md glypicon glyphicon glyphicon-trash tip-top', title: 'Delete Property', method: :delete, data: { confirm: 'This will delete your property. Are you sure?' } %>
 
-                  <%= button_tag(type: "submit", class: "btn btn-success btn-md glypicon glyphicon glyphicon tip-right", title: 'Submit For Listing') do %>
-  <span class="glyphicon glyphicon-send"></span>
-<% end %>
+                  <%= button_tag(type: "submit", class: "btn btn-success btn-md tip-right", title: 'Submit For Listing') do %>
+                  <span class="glyphicon glyphicon-send"></span>
+                  <% end %>
 
                   <% end %>
 
