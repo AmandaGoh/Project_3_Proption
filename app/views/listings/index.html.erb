@@ -1,4 +1,4 @@
-
+<div class="container">
 
     <div class="row">
 
@@ -68,11 +68,8 @@
                         <p><%= listing.description %></p>
                       </div>
 
-
-
-
-
                       <% if listing.listing.bids.exists? %>
+
                       <div class="aa-properties-detial">
                         <span>Last Bid: <b class="bidlast"><%= listing.listing.bids.last.bid_amount %></b></span>
                         <span class="pull-right"><%= listing.listing.bids.length %> Bids</span>
