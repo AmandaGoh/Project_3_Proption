@@ -13,10 +13,7 @@
             <div class="modal-body">
 
               <div class="col-md-12">
-                <img src="/house2.jpg" alt="house1" class="img-thumbnail">
-                <!-- <img src="/house3.jpg" alt="house2" class="img-thumbnail">
-                <img src="/house1.jpg" alt="house3" class="img-thumbnail"> -->
-                <%= @listing.property.picture %>
+                  <%= image_tag(@listing.property.picture_url, width: 314, height:200) if @listing.property.picture.present? %>
               </div>
 
               <table class="pull-left col-md-8 ">

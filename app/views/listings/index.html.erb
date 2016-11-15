@@ -48,9 +48,9 @@
                     <!-- <a class="aa-properties-item-img popular featured_img">
                       <img src="house2.jpg" class="featured_img" alt="img">
                     </a> -->
-                    <a href="#">
+                    <%= link_to listing_path(listing.listing) do %>
                       <%= image_tag(listing.picture_url, width: 314, height:200) if listing.picture.present? %>
-                    </a>
+                    <% end %>
                     <div class="aa-properties-item-content">
 
                       <!-- <div class="aa-properties-info">
