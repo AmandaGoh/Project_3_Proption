@@ -2,14 +2,21 @@ $( document ).on('turbolinks:load', function() {
   // milliseconds from ruby (Time.now.to_f)
 
   var startTime = new Date()
-  var endTime = 1479138831.112253 * 1000
+  var endTime = 1479175079.553844 * 1000
 
   initializeClock(startTime, endTime)
 
   function initializeClock (startTime, endTime) {
     var timeinterval = setInterval(function(){
       var t = getTimeRemaining(startTime, endTime)
-      $('.bidtime').html(t.hours + ':' + t.minutes + ':' + t.seconds)
+      console.log(t.total)
+      $('.bidtime').text(t.hours + ':' + t.minutes + ':' + t.seconds)
+
+      if (t.total <= 0) {
+        clearInterval(timeinterval)
+        $('.bidtime').text('00:00:00')
+      }
+
     }, 1000)
   }
 
