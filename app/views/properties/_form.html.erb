@@ -14,67 +14,63 @@
       </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :'Property Name' %>
-    <%= f.text_field :name %>
-  </div>
+  <p>
+    <%= f.label :'Property Name' %><br>
+    <%= f.text_field :name %><br>
+  </p>
 
-  <div class="field">
-    <%= f.label :'Property Type' %>
-    <%= f.select :prop_type, ['Landed', 'Condominium'] %>
-  </div>
+  <p>
+    <%= f.label :'Property Type' %><br>
+    <%= f.select :prop_type, ['Landed', 'Condominium']%>
+  </p>
 
-  <div class="field">
-    <%= f.label :address %>
-    <%= f.text_field :address %>
-  </div>
+  <p>
+  <%= f.label :address %><br>
+  <%= f.text_field :address %><br>
+  </p>
 
-  <div class="field">
-    <%= f.label :postal_code %>
-    <%= f.text_field :postal_code %>
-  </div>
+  <p>
+  <%= f.label :postal_code %><br>
+  <%= f.text_field :postal_code %><br>
+  </p>
 
-  <div class="field">
-    <%= f.label :tenure %>
-    <%= f.select :tenure, ['Freehold', '999', '99'] %>
-  </div>
+  <p>
+    <%= f.label :tenure %><br>
+    <%= f.select :tenure, ['Freehold', '999', '99']%>
+  </p>
 
-  <div class="field">
-    <%= f.label :size %>
-    <%= f.text_field :size %>
-  </div>
+  <p>
+  <%= f.label :size %><br>
+  <%= f.text_field :size %><br>
+  </p>
 
-  <div class="field">
-    <%= f.label :'Reserve Price' %>
+  <p>
+    <%= f.label :'Reserve Price' %><br>
     <%= f.text_field :reserve_price, :value => number_with_delimiter(f.object.reserve_price) %>
-  </div>
+  </p>
 
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-  </div>
+  <p>
+  <%= f.label :description %><br>
+  <%= f.text_area :description %><br>
+  </p>
 
-  <div>
-    <a href="#">
-      <%= image_tag(property.picture_url, width: 120, height:100) if property.picture.present? %>
-    </a>
-  </div>
+<p>
+  <a href="#">
+    <%= image_tag(property.picture_url, width: 120, height:100) if property.picture.present? %>
+  </a>
+</p>
 
-  <div class="field">
-    <%= f.label :'Property Photographs' %><br>
-    <%= f.file_field :picture %>
-  </div>
+<p>
+  <%= f.label :'Property Photographs' %><br>
+  <%= f.file_field :picture %>
+</p>
 
-  <div class="field">
-    <%= f.hidden_field :seller_id, value: current_user.id %>
-  </div>
 
-  <div class="field">
-    <%= f.hidden_field :listed, value: 0 %>
-  </div>
-
+<%= f.hidden_field :seller_id, value: current_user.id %>
+<%= f.hidden_field :listed, value: 0 %>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Update Property" %>
   </div>
+  <br>
 <% end %>
