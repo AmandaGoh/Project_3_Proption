@@ -1,55 +1,77 @@
 <!-- JUMBOTRON -->
 <div class="jumbotron">
   <div class="bigtitle">
-    <h1>Hey there!</h1>
-    <p>A new property is just a few bids away...</p>
+    <h1>Welcome!</h1>
+    <p>a new property is just a few bids away...</p>
     <p>
       <%= link_to "View All Listings", 'listings', :class => 'btn btn-danger btn-lg'%>
     </p>
   </div>
 </div>
 
+<div class="container">
 <!-- 4 FEATURED LISTINGS -->
-<section class="container tm-home-section-1" id="more">
-  <div class="row">
+  <div class="container tm-home-section-1" id="more">
 
-    <% @listing.each do |listing| %>
-      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
-        <article class="aa-properties-item">
+    <div class='title-latest'>
+      <h1>Latest Auctions</h1>
+      <i class="fa fa-chevron-down" aria-hidden="true"></i>
+    </div>
 
-          <%= link_to listing.picture, listing_path(listing.listing) %>
-          <a class="aa-properties-item-img popular featured_img" alt="property image" width='314' height='200'></a>
+    <div class="row">
 
-        <div class="aa-properties-item-content">
+      <% @listing.each do |listing| %>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
+          <article class="aa-properties-item">
 
-          <div class="aa-properties-info">
-            <span class="icons"><img src="../assets/icons/bed" class="featured_img" alt="img"><b> 4</b></span>
-            <span class="icons"><img src="../assets/icons/bath" class="featured_img" alt="img"><b> 3</b></span>
-            <span class="icons pull-right"><b><%= number_with_delimiter(listing.size) %> sqft</b></span>
+            <a class="aa-properties-item-img popular featured_img" alt="property image"><%= image_tag(listing.picture_url, width: 314, height:200) if listing.picture.present? %></a>
+
+          <div class="aa-properties-item-content">
+
+            <div class="aa-properties-info">
+              <span class="icons"><img src="../assets/icons/bed" class="featured_img" alt="img"><b> 4</b></span>
+              <span class="icons"><img src="../assets/icons/bath" class="featured_img" alt="img"><b> 3</b></span>
+              <span class="icons pull-right"><b><%= number_with_delimiter(listing.size) %> sqft</b></span>
+            </div>
+
+            <div class="aa-properties-about">
+              <h3 class="propname"><%= link_to listing.name, listing_path(listing.listing) %></h3>
+              <p><%= listing.description %></p>
+            </div>
+
+            <% if listing.listing.bids.exists? %>
+
+            <div class="aa-properties-detial">
+              <span>Last Bid: <b class="bidlast">$<%= number_with_delimiter(listing.listing.bids.last.bid_amount) %></b></span>
+              <span class="pull-right"><%= listing.listing.bids.length %> Bids</span>
+              <br>
+              <span>Ends: <b class="bidtime">07:54:03</b></span>
+
+              <%= link_to 'Bid Now', listing_path(listing.listing), class: 'btn btn-danger btn-md pull-right' %>
+
+            </div>
+
+            <% else %>
+
+            <div class="aa-properties-detial">
+              <span>Last Bid: <b class="bidlast">No Bids</b></span>
+              <span class="pull-right">0 Bids</span>
+              <br>
+              <span>Ends: <b class="bidtime">07:54:03</b></span>
+
+              <%= link_to 'Bid Now', listing_path(listing.listing), class: 'btn btn-danger btn-md pull-right' %>
+
+            </div>
+
+            <% end %>
+
           </div>
 
-          <div class="aa-properties-about">
-            <h3 class="propname"><%= link_to listing.name, listing_path(listing.listing) %></h3>
-            <p><%= listing.description %></p>
-          </div>
-
-          <div class="aa-properties-detial">
-            <span>Last Bid: <b class="bidlast">$1450000</b></span>
-            <span class="pull-right">7 Bids</span>
-            <br>
-            <span>Ends: <b class="bidtime">07:54:03</b></span>
-
-            <button type="button" class="btn btn-danger btn-md pull-right">
-              <span class="glypicon glyphicon glyphicon-ice-lolly"></span>Bid
-            </button>
-          </div>
-
+          </article>
         </div>
 
-        </article>
-      </div>
+        <% end %>
 
-      <% end %>
-
+    </div>
   </div>
-</section>
+</div>
