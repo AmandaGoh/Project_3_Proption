@@ -22,7 +22,7 @@ Rails.application.routes.draw do
 # page for individual properties
   get 'myproperties', to: 'properties#myproperties'
 
-  get 'propertydetails', to: "properties#propertydetails"
+  # get 'propertydetails', to: "properties#propertydetails"
 
   resources :properties
 

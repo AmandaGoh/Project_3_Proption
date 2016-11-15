@@ -46,12 +46,18 @@
 
   <div class="field">
     <%= f.label :'Reserve Price' %>
-    <%= f.text_field :reserve_price %>
+    <%= f.text_field :reserve_price, :value => number_with_delimiter(f.object.reserve_price) %>
   </div>
 
   <div class="field">
     <%= f.label :description %>
     <%= f.text_area :description %>
+  </div>
+
+  <div>
+    <a href="#">
+      <%= image_tag(property.picture_url, width: 120, height:100) if property.picture.present? %>
+    </a>
   </div>
 
   <div class="field">

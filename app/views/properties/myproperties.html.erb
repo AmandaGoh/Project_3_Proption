@@ -2,7 +2,7 @@
     <div class="row">
       <h1>MY PROPERTIES - Not listed for bidding yet.</h1>
 
-      <div class="col-md-3">
+      <div class="col-md-2">
         <form action="#" method="get">
           <div class="input-group">
             <!-- SEARCH BAR -->
@@ -18,7 +18,7 @@
 
       </div>
 
-      <div class="col-md-9">
+      <div class="col-md-10">
         <table class="table table-list-search">
           <thead>
             <tr>
@@ -28,6 +28,7 @@
               <th>Address</th>
               <th>Postal Code</th>
               <th>Reserve Price</th>
+              <th>Status</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -47,18 +48,26 @@
               <td><%= property.prop_type  %></td>
               <td><%= property.address  %></td>
               <td><%= property.postal_code  %></td>
-              <td>$<%= property.reserve_price  %></td>
+
+              <td>$<%= number_with_delimiter(property.reserve_price)  %></td>
+              <td><%= property.listed%>
+              <%= form_tag listings_path, method: :post do %>
+              <%= hidden_field_tag :property_id, property.id %></td>
               <td>
+
 
                 <div class="pull-left">
 
                   <%= link_to '' , edit_property_path(property), class: 'btn btn-primary btn-md glypicon glyphicon glyphicon-edit tip-left', title: "Edit Property" %>
 
-                  <%= link_to '', property, class: 'btn btn-danger btn-md glypicon glyphicon glyphicon-trash tip-top', title: 'Delete Property', method: :delete, data: { confirm: 'This will delete your property' } %>
+                  <%= link_to '', property, class: 'btn btn-danger btn-md glypicon glyphicon glyphicon-trash tip-top', title: 'Delete Property', method: :delete, data: { confirm: 'This will delete your property. Are you sure?' } %>
 
-                  <button type="button" class="btn btn-success btn-md" data-toggle="tooltip" data-placement="right" title="Submit For Auction">
-                  <span class="glypicon glyphicon glyphicon-send"></span>
-                  </button>
+                  <%= button_tag(type: "submit", class: "btn btn-success btn-md tip-right", title: 'Submit For Listing') do %>
+                  <span class="glyphicon glyphicon-send"></span>
+                  <% end %>
+
+                  <% end %>
+
 
                 </div>
               </td>
