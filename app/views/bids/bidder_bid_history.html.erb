@@ -63,9 +63,9 @@
                 <td> <%= unique_listing.listing.property.picture %> </td>
                 <td> <%= unique_listing.listing.property.prop_type %> </td>
                 <td> <%= unique_listing.listing.property.address %> </td>
-                <td>$<%= unique_listing.listing.property.reserve_price %> </td>
-                <td>$<%= unique_listing.listing.bids.last.bid_amount %> </td>
-                <td>$<%= @current_user_bids.where(["listing_id = ?", unique_listing.listing_id]).last.bid_amount%> </td>
+                <td>$<%= number_with_delimiter(unique_listing.listing.property.reserve_price) %> </td>
+                <td>$<%= number_with_delimiter(unique_listing.listing.bids.last.bid_amount) %> </td>
+                <td>$<%= number_with_delimiter(@current_user_bids.where(["listing_id = ?", unique_listing.listing_id]).last.bid_amount) %> </td>
                 <td>
                   <div class="pull-left">
                     <form method="GET" action="/listings/<%= unique_listing.listing_id %>">
