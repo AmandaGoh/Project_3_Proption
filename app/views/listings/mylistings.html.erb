@@ -78,7 +78,7 @@
               <% elsif listing.property.listed == 2 %>
               <td><span> Pending Acceptance </span>
               <% else listing.property.listed == 3 %>
-              <td><span> Bidding Accepted </span>
+              <td><span> Bid Accepted </span>
               <% end %>
 
 
@@ -96,7 +96,7 @@
 
               <td>
 
-
+                <% if listing.property.listed == 2 %>
                 <%= form_tag accept_bid_path, method: :get do %>
                     <%= hidden_field_tag :id, listing.property.id %>
 
@@ -104,8 +104,16 @@
                     <span class="glyphicon glyphicon-send"></span>
 
                     <% end %>
-                <% end %>
+                    <% end %>
 
+                    <% elsif listing.property.listed == 3 %>
+
+                      <span class="btn btn-success btn-md">Bid Accepted</span>
+
+                  <% else  %>
+                    <span class="btn btn-success btn-md">Bidding in progress</span>
+
+                    <% end %>
               </td>
 
             </tr>
