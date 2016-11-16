@@ -1,12 +1,14 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
 /*========================
 JUMBOTRON
 ========================*/
 .jumbotron {
+  top:-50px;
   position: relative;
   width: 100%;
   height: 100%;
@@ -21,8 +23,29 @@ JUMBOTRON
   position: relative;
   text-align: center;
 	color: white;
-	margin: 15% auto;
-  z-index: 5;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 107%;
+
+}
+
+.tword2 {
+  position: absolute;
+  top: -25px;
+}
+
+.viewall.btn.btn.btn-lg {
+  color: white;
+  border: 1px solid white;
+  z-index: 10;
+  margin-top:5%;
+  padding: 1%;
+}
+
+.viewall.btn.btn.btn-lg:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 1px solid white;
 }
 
 /*========================
@@ -311,7 +334,7 @@ ABOUT
 }
 
 .scroll-down.black {
-  top: 39%;
+  top: 41%;
 }
 
 .container.about {
@@ -322,14 +345,14 @@ ABOUT
   margin-top: 5%;
 }
 
-.col-md-2 {
-  padding: 10px;
-  margin: 0 2px;
-  width: 230px;
+div.profile {
+  display: inline-block;
+  width: 100px;
 }
 
 .row.profile {
   text-align: center;
+  display: inline-block;
 }
 
 .boxed-grey {
@@ -384,6 +407,10 @@ ABOUT
 	padding:0;
 }
 
+.aboutsum {
+  height: 1em;
+}
+
 /* ===========================
 SERVICES
 ============================ */
@@ -397,7 +424,7 @@ SERVICES
 }
 
 .row.services {
-  margin-top: 6%;
+  margin-top: 24%;
 }
 
 /* ===========================
@@ -536,4 +563,210 @@ SCROLL DOWN
     -ms-transform: translateY(-5px);
     transform: translateY(-5px);
   }
+}
+
+/*========================
+INDEX PAGE ANIMATION
+========================*/
+.hovereffect {
+  width: 100%;
+  height: 700px;
+  float: left;
+  overflow: hidden;
+  text-align: center;
+  cursor: default;
+  position: absolute;
+  margin-top: 150px;
+  padding: 2%;
+  margin-bottom: 1%;
+}
+
+.tword {
+  margin-top: 3%;
+}
+
+.hovereffect .overlay {
+  position: absolute;
+  overflow: hidden;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  width: 55%;
+  height: 100%;
+  left: 22%;
+  top: 20%;
+  padding-top: 5%;
+  // border-radius: 80%;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  -webkit-transform: translate3d(50%,50%,0);
+  transform: translate3d(50%,50%,0);
+}
+
+.titleword {
+  margin-top: 15%;
+}
+
+.hovereffect {
+  position: absolute;
+  height: 300px;
+}
+
+.hovereffect h2 {
+  text-transform: uppercase;
+  text-align: center;
+  position: relative;
+  font-size: 17px;
+  padding: 10px;
+  background-color: transparent;
+  color: #FFF;
+  padding: 1em 0;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  -webkit-transform: translate3d(-150%,-400%,0);
+  transform: translate3d(-150%,-400%,0);
+}
+
+.hovereffect a, .hovereffect p {
+  color: #FFF;
+  padding: 1em 0;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  -webkit-transform: translate3d(-150%,-400%,0);
+  transform: translate3d(-150%,-400%,0);
+}
+
+.hovereffect:hover a, .hovereffect:hover p, .hovereffect:hover h2, .hovereffect:hover .overlay {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+}
+
+/*========================
+JUMBOTRON
+========================*/
+span.icons.pull-right {
+  text-align: right;
+}
+
+/*========================
+CAROUSEL
+========================*/
+.carousel-inner {
+  padding: auto 20px;
+}
+
+div.col-sm-3.text-center {
+  width: 21%;
+}
+
+.img-circle {
+  height: 200px;
+  width: 200px;
+}
+
+#quote-carousel
+{
+  padding: 0 10px 30px 10px;
+  margin-top: 30px;
+}
+
+/* Control buttons  */
+#quote-carousel .carousel-control
+{
+  background: none;
+  color: #222;
+  font-size: 2.3em;
+  text-shadow: none;
+  margin-top: 30px;
+}
+/* Previous button  */
+#quote-carousel .carousel-control.left
+{
+  left: -60px;
+}
+/* Next button  */
+#quote-carousel .carousel-control.right
+{
+  right: -60px !important;
+}
+/* Changes the position of the indicators */
+#quote-carousel .carousel-indicators
+{
+  right: 50%;
+  top: auto;
+  bottom: 0px;
+  margin-right: -19px;
+}
+/* Changes the color of the indicators */
+#quote-carousel .carousel-indicators li
+{
+  background: #c0c0c0;
+}
+#quote-carousel .carousel-indicators .active
+{
+  background: #333333;
+}
+#quote-carousel img
+{
+  width: 250px;
+  height: 100px
+}
+/* End carousel */
+
+.item blockquote {
+    border-left: none;
+    margin: 0;
+}
+
+.item blockquote img {
+    margin-bottom: 10px;
+}
+
+.item blockquote p:before {
+    content: "\f10d";
+    font-family: 'Fontawesome';
+    float: left;
+    margin-right: 10px;
+}
+
+
+
+/**
+  MEDIA QUERIES
+*/
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    #quote-carousel
+    {
+      margin-bottom: 0;
+      padding: 0 40px 30px 40px;
+    }
+
+}
+
+/* Small devices (tablets, up to 768px) */
+@media (max-width: 768px) {
+
+    /* Make the indicators larger for easier clicking with fingers/thumb on mobile */
+
+    #quote-carousel .carousel-indicators {
+        bottom: -20px !important;
+    }
+    #quote-carousel .carousel-indicators li {
+        display: inline-block;
+        margin: 0px 5px;
+        width: 15px;
+        height: 15px;
+    }
+    #quote-carousel .carousel-indicators li.active {
+        margin: 0px 5px;
+        width: 20px;
+        height: 20px;
+    }
 }
