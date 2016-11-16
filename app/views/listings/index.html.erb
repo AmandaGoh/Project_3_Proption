@@ -74,9 +74,9 @@
                       <% if listing.listing.bids.exists? %>
 
                       <div class="aa-properties-detial">
-                        <span>Reserve Price: <b class="bidlast"><%= number_with_delimiter(listing.reserve_price) %></b></span>
+                        <span>Reserve Price ($): <b class="bidlast"><%= number_with_delimiter(listing.reserve_price) %></b></span>
                         <br>
-                        <span>Last Bid: <b class="bidlast"><%= listing.listing.bids.last.bid_amount %></b></span>
+                        <span>Last Bid ($): <b class="bidlast"><%= number_with_delimiter(listing.listing.bids.last.bid_amount) %></b></span>
                         <span class="pull-right"><%= listing.listing.bids.length %> Bids</span>
                         <br>
                         <span>Ends: <b class= "<%= "bidtime" + listing.listing.id.to_s %>"><%= listing.listing.duration.in_time_zone("Singapore") %></b></span>
@@ -88,9 +88,9 @@
 
                   <div class="aa-properties-detial">
 
-                    <span>Reserve Price: <b class="bidlast"><%= number_with_delimiter(listing.reserve_price) %></b></span>
+                    <span>Reserve Price ($): <b class="bidlast"><%= number_with_delimiter(listing.reserve_price) %></b></span>
                     <br>
-                    <span>Last Bid: <b class="bidlast">No bids yet</b></span>
+                    <span>Last Bid ($): <b class="bidlast">No bids yet</b></span>
                     <span class="pull-right">0 Bids</span>
                     <br>
                     <span>Ends: <b class= "<%= "bidtime" + listing.listing.id.to_s %>"><%= listing.listing.duration.in_time_zone("Singapore") %></b></span>
