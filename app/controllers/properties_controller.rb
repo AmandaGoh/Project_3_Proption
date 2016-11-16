@@ -74,5 +74,20 @@ class PropertiesController < ApplicationController
     # session
   end
 
+  def update_listed_status
+    @property = Property.find(params[:id])
+    listing_id = @property.listing.id
+
+    @property.listed = listed_params[:listed]
+    @property.save
+
+    head :no_content
+  end
+
+  private
+
+  def listed_params
+    params.permit(:listed)
+  end
 
 end

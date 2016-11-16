@@ -42,6 +42,8 @@ $( document ).on('turbolinks:load', function() {
         $('#bid-message').remove()
         $('.bid-input' + listingID).remove()
         $('.modal-content').addClass('listing-greyed-out')
+        // trigger submit of invisible form
+        $('#listed-status-form' +listingID).submit()
       }
 
     }, 1000)

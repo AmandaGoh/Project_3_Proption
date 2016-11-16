@@ -1,6 +1,6 @@
 class ListingsController < ApplicationController
   def index
-    @listings = Property.where(listed: 1)
+    @listings = Property.where('listed > ?', 0)
   end
 
   def show

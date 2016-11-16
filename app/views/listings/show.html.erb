@@ -180,25 +180,20 @@
                   <span class="glypicon glyphicon glyphicon-ice-lolly"></span>
                   <%= submit_tag "Submit Bid", class: "btn btn-success btn-lg submit-button"+@listing.id.to_s %>
               </div>
+                  <!-- invisible form to change listed status from 1 (listed) to 2 (pending acceptance) -->
+
               <% end %>
 
-
-
-
-
-
-
-
-
-
+              <%= form_tag edit_property_path(@listing.property), method: :post, remote: true, id: 'listed-status-form' + @listing.id.to_s do %>
+              <%= hidden_field_tag :listed, 2 %>
+              <%= submit_tag "", :style => "display: none;"%>
+              <% end %>
 
             </div>
           </div>
         </div>
 
       <!-- fim Modal-->
-
-
 
 
 
