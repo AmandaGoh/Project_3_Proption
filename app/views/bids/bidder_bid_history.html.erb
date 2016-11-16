@@ -67,18 +67,24 @@
                 <td>$<%= number_with_delimiter(unique_listing.listing.bids.last.bid_amount) %> </td>
                 <td>$<%= number_with_delimiter(@current_user_bids.where(["listing_id = ?", unique_listing.listing_id]).last.bid_amount) %> </td>
                 <td>
-                  <div class="pull-left">
-                    <form method="GET" action="/listings/<%= unique_listing.listing_id %>">
-                      <!-- <button type="button" class="btn btn-success btn-md"> -->
-                      <input type="submit" value="Submit New Bid" class="btn btn-success btn-md">
-                      <!-- <span class="glypicon glyphicon glyphicon-ice-lolly"></span> -->
-                      <!-- </button> -->
-                    </form>
-                  </div>
+
+                  <% if unique_listing.listing.property.listed == 3 %>
+                      <span class="btn btn-success btn-md">Bid Accepted By Seller</span>
+
+                  <% else %>
+                      <div class="pull-left">
+                        <form method="GET" action="/listings/<%= unique_listing.listing_id %>">
+                          <!-- <button type="button" class="btn btn-success btn-md"> -->
+                          <input type="submit" value="Submit New Bid" class="btn btn-success btn-md">
+                          <!-- <span class="glypicon glyphicon glyphicon-ice-lolly"></span> -->
+                          <!-- </button> -->
+                        </form>
+                      </div>
+                  <% end %>
+
                 </td>
 
               </tr>
-
           <% end %>
 
           <% else %>
@@ -90,6 +96,5 @@
         </tbody>
       </table>
     </div>
-
   </div>
 </div>
