@@ -40,8 +40,8 @@
 
             <tr>
 
-              <td><%= link_to listing.property.name, listing_path(listing) %></td>
-
+              <td><%= link_to listing.property.name, listing_path(listing) %>
+              </td>
 
               <td>
                 <%= link_to listing_path(listing) do %>
@@ -56,6 +56,7 @@
               <td><%= listing.property.prop_type %></td>
               <td><%= listing.property.address %></td>
               <td><%= number_with_delimiter(listing.property.reserve_price) %></td>
+
               <td><% if listing.bids.exists? %>
 
               <%= number_with_delimiter(listing.bids.last.bid_amount) %>
@@ -66,9 +67,10 @@
                 No bids yet</b></span>
               </div>
 
-                <% end %>
+              <% end %>
 
-                  </td>
+              </td>
+
 
 
               <% if listing.property.listed == 1 %>
