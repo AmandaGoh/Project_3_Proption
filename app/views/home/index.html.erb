@@ -48,7 +48,7 @@
               <span>Last Bid: <b class="bidlast">$<%= number_with_delimiter(listing.listing.bids.last.bid_amount) %></b></span>
               <span class="pull-right"><%= listing.listing.bids.length %> Bids</span>
               <br>
-              <span>Ends: <b class="bidtime">07:54:03</b></span>
+              <span>Ends: <b class="<%= "bidtime" + listing.listing.id.to_s %>"><%= listing.listing.duration.in_time_zone("Singapore") %></b></span>
 
               <%= link_to 'Bid Now', listing_path(listing.listing), class: 'btn btn-danger btn-md pull-right' %>
 
