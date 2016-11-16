@@ -45,7 +45,7 @@ $( document ).on('turbolinks:load', function() {
 
 // ALERT MESSAGE
 
-$(".alertMessage").show()
+// $(".alertMessage").show()
 // setTimeout(function() { $(".alertMessage").hide(); }, 1500);
 // setTimeout(function() {
   // TODO: Fix this code below
