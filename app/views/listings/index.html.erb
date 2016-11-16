@@ -65,6 +65,10 @@
 
 
                         <p><%= listing.description %></p>
+
+                        <div class="listing-id", style="display: none"><%= listing.listing.id %></div>
+                        <div class="duration", style="display: none"><%= listing.listing.duration %></div>
+
                       </div>
 
                       <% if listing.listing.bids.exists? %>
@@ -75,7 +79,7 @@
                         <span>Last Bid: <b class="bidlast"><%= listing.listing.bids.last.bid_amount %></b></span>
                         <span class="pull-right"><%= listing.listing.bids.length %> Bids</span>
                         <br>
-                        <span>Ends: <b class="bidtime">07:54:03</b></span>
+                        <span>Ends: <b class= "<%= "bidtime" + listing.listing.id.to_s %>"><%= listing.listing.duration.in_time_zone("Singapore") %></b></span>
                         <button type="button" class="btn btn-danger btn-md pull-right bidnow">
                         <span class="glypicon glyphicon glyphicon-ice-lolly"></span>
                         Bid Now
@@ -91,7 +95,7 @@
                     <span>Last Bid: <b class="bidlast">No bids yet</b></span>
                     <span class="pull-right">0 Bids</span>
                     <br>
-                    <span>Ends: <b class="bidtime">07:54:03</b></span>
+                    <span>Ends: <b class= "<%= "bidtime" + listing.listing.id.to_s %>"><%= listing.listing.duration.in_time_zone("Singapore") %></b></span>
                     <button type="button" class="btn btn-danger btn-md pull-right bidnow">
                     <span class="glypicon glyphicon glyphicon-ice-lolly"></span>
                     Bid Now

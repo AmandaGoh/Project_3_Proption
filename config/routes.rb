@@ -32,7 +32,11 @@ Rails.application.routes.draw do
 #nested routes for listings/bids
   resources :listings
 
-  post '/listings/:id/bids', to: "bids#create"
+  post '/listings/:id/bids', to: 'bids#create'
+
+#nested routes to edit properties' listed status
+
+  post '/properties/:id/edit', to: 'properties#update_listed_status'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 

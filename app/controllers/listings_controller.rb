@@ -1,6 +1,6 @@
 class ListingsController < ApplicationController
   def index
-    @listings = Property.where(listed: 1)
+    @listings = Property.where('listed > ?', 0)
   end
 
   def show
@@ -17,6 +17,7 @@ class ListingsController < ApplicationController
     @my_properties=current_user.properties
 
   end
+
   def create
     # edit curr_property listed to 1
     # create new listing with curr_property id
@@ -24,19 +25,23 @@ class ListingsController < ApplicationController
     # debugger
     # @my_properties=current_user.properties
     # prop2.create_listing auction_date: Date.today, duration: 48, property_id: 2
+
     @property = Property.find(params[:property_id])
     @new_listing = Listing.new()
-    @new_listing.auction_date = Date.today
-    @new_listing.duration = Time.now + 2.minutes
+    @new_listing.auction_date = DateTime.now
+    @new_listing.duration = DateTime.now + 2.minutes
     @new_listing.property_id = @property.id
     @new_listing.save
     @update_prop_listing =
     @property.listed = 1
     @property.save
 
+    @new_listing.errors.full_messages
+
     redirect_to mylistings_path
   end
 
+<<<<<<< HEAD
 
   def accept_bid
     @property = Property.find(params[:id])
@@ -47,4 +52,6 @@ class ListingsController < ApplicationController
   end
 
 
+=======
+>>>>>>> countdown-timer
 end
