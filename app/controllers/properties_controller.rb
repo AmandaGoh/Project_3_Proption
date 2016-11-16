@@ -25,9 +25,9 @@ class PropertiesController < ApplicationController
     end
   end
 
-  def property_params
-  params.require(:property).permit(:name,:prop_type, :address, :postal_code, :reserve_price, :tenure, :size, :description, :picture, :seller_id, :listed)
-  end
+
+
+
 
   # POST /properties
   # POST /properties.json
@@ -46,7 +46,7 @@ class PropertiesController < ApplicationController
 
   #get properties/new
   def new
-    @property = Property.new
+    @new_property = Property.new
   end
   def create
     current_user
@@ -61,9 +61,20 @@ class PropertiesController < ApplicationController
     @new_property.description = params[:property][:description]
     @new_property.picture = params[:property][:picture]
     @new_property.seller_id = current_user.id
-    @new_property.save
+
     @new_property.errors.full_messages
-    redirect_to myproperties_path
+
+
+    respond_to do |format|
+      if @new_property.save
+        format.html { redirect_to myproperties_path, notice: 'Your property is successfully created.' }
+        format.json { render :show, status: :ok, location: @new_property }
+      else
+        format.html { render :new }
+        format.json { render json: @new_property.errors, status: :unprocessable_entity }
+      end
+    end
+
   end
 
   def destroy
@@ -83,9 +94,10 @@ class PropertiesController < ApplicationController
     # session
   end
 
+
   def update_listed_status
     @property = Property.find(params[:id])
-    listing_id = @property.listing.id
+    
 
     @property.listed = listed_params[:listed]
     @property.save
@@ -98,5 +110,12 @@ class PropertiesController < ApplicationController
   def listed_params
     params.permit(:listed)
   end
+
+
+
+  def property_params
+  params.require(:property).permit(:name,:prop_type, :address, :postal_code, :reserve_price, :tenure, :size, :description, :picture, :seller_id, :listed)
+  end
+
 
 end

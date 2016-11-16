@@ -39,23 +39,45 @@
 
 
             <tr>
-              <td><%= link_to listing.property.name, listing_path(listing) %></td>
+
+              <td><%= link_to listing.property.name, listing_path(listing) %>
+              </td>
+
               <td>
                 <%= link_to listing_path(listing) do %>
                   <%= image_tag(listing.property.picture_url, width: 120, height:100) if listing.property.picture.present? %>
                     <% end %>
                   <!-- <img src="http://assets.cromly.s3.amazonaws.com/stories/lime%20house/fish%20house/GUZ-SENTOSA-002.jpg" width="120" alt=""> -->
 
-              </td>
+                </td>
+
+
+
               <td><%= listing.property.prop_type %></td>
               <td><%= listing.property.address %></td>
               <td><%= number_with_delimiter(listing.property.reserve_price) %></td>
-              <td><%= number_with_delimiter(listing.property.reserve_price) %></td>
+
+              <td><% if listing.bids.exists? %>
+
+              <%= number_with_delimiter(listing.bids.last.bid_amount) %>
+
+              <% else %>
+
+              <div id= "bid-amount">
+                No bids yet</b></span>
+              </div>
+
+              <% end %>
+
+              </td>
+
 
 
               <% if listing.property.listed == 1 %>
               <td><span> Listed </span>
               <% elsif listing.property.listed == 2 %>
+              <td><span> Pending Acceptance </span>
+              <% else listing.property.listed == 3 %>
               <td><span> Bidding Accepted </span>
               <% end %>
 
@@ -78,8 +100,8 @@
                 <%= form_tag accept_bid_path, method: :get do %>
                     <%= hidden_field_tag :id, listing.property.id %>
 
-                    <%= button_tag(type: 'submit', class:"btn btn-success btn-md", title: 'Accept Bid') do %>
-                    <span class='glyphicon glyphicon-list'></span>
+                    <%= button_tag(type: 'submit', class:"btn btn-success btn-md tip-right", title: 'Accept Bid') do %>
+                    <span class="glyphicon glyphicon-send"></span>
 
                     <% end %>
                 <% end %>

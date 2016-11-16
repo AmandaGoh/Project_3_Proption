@@ -43,7 +43,7 @@ class ListingsController < ApplicationController
 
   def accept_bid
     @property = Property.find(params[:id])
-    @property.listed = 2
+    @property.listed = 3
     @property.save
 
   redirect_to mylistings_path
