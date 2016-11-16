@@ -2,7 +2,19 @@
 <h1>Property Creation Page</h1>
 
 <!-- form for -->
-<%= form_for @property do |f| %>
+<%= form_for @new_property do |f| %>
+
+<% if @new_property.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@new_property.errors.count, "error") %> prohibited this property from being saved:</h2>
+
+      <ul>
+      <% @new_property.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+<% end %>
 
 <p>
 <%= f.label :'Property Name' %><br>
