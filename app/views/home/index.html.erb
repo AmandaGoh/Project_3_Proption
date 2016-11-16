@@ -63,7 +63,7 @@
                   <br>
 
                   <% if listing.listed == 1%>
-                  <span>Ends: <b class= "<%= "bidtime" + listing.listing.id.to_s %>"><%= listing.listing.duration.in_time_zone("Singapore") %></b></span>
+                  <span>Ends: <b class= "<%= "bidtime" + listing.listing.id.to_s %>"><%= strftime(listing.listing.duration.in_time_zone("Singapore"), "%d-%m-%Y"  ) %></b></span>
 
                   <% elsif listing.listed == 2 %>
                   <span>Ends :Pending Acceptance</span>
