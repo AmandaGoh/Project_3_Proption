@@ -39,14 +39,20 @@
 
 
             <tr>
-              <td><%= link_to listing.property.name, property_path(listing) %></a></td>
-              <td>
-                <a href="#" width="120">
-                  <%= image_tag(listing.property.picture_url, width: 120, height:100) if listing.property.picture.present? %>
-                  <!-- <img src="http://assets.cromly.s3.amazonaws.com/stories/lime%20house/fish%20house/GUZ-SENTOSA-002.jpg" width="120" alt=""> -->
-                </a>
 
-              </td>
+              <td><%= link_to listing.property.name, property_path(listing) %></td>
+
+
+              <td>
+                <%= link_to listing_path(listing) do %>
+                  <%= image_tag(listing.property.picture_url, width: 120, height:100) if listing.property.picture.present? %>
+                    <% end %>
+                  <!-- <img src="http://assets.cromly.s3.amazonaws.com/stories/lime%20house/fish%20house/GUZ-SENTOSA-002.jpg" width="120" alt=""> -->
+
+                </td>
+
+
+
               <td><%= listing.property.prop_type %></td>
               <td><%= listing.property.address %></td>
               <td><%= number_with_delimiter(listing.property.reserve_price) %></td>
@@ -63,11 +69,6 @@
                 <% end %>
 
                   </td>
-
-
-
-
-
 
 
               <% if listing.property.listed == 1 %>

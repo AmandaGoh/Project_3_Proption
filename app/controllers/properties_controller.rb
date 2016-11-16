@@ -71,6 +71,9 @@ class PropertiesController < ApplicationController
 
   def myproperties
     @my_properties=current_user.properties
+    # @property = Property.find(params[:id])
+    # @not_listed = @property.listed < 1 ? true: false
+
     # session
   end
 
