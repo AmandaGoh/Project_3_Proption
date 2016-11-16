@@ -21,8 +21,8 @@ ActiveRecord::Schema.define(version: 20161109144250) do
   end
 
   create_table "listings", force: :cascade do |t|
-    t.date     "auction_date"
-    t.time     "duration"
+    t.datetime "auction_date"
+    t.datetime "duration"
     t.integer  "property_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false

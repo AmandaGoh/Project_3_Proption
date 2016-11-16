@@ -88,10 +88,28 @@ class PropertiesController < ApplicationController
     # session
   end
 
-private
-def property_params
-params.require(:property).permit(:name,:prop_type, :address, :postal_code, :reserve_price, :tenure, :size, :description, :picture, :seller_id, :listed)
-end
+
+  def update_listed_status
+    @property = Property.find(params[:id])
+    
+
+    @property.listed = listed_params[:listed]
+    @property.save
+
+    head :no_content
+  end
+
+  private
+
+  def listed_params
+    params.permit(:listed)
+  end
+
+
+
+  def property_params
+  params.require(:property).permit(:name,:prop_type, :address, :postal_code, :reserve_price, :tenure, :size, :description, :picture, :seller_id, :listed)
+  end
 
 
 end
