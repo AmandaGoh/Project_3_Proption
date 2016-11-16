@@ -40,7 +40,7 @@
 
             <tr>
 
-              <td><%= link_to listing.property.name, property_path(listing) %></td>
+              <td><%= link_to listing.property.name, listing_path(listing) %></td>
 
 
               <td>
@@ -74,6 +74,8 @@
               <% if listing.property.listed == 1 %>
               <td><span> Listed </span>
               <% elsif listing.property.listed == 2 %>
+              <td><span> Pending Acceptance </span>
+              <% else listing.property.listed == 3 %>
               <td><span> Bidding Accepted </span>
               <% end %>
 
