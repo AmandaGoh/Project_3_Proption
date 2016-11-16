@@ -25,7 +25,7 @@
               <th>Picture</th>
               <th>Property Type</th>
               <th>Address</th>
-              <th>Reserve Price</th>
+              <th>Reserve Price ($)</th>
               <th>Last Bid Price ($)</th>
               <th>Status</th>
               <th>Bids History</th>
@@ -49,7 +49,7 @@
               </td>
               <td><%= listing.property.prop_type %></td>
               <td><%= listing.property.address %></td>
-              <td>$<%= number_with_delimiter(listing.property.reserve_price) %></td>
+              <td><%= number_with_delimiter(listing.property.reserve_price) %></td>
               <td><% if listing.bids.exists? %>
 
               <%= number_with_delimiter(listing.bids.last.bid_amount) %>
