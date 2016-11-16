@@ -102,13 +102,21 @@
 
               <div id="bid-message">
               </div>
+
+              <div class="listing-id", style="display: none"><%= @listing.id %></div>
+              <div id="duration", style="display: none"><%= @listing.duration.to_f %></div>
             </div>
 
             <div class="modal-footer">
 
               <div class="text-left col-md-3">
-                Bid Ends: <br/>
-                <span class="h3 text-muted"><b class="bidtime"> 02:33:42 </b></span></span>
+                Bid's Endding In: <br/>
+                <span class="h3 text-muted">
+                  <div class="bidtime">
+                    <div class="<%= "bidtime" + @listing.id.to_s %>">
+                    </div>
+                  </div>
+               </span>
               </div>
 
               <% if @listing.bids.exists? %>
@@ -154,7 +162,7 @@
               <%= form_tag listing_path + '/bids', method: :post, remote: true, id: 'bid-form' do %>
               <div class="text-left col-md-2">
                   <%= label_tag "Bid Amount:"%><br/>
-                    <div class="input-group">
+                    <div class="input-group bid-input<%=@listing.id %>">
                       <span class="input-group-btn">
                         <button type="button" class="btn btn-default">
                         <span class="glyphicon glyphicon"><b>$</b></span>
@@ -166,27 +174,22 @@
 
               <div class="col-md-3">
                   <span class="glypicon glyphicon glyphicon-ice-lolly"></span>
-                  <%= submit_tag "Submit Bid", class: "btn btn-success btn-lg" %>
+                  <%= submit_tag "Submit Bid", class: "btn btn-success btn-lg submit-button"+@listing.id.to_s %>
               </div>
+                  <!-- invisible form to change listed status from 1 (listed) to 2 (pending acceptance) -->
+
               <% end %>
 
-
-
-
-
-
-
-
-
-
+              <%= form_tag edit_property_path(@listing.property), method: :post, remote: true, id: 'listed-status-form' + @listing.id.to_s do %>
+              <%= hidden_field_tag :listed, 2 %>
+              <%= submit_tag "", :style => "display: none;"%>
+              <% end %>
 
             </div>
           </div>
         </div>
 
       <!-- fim Modal-->
-
-
 
 
 
