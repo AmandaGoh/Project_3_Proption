@@ -1,0 +1,66 @@
+/*========================
+NAVBAR
+========================*/
+header {
+	height: 50px;
+	width: 100%;
+}
+
+.navbar-fixed-top {
+	background-color: black;
+	padding: 0 30px;
+  -webkit-box-shadow:0px 2px 3px #888888;
+  -moz-box-shadow:0px 2px 3px #888888;
+  box-shadow: 0px 3px 3px #888888;
+}
+
+.navbar-collapse.collapse.in {
+	height: 100%;
+	width: 100%;
+}
+
+.collapse.navbar-collapse {
+	margin-right: 15px;
+}
+
+.dropdown:hover .dropdown-menu {
+display: block;
+}
+
+.navbarlink {
+	color: white;
+}
+
+.navbarlink:hover {
+	color: black;
+}
+
+.nav.navbar-nav.navbar-right li a:hover {
+	background-color: black;
+  color: white;
+  font-weight: bolder;
+}
+
+.logolong {
+	height: 25px;
+}
+
+.navbar-login {
+	width: 305px;
+	padding: 10px;
+	padding-bottom: 0px;
+}
+
+.navbar-login-session {
+	padding: 10px;
+	padding-bottom: 0px;
+	padding-top: 0px;
+}
+
+.icon-size {
+	font-size: 87px;
+}
+
+.navbar-toggle .icon-bar {
+	background-color: white;
+}
