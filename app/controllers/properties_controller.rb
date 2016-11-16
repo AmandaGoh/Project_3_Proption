@@ -1,4 +1,7 @@
 class PropertiesController < ApplicationController
+  # before_action :authenticate_user!, only: [:new, :edit, :update, :destroy], notice: 'you must sign in first!'
+  # before_action :find_job, only: [:show, :edit, :update, :destroy]
+
   def index
     @properties=Property.all
 
@@ -17,6 +20,9 @@ class PropertiesController < ApplicationController
   # GET /properties/1/edit
   def edit
     @property = Property.find(params[:id])
+    unless current_user.id == @property.seller_id
+      redirect_to root_path, :alert => "You can only edit your properties"
+    end
   end
 
   def property_params

@@ -25,8 +25,8 @@
               <th>Picture</th>
               <th>Property Type</th>
               <th>Address</th>
-              <th>Reserve Price</th>
-              <th>Last Bid Price</th>
+              <th>Reserve Price ($)</th>
+              <th>Last Bid Price ($)</th>
               <th>Status</th>
               <th>Bids History</th>
               <th>Accept Bid</th>
@@ -39,7 +39,7 @@
 
 
             <tr>
-              <td><%= link_to listing.property.name, listing_path(listing) %></a></td>
+              <td><%= link_to listing.property.name, listing_path(listing) %></td>
               <td>
                 <%= link_to listing_path(listing) do %>
                   <%= image_tag(listing.property.picture_url, width: 120, height:100) if listing.property.picture.present? %>
@@ -49,8 +49,8 @@
               </td>
               <td><%= listing.property.prop_type %></td>
               <td><%= listing.property.address %></td>
-              <td>$<%= number_with_delimiter(listing.property.reserve_price) %></td>
-              <td>$<%= number_with_delimiter(listing.property.reserve_price) %></td>
+              <td><%= number_with_delimiter(listing.property.reserve_price) %></td>
+              <td><%= number_with_delimiter(listing.property.reserve_price) %></td>
 
 
               <% if listing.property.listed == 1 %>
