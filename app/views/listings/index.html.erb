@@ -80,10 +80,8 @@
                         <span class="pull-right"><%= listing.listing.bids.length %> Bids</span>
                         <br>
                         <span>Ends: <b class= "<%= "bidtime" + listing.listing.id.to_s %>"><%= listing.listing.duration.in_time_zone("Singapore") %></b></span>
-                        <button type="button" class="btn btn-danger btn-md pull-right bidnow">
-                        <span class="glypicon glyphicon glyphicon-ice-lolly"></span>
-                        Bid Now
-                        </button>
+                        <%= link_to 'Bid Now', listing_path(listing.listing), class: "btn btn-danger btn-md pull-right bidnow" %>
+
                       </div>
 
                       <% else %>
@@ -96,10 +94,7 @@
                     <span class="pull-right">0 Bids</span>
                     <br>
                     <span>Ends: <b class= "<%= "bidtime" + listing.listing.id.to_s %>"><%= listing.listing.duration.in_time_zone("Singapore") %></b></span>
-                    <button type="button" class="btn btn-danger btn-md pull-right bidnow">
-                    <span class="glypicon glyphicon glyphicon-ice-lolly"></span>
-                    Bid Now
-                    </button>
+                    <%= link_to 'Bid Now', listing_path(listing.listing), class: "btn btn-danger btn-md pull-right bidnow" %>
                   </div>
 
                       <% end %>

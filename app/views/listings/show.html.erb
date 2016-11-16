@@ -158,7 +158,7 @@
               </div>
 
           <% end %>
-
+            <% unless current_user.id == @listing.property.seller_id %>
               <%= form_tag listing_path + '/bids', method: :post, remote: true, id: 'bid-form' do %>
               <div class="text-left col-md-2">
                   <%= label_tag "Bid Amount:"%><br/>
@@ -177,7 +177,7 @@
                   <%= submit_tag "Submit Bid", class: "btn btn-success btn-lg submit-button"+@listing.id.to_s %>
               </div>
                   <!-- invisible form to change listed status from 1 (listed) to 2 (pending acceptance) -->
-
+              <% end %>
               <% end %>
 
               <%= form_tag edit_property_path(@listing.property), method: :post, remote: true, id: 'listed-status-form' + @listing.id.to_s do %>
