@@ -41,8 +41,6 @@ class ListingsController < ApplicationController
     redirect_to mylistings_path
   end
 
-<<<<<<< HEAD
-
   def accept_bid
     @property = Property.find(params[:id])
     @property.listed = 2
@@ -51,7 +49,4 @@ class ListingsController < ApplicationController
   redirect_to mylistings_path
   end
 
-
-=======
->>>>>>> countdown-timer
 end
