@@ -6,6 +6,10 @@ class ListingsController < ApplicationController
   def show
     @listing = Listing.find(params[:id])
     @last_bid = @listing.bids.last
+    @check_user = user_signed_in?
+    unless @check_user
+      render "show", :notice => "Please log in to bid"
+    end
   end
 
   def mylistings
