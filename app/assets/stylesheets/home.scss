@@ -351,10 +351,6 @@ ABOUT
   top: 41%;
 }
 
-// .container.about {
-//   margin-bottom: 27%;
-// }
-
 #about {
   margin-top: 5%;
 }
@@ -362,7 +358,7 @@ ABOUT
 .team.boxed-grey {
   width: 19%;
   display: inline-block;
-  padding: 2%;
+  padding: 1%;
   margin-top: 5%;
 }
 
@@ -382,37 +378,10 @@ ABOUT
 	margin-bottom: 20px;
 }
 
-.team-social {
-	margin-left: 0;
-	padding-left: 0;
-
-}
-
-.team-social {
-	text-align: center;
-}
-
-.team-social li{
-	margin:0 !important;
-	padding:0;
-}
-
-.team-social a{
-	margin:0;
-	padding:0;
-  display: block;
-	width: 40px;
-    height: 40px;
-    line-height: 40px;
-    text-align: center;
-    background: #3bbec0;
-    -webkit-transition: background .3s ease-in-out;
-    transition: background .3s ease-in-out;
-}
-.team-social a i{
-	text-align: center;
-	margin:0;
-	padding:0;
+img.avatar.img-responsive.img-circle {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
 }
 
 .aboutsum {
