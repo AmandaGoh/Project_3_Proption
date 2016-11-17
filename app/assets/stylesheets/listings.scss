@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+/*========================
+ALL LISTINGS
+========================*/
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
@@ -9,9 +13,6 @@
   background: rgb(170, 175, 174) !important;
 }
 
-/*========================
-ALL LISTINGS
-========================*/
 img {
  max-width: 100%; }
 
