@@ -7,7 +7,7 @@ class ListingsController < ApplicationController
     @listing = Listing.find(params[:id])
     @last_bid = @listing.bids.last
 # added to render error message. to remove if causing error
-    # @new_bid = Bid.new
+    @new_bid = Bid.new
 
     # respond_to do |format|
     #   if @new_bid.save
