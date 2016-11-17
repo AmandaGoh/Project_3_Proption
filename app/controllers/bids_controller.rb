@@ -1,6 +1,7 @@
 class BidsController < ApplicationController
 
   def bidder_bid_history
+    if current_user
       @current_user_bids = current_user.bids
 
       @unique_bidder_listing = current_user.bids.select(:listing_id).uniq
@@ -10,16 +11,27 @@ class BidsController < ApplicationController
           format.html
           format.json { render json: @current_user_bids }
       end
+    end
+      unless user_signed_in?
+      redirect_to new_user_session_path, :alert => "Please log in to view"
+      end
+
   end
 
 
   def seller_bid_history
+    if current_user
       @bid_info_for_listing = Bid.where(["listing_id = ?", params[:listing_id]])
 
       respond_to do |format|
           format.html
           format.json { render json: @bid_info_for_listing }
       end
+    end
+    unless user_signed_in?
+    redirect_to new_user_session_path, :alert => "Please log in to view"
+    end
+
   end
 
 

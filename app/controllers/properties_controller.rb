@@ -12,6 +12,8 @@ class PropertiesController < ApplicationController
   #get properties/1
   def show
     @property = Property.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+    redirect_to root_url, :alert => "Record not found." 
   end
 
   # GET /properties/1/edit
@@ -61,7 +63,6 @@ class PropertiesController < ApplicationController
     @new_property.description = params[:property][:description]
     @new_property.picture = params[:property][:picture]
     @new_property.seller_id = current_user.id
-
     @new_property.errors.full_messages
 
 
@@ -74,7 +75,6 @@ class PropertiesController < ApplicationController
         format.json { render json: @new_property.errors, status: :unprocessable_entity }
       end
     end
-
   end
 
   def destroy
