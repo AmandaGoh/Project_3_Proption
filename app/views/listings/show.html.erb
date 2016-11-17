@@ -138,7 +138,9 @@
               <div class="text-left col-md-2">
                 Last Bid: <br/>
                 <span class="h3 text-muted"><b class="bidlast">
+
                   <div id= "bid-amount<%=@listing.id%>">$
+
                     <%= number_with_delimiter(@last_bid.bid_amount) %></b></span>
                   </div>
               </div>
@@ -146,7 +148,9 @@
               <div class="text-left col-md-2">
                 By User: <br/>
                 <span class="h3 text-muted"><b class="bidlast">
+
                   <div id = "bidder-username<%=@listing.id%>">
+
                     <%= @last_bid.bidder.username %></b>
                   </div>
                 </span>
@@ -157,7 +161,9 @@
               <div class="text-left col-md-2">
                 Last Bid: <br/>
                 <span class="h3 text-muted"><b class="bidlast">
+
                   <div id= "bid-amount<%=@listing.id%>">
+
                     No bids yet</b></span>
                   </div>
               </div>
@@ -165,7 +171,9 @@
               <div class="text-left col-md-2">
                 By User: <br/>
                 <span class="h3 text-muted"><b class="bidlast">
+
                   <div id = "bidder-username<%=@listing.id%>">
+
                     </b>
                   </div>
                 </span>
@@ -206,10 +214,14 @@
               <% end %>
 
               <% else %>
+              <div class="text-left col-md-5">
+              <p><h4>Please login to submit bids</h4></p>
+              <div>
+              <div class="text-right col-md-3">
 
+                  <%= submit_tag "Submit Bid", class: "btn btn-success btn-lg submit-button disabled", title:"Please login to submit bids" %>
+              </div>
 
-
-              <%link_to new_user_session_path, :alert => "Please log in to bid" %>
 
               <%end %>
 

@@ -3,6 +3,7 @@
 
       <h1>MY LISTINGS</h1>
 
+
       <div class="col-md-3">
         <form action="#" method="get">
           <div class="input-group">
@@ -109,22 +110,22 @@
 
                     <% elsif listing.property.listed == 3 %>
 
-                      <span class="btn btn-success btn-md">Bid Accepted</span>
+                      <span class="btn btn-success btn-md disabled">Bid Accepted</span>
 
                   <% else  %>
-                    <span class="btn btn-success btn-md">Bidding in progress</span>
+                    <span class="btn btn-info btn-md disabled">Bidding in progress</span>
 
                     <% end %>
 
                     <% else %>
                     <% if listing.property.listed == 1 %>
                     <div id= "bid-amount">
-                        <span class="btn btn-success btn-md">Bidding in progress</span>
+                        <span class="btn btn-info btn-md disabled">Bidding in progress</span>
 
 
                     <% else listing.property.listed == 2 %>
                     <div id= "bid-amount">
-                        <span class="btn btn-success btn-md">Bidding not successful</span>
+                        <span class="btn btn-danger btn-md disabled">Bidding not successful</span>
                     <% end %>
                     <% end %>
 
