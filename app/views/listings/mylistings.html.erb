@@ -117,10 +117,15 @@
                     <% end %>
 
                     <% else %>
+                    <% if listing.property.listed == 1 %>
+                    <div id= "bid-amount">
+                        <span class="btn btn-success btn-md">Bidding in progress</span>
 
+
+                    <% else listing.property.listed == 2 %>
                     <div id= "bid-amount">
                         <span class="btn btn-success btn-md">Bidding not successful</span>
-
+                    <% end %>
                     <% end %>
 
 
