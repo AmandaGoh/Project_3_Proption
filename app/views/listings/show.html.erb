@@ -128,7 +128,7 @@
               <div class="text-left col-md-2">
                 Last Bid: <br/>
                 <span class="h3 text-muted"><b class="bidlast">
-                  <div id= "bid-amount">
+                  <div id= "bid-amount<%= @listing.id%>">$
                     <%= number_with_delimiter(@last_bid.bid_amount) %></b></span>
                   </div>
               </div>
@@ -136,7 +136,7 @@
               <div class="text-left col-md-2">
                 By User: <br/>
                 <span class="h3 text-muted"><b class="bidlast">
-                  <div id = "bidder-username">
+                  <div id = "bidder-username<%= @listing.id%>">
                     <%= @last_bid.bidder.username %></b>
                   </div>
                 </span>
@@ -147,7 +147,7 @@
               <div class="text-left col-md-2">
                 Last Bid: <br/>
                 <span class="h3 text-muted"><b class="bidlast">
-                  <div id= "bid-amount">
+                  <div id= "bid-amount<%= @listing.id%>">
                     No bids yet</b></span>
                   </div>
               </div>
@@ -155,7 +155,7 @@
               <div class="text-left col-md-2">
                 By User: <br/>
                 <span class="h3 text-muted"><b class="bidlast">
-                  <div id = "bidder-username">
+                  <div id = "bidder-username<%= @listing.id%>">
                     </b>
                   </div>
                 </span>

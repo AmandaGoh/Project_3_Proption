@@ -35,7 +35,8 @@ class BidsController < ApplicationController
             # flash[:message] = "Bid Successful!"
             ActionCable.server.broadcast 'bid_details',
             bid: @new_bid.bid_amount,
-            user: current_user.username
+            user: current_user.username,
+            listingID: listing.id
           end
           render json: {
             'message' => 'Bid Successful!',
@@ -63,7 +64,8 @@ class BidsController < ApplicationController
               # flash[:message] = "Bid Successful!"
               ActionCable.server.broadcast 'bid_details',
               bid: @new_bid.bid_amount,
-              user: current_user.username
+              user: current_user.username,
+              listingID: listing.id
             end
             render json: {
               'message' => 'Bid Successful!',
