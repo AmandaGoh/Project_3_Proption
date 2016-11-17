@@ -75,11 +75,20 @@
 
                           <% if listing.listing.bids.exists? %>
 
-                          <h4 class="price">bid ends: <span><%= "bidtime" + listing.listing.id.to_s %>"><%= listing.listing.duration.in_time_zone("Singapore") %></span></h4>
+<% if listing.listed == 1%>
 
-<!-- <%= listing.listing.duration %> -->
+                          <h4 class="price">bid ends: <span><b class= "<%= "bidtime" + listing.listing.id.to_s %>"><%= listing.listing.duration.in_time_zone("Singapore") %></b></span></h4>
 
-                          <h3 class="price">last bid price: <span>$<%= listing.listing.id %></span></h4>
+                          <% elsif listing.listed == 2 %>
+                          <span>Ends :Pending Acceptance</span>
+
+                          <% else listing.listed == 3 %>
+
+                          <span>Ends :Bid Accepted</span>
+
+                          <% end %>
+
+                          <h3 class="price">last bid price: <span>$<%= number_with_delimiter(listing.listing.bids.last.bid_amount) %></span></h4>
 
                         <div class="rating">
                           <span class="review-no"><%= listing.listing.bids.length %> Bids</span>
@@ -91,9 +100,19 @@
 
                       <% else %>
 
-                      <h4 class="price">bid ends: <span><b class= "<%= "bidtime" + listing.listing.id.to_s %>"><%= listing.listing.duration.in_time_zone("Singapore") %></span></h4>
 
-                      <!-- <%= listing.listing.duration %> -->
+<% if listing.listed == 1%>
+
+                      <h4 class="price">bid ends: <span><b class= "<%= "bidtime" + listing.listing.id.to_s %>"><%= listing.listing.duration.in_time_zone("Singapore") %></b></span></h4>
+
+                      <% elsif listing.listed == 2 %>
+                      <span>Ends :Bidding not successful</span>
+
+                      <% else listing.listed == 3 %>
+
+                      <span>Ends :Bidding not successful</span>
+
+                      <% end %>
 
                       <h3 class="price">last bid price: <span>No bids yet</span></h4>
 
