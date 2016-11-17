@@ -1,149 +1,150 @@
 <div class="container">
 
-    <div class="row">
+  <div class="row">
 
-      <h1>ALL LISTINGS</h1>
+    <div class="heading heading-contact">
+      <div class="col-lg-12">
+        <div class="section-heading">
+          <h2>All Listings</h2>
+          <i class="fa fa-2x fa-angle-down"></i>
+        </div>
+      </div>
+    </div>
 
-      <div class="col-md-3">
-        <form action="#" method="get">
+    <div class="heading col-lg-12">
+      <hr class="marginbot-50">
+    </div>
 
-          <div class="input-group">
+    <div class="col-md-12">
+      <form action="#" method="get">
 
-            <!-- SEARCH BAR -->
-            <input class="form-control" id="system-search" name="q" placeholder="Search all listings..." required>
-            <span class="input-group-btn">
+        <div class="input-group">
+
+          <!-- SEARCH BAR -->
+          <input class="form-control" id="system-search" name="q" placeholder="Search all listings..." required>
+          <span class="input-group-btn">
                           <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
                       </span>
 
-          </div>
+        </div>
 
-        </form>
-      </div>
+      </form>
+    </div>
 
-
-
-      <div class="col-md-4">
-        <table class="table table-list-search">
-
-          <thead>
-            <tr>
-              <th>
-                <p>Listings:</p>
-              </th>
-            </tr>
-          </thead>
+    <div class="col-md-12">
+      <br>
+      <table class="table table-list-search">
 
 
+        <tbody>
 
-          <tbody>
-
-
-            <% @listings.each do |listing| %>
+          <% @listings.each do |listing| %>
 
             <tr>
               <td>
-                <div class="col-lg-12 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
-                  <article class="aa-properties-item">
+                <div class="col-md-12">
+                  <div class="card">
+                    <div class="container-fliud">
+                      <div class="wrapper row">
+                        <div class="preview col-md-6">
 
-                    <!-- <a class="aa-properties-item-img popular featured_img">
-                      <img src="house2.jpg" class="featured_img" alt="img">
-                    </a> -->
-                    <%= link_to listing_path(listing.listing) do %>
-                      <%= image_tag(listing.picture_url, width: 314, height:200) if listing.picture.present? %>
-                    <% end %>
-                    <div class="aa-properties-item-content">
+                          <div class="preview-pic tab-content">
 
-                      <!-- <div class="aa-properties-info">
-                        <span class="icons"><image src="bed.png"><b> 4</b></span>
-                        <span class="icons"><image src="bath.png"><b> 3</b></span>
-                        <span class="icons pull-right"><b> 1200 sqft</b></span>
-                      </div> -->
+                          <% if listing.picture.present? %>
 
-                      <div class="aa-properties-about">
+                              <div class="tab-pane active" id="pic-1"><%= link_to listing_path(listing.listing) do %>
+                                <%= image_tag(listing.picture_url, width: 300, height:250, class:'object-fit_cover') %>
+                              </div>
 
-                        <h3 class="propname"><%= link_to listing.name, listing_path(listing.listing) %></h3>
+                          <% end %>
 
+                          <% else %>
 
-                        <p><%= listing.description %></p>
+                              <div class="tab-pane active" id="pic-1"><img src="http://larics.rasip.fer.hr/wp-content/uploads/2016/04/default-placeholder.png" alt="" width="300" height="250" class="object-fit_cover"/>
+                              </div>
 
-                        <div class="listing-id", style="display: none"><%= listing.listing.id %></div>
-                        <div class="duration", style="display: none"><%= listing.listing.duration %></div>
+                            <% end %>
 
-                      </div>
+                          </div>
 
-                      <% if listing.listing.bids.exists? %>
+                        </div>
 
-                      <div class="aa-properties-detial">
-                        <span>Reserve Price ($): <b class="bidlast"><%= number_with_delimiter(listing.reserve_price) %></b></span>
-                        <br>
-                        <span>Last Bid ($): <b class="bidlast"><%= number_with_delimiter(listing.listing.bids.last.bid_amount) %></b></span>
-                        <span class="pull-right"><%= listing.listing.bids.length %> Bids</span>
-                        <br>
+                        <div class="details col-md-6">
+                          <h2 class="product-title"><%= link_to listing.name, listing_path(listing.listing) %></h2>
+                          <p class="product-description"><%= listing.description %></p>
 
-                        <% if listing.listed == 1%>
-                        <span>Ends: <b class= "<%= "bidtime" + listing.listing.id.to_s %>"><%= listing.listing.duration.in_time_zone("Singapore") %></b></span>
+                          <% if listing.listing.bids.exists? %>
 
-                        <% elsif listing.listed == 2 %>
-                        <span>Ends :Pending Acceptance</span>
+<% if listing.listed == 1%>
 
-                        <% else listing.listed == 3 %>
+                          <h4 class="price">bid ends: <span><b class= "<%= "bidtime" + listing.listing.id.to_s %>"><%= listing.listing.duration.in_time_zone("Singapore") %></b></span></h4>
 
-                        <span>Ends :Bid Accepted</span>
+                          <% elsif listing.listed == 2 %>
+                          <span>Ends :Pending Acceptance</span>
 
+                          <% else listing.listed == 3 %>
 
-                        <% end %>
+                          <span>Ends :Bid Accepted</span>
 
+                          <% end %>
 
+                          <h3 class="price">last bid price: <span>$<%= number_with_delimiter(listing.listing.bids.last.bid_amount) %></span></h4>
 
-                        <%= link_to 'Bid Now', listing_path(listing.listing), class: "btn btn-danger btn-md pull-right bidnow" %>
+                        <div class="rating">
+                          <span class="review-no"><%= listing.listing.bids.length %> Bids</span>
+                        </div>
 
-                      </div>
+                        <div class="action">
+                          <%= link_to 'Bid Now', listing_path(listing.listing), class: "btn btn-danger btn-md pull-right bidnow" %>
+                        </div>
 
                       <% else %>
 
-                  <div class="aa-properties-detial">
 
-                    <span>Reserve Price ($): <b class="bidlast"><%= number_with_delimiter(listing.reserve_price) %></b></span>
-                    <br>
-                    <span>Last Bid ($): <b class="bidlast">No bids yet</b></span>
-                    <span class="pull-right">0 Bids</span>
-                    <br>
-                    <% if listing.listed == 1%>
-                    <span>Ends: <b class= "<%= "bidtime" + listing.listing.id.to_s %>"><%= listing.listing.duration.in_time_zone("Singapore") %></b></span>
+<% if listing.listed == 1%>
 
-                    <% elsif listing.listed == 2 %>
-                    <span>Ends :Bidding not successful</span>
+                      <h4 class="price">bid ends: <span><b class= "<%= "bidtime" + listing.listing.id.to_s %>"><%= listing.listing.duration.in_time_zone("Singapore") %></b></span></h4>
 
-                    <% else listing.listed == 3 %>
+                      <% elsif listing.listed == 2 %>
+                      <span>Ends :Bidding not successful</span>
 
-                    <span>Ends :Bidding not successful</span>
+                      <% else listing.listed == 3 %>
 
-
-                    <% end %>
-
-
-
-
-                    <%= link_to 'Bid Now', listing_path(listing.listing), class: "btn btn-danger btn-md pull-right bidnow" %>
-                  </div>
+                      <span>Ends :Bidding not successful</span>
 
                       <% end %>
 
-                    </div>
+                      <h3 class="price">last bid price: <span>No bids yet</span></h4>
 
-                  </article>
+                      <div class="rating">
+                      <span class="review-no">0 Bids</span>
+                      </div>
+
+                      <div class="action">
+                      <%= link_to 'Bid Now', listing_path(listing.listing), class: "btn btn-danger btn-lg pull-right bidnow" %>
+                      </div>
+
+                      <% end %>
+
+                      </div>
+                    </div>
+                  </div>
                 </div>
+              </div>
               </td>
-            </tr>
+              </tr>
 
           <% end %>
 
-          </tbody>
+          <tr>
+            <td>
+            </td>
+          </tr>
 
-        </table>
+        </tbody>
+
+      </table>
       </div>
 
-
-
+      </div>
     </div>
-  </div>

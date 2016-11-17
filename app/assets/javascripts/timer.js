@@ -5,11 +5,16 @@ $( document ).on('turbolinks:load', function() {
   var endTime = $('#duration').text()* 1000
 
   var listingID = $('.listing-id').text()
-  //
-  // console.log($('.listing-id').text())
-  // console.log($('#duration').text())
 
-  initializeClock(startTime, endTime, listingID)
+  // console.log($('#listed-status').text())
+  //
+  if ($('#listed-status').text() == 1) {
+    initializeClock(startTime, endTime, listingID)
+  }
+  else if ($('#listed-status').text() == 2) {
+    disableBidding()
+  }
+  // console.log($('#duration').text())
 
   function initializeClock (startTime, endTime, listingID) {
     var timeinterval = setInterval(function(){
@@ -35,18 +40,13 @@ $( document ).on('turbolinks:load', function() {
 
       $('.bidtime' + listingID).text(hours + ' : ' + minutes + ' : ' + seconds)
 
-      if (t.total <= 0) {
+
+      if (t.total <= 0 && $('#listed-status').text() == 1) {
         clearInterval(timeinterval)
-        $('.bidtime' + listingID).text('Bidding has ended')
-        $('.submit-button' + listingID).prop('disabled', true)
-        $('#bid-message').remove()
-        $('.bid-input' + listingID).remove()
-        $('.modal-content').addClass('listing-greyed-out')
+        disableBidding()
         // trigger submit of invisible form
-        console.log($('#listed-status').text())
-        if ($('#listed-status').text() == 1) {
-          $('#listed-status-form' +listingID).submit()
-        }
+        $('#listed-status-form' +listingID).submit()
+        $('#listed-status').text(2)
       }
 
     }, 1000)
@@ -71,6 +71,14 @@ $( document ).on('turbolinks:load', function() {
           'minutes': minutes,
           'seconds': seconds
         }
+  }
+
+  function disableBidding(){
+    $('.bidtime' + listingID).text('Bidding has ended')
+    $('.submit-button' + listingID).prop('disabled', true)
+    $('.modal-content').addClass('listing-greyed-out')
+    $('#bid-message').remove()
+    $('.bid-input' + listingID).remove()
   }
 
 })

@@ -107,13 +107,22 @@ $(document).on('turbolinks:load', function () {
     placement: 'auto',
     html: true
   })
-})
+
 
 // SCROLL DOWN
 
- $(function() {
-     $('.scroll-down').click (function() {
+$(function() {
+     $('.scroll-down').click(function() {
        $('html, body').animate({scrollTop: $('section.ok').offset().top }, 'slow');
        return false;
      });
-   });
+});
+
+//CAROUSEL OPTIONS
+
+$('#quote-carousel').carousel({
+  pause: true,
+  interval: 8000,
+});
+
+})

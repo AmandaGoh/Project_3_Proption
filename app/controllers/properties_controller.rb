@@ -1,7 +1,4 @@
 class PropertiesController < ApplicationController
-  # before_action :authenticate_user!, only: [:new, :edit, :update, :destroy], notice: 'you must sign in first!'
-  # before_action :find_job, only: [:show, :edit, :update, :destroy]
-
   def index
     @properties=Property.all
 
@@ -15,19 +12,21 @@ class PropertiesController < ApplicationController
   #get properties/1
   def show
     @property = Property.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+    redirect_to root_url, :alert => "Record not found." 
   end
 
   # GET /properties/1/edit
   def edit
     @property = Property.find(params[:id])
-    unless current_user.id == @property.seller_id
+    if user_signed_in?
+      unless current_user.id == @property.seller_id
       redirect_to root_path, :alert => "You can only edit your properties"
+      end
+    else
+      redirect_to new_user_session_path, :alert => "Please log in to edit"
     end
   end
-
-
-
-
 
   # POST /properties
   # POST /properties.json
@@ -47,6 +46,9 @@ class PropertiesController < ApplicationController
   #get properties/new
   def new
     @new_property = Property.new
+    unless user_signed_in?
+    redirect_to new_user_session_path, :alert => "Please log in to create a new property"
+    end
   end
   def create
     current_user
@@ -61,7 +63,6 @@ class PropertiesController < ApplicationController
     @new_property.description = params[:property][:description]
     @new_property.picture = params[:property][:picture]
     @new_property.seller_id = current_user.id
-
     @new_property.errors.full_messages
 
 
@@ -74,7 +75,6 @@ class PropertiesController < ApplicationController
         format.json { render json: @new_property.errors, status: :unprocessable_entity }
       end
     end
-
   end
 
   def destroy
@@ -97,7 +97,7 @@ class PropertiesController < ApplicationController
 
   def update_listed_status
     @property = Property.find(params[:id])
-    
+
 
     @property.listed = listed_params[:listed]
     @property.save

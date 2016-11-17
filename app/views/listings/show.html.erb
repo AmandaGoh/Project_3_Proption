@@ -15,6 +15,20 @@
               <div class="col-md-12">
                   <%= image_tag(@listing.property.picture_url, width: 314, height:200) if @listing.property.picture.present? %>
               </div>
+<!-- =added to render error msg. To remove if causing active ctrl/undefined method error= -->
+
+              <% if @new_bid.errors.any? %>
+                  <div id="error_explanation">
+                    <h2><%= pluralize(@new_bid.errors.count, "error") %> prevents your bid from being placed:</h2>
+
+                    <ul>
+                    <% @new_bid.errors.full_messages.each do |message| %>
+                      <li><%= message %></li>
+                    <% end %>
+                    </ul>
+                  </div>
+              <% end %>
+<!-- =added to render error msg. To remove if causing active ctrl/undefined method error= -->
 
               <table class="pull-left col-md-8 ">
                 <tbody>
@@ -124,7 +138,9 @@
               <div class="text-left col-md-2">
                 Last Bid: <br/>
                 <span class="h3 text-muted"><b class="bidlast">
+
                   <div id= "bid-amount<%=@listing.id%>">$
+
                     <%= number_with_delimiter(@last_bid.bid_amount) %></b></span>
                   </div>
               </div>
@@ -132,7 +148,9 @@
               <div class="text-left col-md-2">
                 By User: <br/>
                 <span class="h3 text-muted"><b class="bidlast">
+
                   <div id = "bidder-username<%=@listing.id%>">
+
                     <%= @last_bid.bidder.username %></b>
                   </div>
                 </span>
@@ -143,7 +161,9 @@
               <div class="text-left col-md-2">
                 Last Bid: <br/>
                 <span class="h3 text-muted"><b class="bidlast">
+
                   <div id= "bid-amount<%=@listing.id%>">
+
                     No bids yet</b></span>
                   </div>
               </div>
@@ -151,7 +171,9 @@
               <div class="text-left col-md-2">
                 By User: <br/>
                 <span class="h3 text-muted"><b class="bidlast">
+
                   <div id = "bidder-username<%=@listing.id%>">
+
                     </b>
                   </div>
                 </span>

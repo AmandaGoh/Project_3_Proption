@@ -1,124 +1,226 @@
 <section class="hometop">
-<!-- JUMBOTRON -->
-  <div class="jumbotron">
-    <div class="bigtitle">
-      <h1>Welcome!</h1>
-      <h2>a new property is just bids away...</h2>
-      <br>
-      <p><%= link_to "View All Listings", 'listings', :class => 'viewall btn btn-danger btn-lg'%></p>
+    <!-- JUMBOTRON -->
+    <div class="jumbotron">
+
+        <div class='bigtitle'>
+
+            <div class="hovereffect">
+                <h1 class='tword'>WELCOME!</h1>
+                <h2 class='tword2'>A new property is just bids away...</h2>
+                <div class="overlay">
+                    <a href="#">
+                        <p><%= link_to "VIEW LISTINGS", 'listings', :class => 'viewall btn btn btn-lg'%></p>
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-
-  <a href="#" class="scroll-down white" address="true"></a>
-
+    <a href="#" class="scroll-down white" address="true"></a>
 </section>
 
-<section class="homebottom ok">
-<br>
-<br>
-  <div class="smalltitle">
+<div class="smalltitle">
     <div class="col-lg-12">
-      <div class="section-heading">
-        <h2>Latest Auction</h2>
-        <i class="fa fa-2x fa-angle-down"></i>
-      </div>
+        <div class="section-heading">
+            <h2>Testimonials</h2>
+            <i class="fa fa-2x fa-angle-down"></i>
+        </div>
     </div>
     <div class="heading col-lg-12">
-      <hr class="marginbot-50">
+        <hr class="marginbot-50">
     </div>
-  </div>
+</div>
+<div class='row'>
+    <div class='col-md-12'>
+        <div class="carousel slide" data-ride="carousel" id="quote-carousel">
+            <!-- Bottom Carousel Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#quote-carousel" data-slide-to="0" class="active"></li>
+                <li data-target="#quote-carousel" data-slide-to="1"></li>
+                <li data-target="#quote-carousel" data-slide-to="2"></li>
+            </ol>
+
+            <!-- Carousel Slides / Quotes -->
+            <div class="carousel-inner">
+
+                <!-- Quote 1 -->
+                <div class="item active">
+                    <blockquote>
+                        <div class="row">
+                            <div class="col-sm-3 text-center">
+                                <img class="img-circle" src="http://www.reactiongifs.com/r/overbite.gif" style="width: 100px;height:100px;">
+                                <!--<img class="img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/128.jpg" style="width: 100px;height:100px;">-->
+                            </div>
+                            <div class="col-sm-9">
+                                <p>This site is really simple to use. I sold my property within a week without having to pay commission if I were to engage a property agent!</p>
+                                <small>Mr Tan</small>
+                            </div>
+                        </div>
+                    </blockquote>
+                </div>
+                <!-- Quote 2 -->
+                <div class="item">
+                    <blockquote>
+                        <div class="row">
+                            <div class="col-sm-3 text-center">
+                                <img class="img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/mijustin/128.jpg" style="width: 100px;height:100px;">
+                            </div>
+                            <div class="col-sm-9">
+                                <p>I was looking for good deals to invest in some properties. Proption helped me get the best price and I bought 2 apartments within 2 weeks!</p>
+                                <small>Joseph</small>
+                            </div>
+                        </div>
+                    </blockquote>
+                </div>
+                <!-- Quote 3 -->
+                <div class="item">
+                    <blockquote>
+                        <div class="row">
+                            <div class="col-sm-3 text-center">
+                                <img class="img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/keizgoesboom/128.jpg" style="width: 100px;height:100px;">
+                            </div>
+                            <div class="col-sm-9">
+                                <p>I wasn't sure if the offers I received from potential buyers were the highest I could get. Thanks to Proption, I sold my property at a higher price than what was offered before!</p>
+                                <small>Mrs Lee</small>
+                            </div>
+                        </div>
+                    </blockquote>
+                </div>
+            </div>
+
+            <!-- Carousel Buttons Next/Prev -->
+            <a data-slide="prev" href="#quote-carousel" class="left carousel-control">
+                <i class="fa fa-chevron-left"></i>
+            </a>
+            <a data-slide="next" href="#quote-carousel" class="right carousel-control">
+                <i class="fa fa-chevron-right"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<section class="homebottom ok">
+    <br>
+    <br>
+    <div class="smalltitle">
+        <div class="col-lg-12">
+            <div class="section-heading">
+                <h2>Latest Auction</h2>
+                <i class="fa fa-2x fa-angle-down"></i>
+            </div>
+        </div>
+        <div class="heading col-lg-12">
+            <hr class="marginbot-50">
+        </div>
+    </div>
 
     <!-- 4 FEATURED LISTINGS -->
-      <div class="homesection">
+    <div class="homesection">
 
-          <% @listing.each do |listing| %>
+        <% @listing.each do |listing| %>
 
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
 
-              <article class="aa-properties-item">
+            <article class="aa-properties-item">
 
-                <a class="aa-properties-item-img popular featured_img" alt="property image"><%= image_tag(listing.picture_url, width: 314, height:200) if listing.picture.present? %></a>
+                <% if listing.picture.present? %>
 
-              <div class="aa-properties-item-content">
-                <div class="aa-properties-info">
-                  <span class="icons"><img src="../assets/icons/bed" class="featured_img" alt="img"><b> 4</b></span>
-                  <span class="icons"><img src="../assets/icons/bath" class="featured_img" alt="img"><b> 3</b></span>
-                  <span class="icons pull-right"><b><%= number_with_delimiter(listing.size) %> sqft</b></span>
-                </div>
+                <a class="aa-properties-item-img popular featured_img" alt="property image"><%= image_tag(listing.picture_url, width: 314, height:200)%></a>
 
-                <div class="aa-properties-about">
-                  <h3 class="propname"><%= link_to listing.name, listing_path(listing.listing) %></h3>
-                  <p><%= listing.description %></p>
-                </div>
+            <% else %>
 
-                <div class="listing-id", style="display: none"><%= listing.listing.id %></div>
+                <a class="aa-properties-item-img popular featured_img" alt="property image">
+                    <image src='http://larics.rasip.fer.hr/wp-content/uploads/2016/04/default-placeholder.png' width='314' , height='200' , class="object-fit_cover" )></a>
 
-                <div class="duration", style="display: none"><%= listing.listing.duration.to_f %></div>
+                    <% end %>
 
-                <% if listing.listing.bids.exists? %>
+                    <div class="aa-properties-item-content">
+                        <div class="aa-properties-info">
+                            <span class="icons"><img src="../assets/icons/bed" class="featured_img" alt="img">
+                                <b>
+                                    4</b>
+                            </span>
+                            <span class="icons"><img src="../assets/icons/bath" class="featured_img" alt="img">
+                                <b>
+                                    3</b>
+                            </span>
+                            <span class="icons pull-right">
+                                <b><%= number_with_delimiter(listing.size) %>
+                                    sqft</b>
+                            </span>
+                        </div>
 
-                <div class="aa-properties-detial">
-                  <span>Last Bid: <b class="bidlast">$<%= number_with_delimiter(listing.listing.bids.last.bid_amount) %></b></span>
-                  <span class="pull-right"><%= listing.listing.bids.length %> Bids</span>
-                  <br>
+                        <div class="aa-properties-about">
+                            <h3 class="propname"><%= link_to listing.name, listing_path(listing.listing) %></h3>
+                            <p><%= listing.description %></p>
+                        </div>
 
-                  <% if listing.listed == 1%>
-                  <span>Ends: <b class= "<%= "bidtime" + listing.listing.id.to_s %>"><%= listing.listing.duration.in_time_zone("Singapore") %></b></span>
+                        <div class="listing-id" , style="display: none"><%= listing.listing.id %></div>
 
-                  <% elsif listing.listed == 2 %>
-                  <span>Ends :Pending Acceptance</span>
+                        <div class="duration" , style="display: none"><%= listing.listing.duration.to_f %></div>
 
-                  <% else listing.listed == 3 %>
+                        <% if listing.listing.bids.exists? %>
 
-                  <span>Ends :Bid Accepted</span>
+                        <div class="aa-properties-detial">
+                            <span>Last Bid:
+                                <b class="bidlast">$<%= number_with_delimiter(listing.listing.bids.last.bid_amount) %></b>
+                            </span>
+                            <span class="pull-right"><%= listing.listing.bids.length %>
+                                Bids</span>
+                            <br>
 
+                            <% if listing.listed == 1%>
+                            <span>Ends:
+                                <b class="<%= " bidtime" + listing.listing.id.to_s %>"><%= listing.listing.duration.in_time_zone("Singapore") %></b>
+                            </span>
 
-                  <% end %>
+                            <% elsif listing.listed == 2 %>
+                            <span>Ends :Pending Acceptance</span>
 
+                        <% else listing.listed == 3 %>
 
-                  <%= link_to 'Bid Now', listing_path(listing.listing), class: 'btn btn-danger btn-md pull-right' %>
-                </div>
+                            <span>Ends :Bid Accepted</span>
 
-                <% else %>
+                            <% end %>
 
-                <div class="aa-properties-detial">
-                  <span>Last Bid: <b class="bidlast">No Bids</b></span>
-                  <span class="pull-right">0 Bids</span>
-                  <br>
+                            <%= link_to 'Bid Now', listing_path(listing.listing), class: 'btn btn-danger btn-md pull-right' %>
+                        </div>
 
-                  <% if listing.listed == 1%>
-                  <span>Ends: <b class= "<%= "bidtime" + listing.listing.id.to_s %>"><%= listing.listing.duration.in_time_zone("Singapore") %></b></span>
+                    <% else %>
 
-                  <% elsif listing.listed == 2 %>
-                  <span>Ends :Bidding not successful</span>
+                        <div class="aa-properties-detial">
+                            <span>Last Bid:
+                                <b class="bidlast">No Bids</b>
+                            </span>
+                            <span class="pull-right">0 Bids</span>
+                            <br>
 
-                  <% else listing.listed == 3 %>
+                            <% if listing.listed == 1%>
+                            <span>Ends:
+                                <b class="<%= " bidtime" + listing.listing.id.to_s %>"><%= listing.listing.duration.in_time_zone("Singapore") %></b>
+                            </span>
 
-                  <span>Ends :Bidding not successful</span>
+                            <% elsif listing.listed == 2 %>
+                            <span>Ends :Bidding not successful</span>
 
+                        <% else listing.listed == 3 %>
 
-                  <% end %>
+                            <span>Ends :Bidding not successful</span>
 
+                            <% end %>
 
+                            <%= link_to 'Bid Now', listing_path(listing.listing), class: 'btn btn-danger btn-md pull-right' %>
+                        </div>
 
+                        <% end %>
 
+                    </div>
 
-
-
-
-                  <%= link_to 'Bid Now', listing_path(listing.listing), class: 'btn btn-danger btn-md pull-right' %>
-                </div>
-
-                <% end %>
-
-              </div>
-
-              </article>
+                </article>
 
             </div>
 
             <% end %>
 
-      </div>
+        </div>
 
-</section>
+    </section>

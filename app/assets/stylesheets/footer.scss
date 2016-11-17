@@ -2,16 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
 /*========================
 FOOTER
 ========================*/
 
 footer {
   position:relative;
-  height: 35px;
+  height: 40px;
   font-size: 15px;
-  padding:5px;
+  padding:10px;
   color: white;
-  background-color: black;
+  background: rgba(0,0,0,.7);
+  text-align: left;
   text-align: center;
 }
