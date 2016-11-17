@@ -1,5 +1,9 @@
-<div class='container'>
-<h1>Property Creation Page</h1>
+<div class="row">
+    <div class="col-md-5 col-md-offset-4">
+      <form class="form-horizontal" role="form">
+        <fieldset>
+
+<h2>Property Creation Page</h2>
 
 <!-- form for -->
 <%= form_for @new_property do |f| %>
@@ -15,6 +19,137 @@
       </ul>
     </div>
 <% end %>
+
+
+
+
+
+          <!-- Text input-->
+          <div class="form-group">
+            <%= f.label :'Property Name' , class:"col-sm-2 control-label" %>
+            <div class="col-sm-10">
+            <%= f.text_field :name, autofocus: true, class: "form-control" , placeholder:"Property Name" %>
+
+            </div>
+          </div>
+
+          <!-- Text input-->
+
+          <div class="form-group">
+            <%= f.label :'Property Type' , class:"col-sm-2 control-label" %>
+            <div class="col-sm-10">
+              <%= f.select :prop_type, ['Landed', 'Condominium'], class: "form-control"%>
+
+            </div>
+          </div>
+
+<!-- Text input-->
+
+        <div class="form-group">
+          <%= f.label :'address' , class:"col-sm-2 control-label" %>
+          <div class="col-sm-10">
+          <%= f.text_field :address, autofocus: true, class: "form-control" , placeholder:"Address" %>
+
+          </div>
+        </div>
+
+<!-- Text input-->
+
+
+
+          <div class="form-group">
+            <%= f.label :'postal_code' , class:"col-sm-2 control-label" %>
+            <div class="col-sm-10">
+            <%= f.text_field :postal_code , autofocus: true, class: "form-control" , placeholder:"Postal Code" %>
+
+            </div>
+          </div>
+
+
+
+<!-- Text input-->
+        <div class="form-group">
+          <%= f.label :'tenure' , class:"col-sm-2 control-label" %>
+          <div class="col-sm-10">
+          <%= f.select :tenure,['Freehold', '999', '99'], class: "form-control"%>
+
+          </div>
+        </div>
+
+
+
+          <!-- Text input-->
+
+          <div class="form-group">
+            <%= f.label :'size' , class:"col-sm-2 control-label" %>
+            <div class="col-sm-10">
+            <%= f.text_field :size , autofocus: true, class: "form-control" , placeholder:"Size" %>
+
+            </div>
+          </div>
+
+            <!-- Text input-->
+          <div class="form-group">
+            <%= f.label :'Reserve Price' , class:"col-sm-2 control-label" %>
+            <div class="col-sm-10">
+            <%= f.text_field :reserve_price, :value => number_with_delimiter(f.object.reserve_price), autofocus: true, class: "form-control" , placeholder:"Reserve Price" %>
+
+            </div>
+          </div>
+
+            <!-- Text input-->
+          <div class="form-group">
+            <%= f.label :'description' , class:"col-sm-2 control-label" %>
+            <div class="col-sm-10">
+            <%= f.text_area :description , autofocus: true, class: "form-control" , placeholder:"Description" %>
+
+            </div>
+          </div>
+
+            <!-- Text input-->
+
+
+            <div class="form-group">
+              <%= f.label :'Property Photographs' , class:"col-sm-2 control-label" %>
+              <div class="col-sm-10">
+              <%= f.file_field :picture, class: "form-control" , placeholder:"Picture" %>
+
+              </div>
+            </div>
+
+
+
+            <p>
+            <%= f.hidden_field :seller_id, value: current_user.id %>
+            </p>
+
+            <p>
+            <%= f.hidden_field :listed, value: 0 %>
+            </p>
+
+
+          <div class="form-group">
+            <label class="col-md-3 control-label"></label>
+            <div class="col-md-8">
+              <div class="pull-right">
+
+                <%= link_to "Cancel", :back, class: "btn btn-default" %>
+
+                  <%= link_to "Submit",  class: "btn btn-primary" %>
+
+
+              </div>
+            </div>
+          </div>
+
+        </fieldset>
+      </form>
+    </div><!-- /.col-lg-12 -->
+</div><!-- /.row -->
+
+
+
+<!--  -->old template
 
 <p>
 <%= f.label :'Property Name' %><br>
@@ -89,5 +224,3 @@
   t.datetime "created_at",    null: false
   t.datetime "updated_at",    null: false
 end -->
-
-</div>
