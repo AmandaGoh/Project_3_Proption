@@ -6,6 +6,18 @@ class ListingsController < ApplicationController
   def show
     @listing = Listing.find(params[:id])
     @last_bid = @listing.bids.last
+    @new_bid = Bid.new
+
+    # respond_to do |format|
+    #   if @new_bid.save
+    #     format.html { redirect_to listing_path, notice: 'Your bid is successfully placed.' }
+    #     format.json { render :show, status: :ok, location: @new_bid }
+    #   else
+    #     format.html { render :show }
+    #     format.json { render json: @new_bid.errors, status: :unprocessable_entity }
+    #   end
+    # end
+
   end
 
   def mylistings
