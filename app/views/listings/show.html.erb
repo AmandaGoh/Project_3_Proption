@@ -15,6 +15,20 @@
               <div class="col-md-12">
                   <%= image_tag(@listing.property.picture_url, width: 314, height:200) if @listing.property.picture.present? %>
               </div>
+<!-- =added to render error msg. To remove if causing active ctrl/undefined method error= -->
+
+              <% if @new_bid.errors.any? %>
+                  <div id="error_explanation">
+                    <h2><%= pluralize(@new_bid.errors.count, "error") %> prevents your bid from being placed:</h2>
+
+                    <ul>
+                    <% @new_bid.errors.full_messages.each do |message| %>
+                      <li><%= message %></li>
+                    <% end %>
+                    </ul>
+                  </div>
+              <% end %>
+<!-- =added to render error msg. To remove if causing active ctrl/undefined method error= -->
 
               <table class="pull-left col-md-8 ">
                 <tbody>
