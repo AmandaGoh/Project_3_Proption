@@ -13,7 +13,7 @@ class PropertiesController < ApplicationController
   def show
     @property = Property.find(params[:id])
     rescue ActiveRecord::RecordNotFound
-    redirect_to root_url, :alert => "Record not found." 
+    redirect_to root_url, :alert => "Record not found."
   end
 
   # GET /properties/1/edit
@@ -26,6 +26,8 @@ class PropertiesController < ApplicationController
     else
       redirect_to new_user_session_path, :alert => "Please log in to edit"
     end
+    rescue ActiveRecord::RecordNotFound
+    redirect_to root_url, :alert => "Record not found."
   end
 
   # POST /properties
@@ -50,6 +52,7 @@ class PropertiesController < ApplicationController
     redirect_to new_user_session_path, :alert => "Please log in to create a new property"
     end
   end
+
   def create
     current_user
     @new_property = Property.new()
@@ -64,7 +67,6 @@ class PropertiesController < ApplicationController
     @new_property.picture = params[:property][:picture]
     @new_property.seller_id = current_user.id
     @new_property.errors.full_messages
-
 
     respond_to do |format|
       if @new_property.save
@@ -87,18 +89,15 @@ class PropertiesController < ApplicationController
   end
 
   def myproperties
-    @my_properties=current_user.properties
-    # @property = Property.find(params[:id])
-    # @not_listed = @property.listed < 1 ? true: false
-
-    # session
+    if user_signed_in?
+      @my_properties=current_user.properties
+    else
+      redirect_to new_user_session_path, :alert => "Please log in to view"
+    end
   end
-
 
   def update_listed_status
     @property = Property.find(params[:id])
-
-
     @property.listed = listed_params[:listed]
     @property.save
 

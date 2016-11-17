@@ -19,10 +19,10 @@ class ListingsController < ApplicationController
     #   end
     # end
 # added to render error message. to remove if causing error
-    @check_user = user_signed_in?
-    unless @check_user
-      render "show", :notice => "Please log in to bid"
-    end
+
+    # unless user_signed_in?
+    #   render "show", :alert => "Please log in to bid."
+    # end
       rescue ActiveRecord::RecordNotFound
       redirect_to root_url, :alert => "Record not found."
   end
