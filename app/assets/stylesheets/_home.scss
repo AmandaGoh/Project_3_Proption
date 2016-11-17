@@ -88,9 +88,12 @@ HOME PAGE - FEATURED LISTINGS
   margin: 0;
 }
 
-/*========================
-INDEX PAGE - FEATURED LISTINGS
-========================*/
+.aa-properties-item:hover {
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
+}
+
 .propname {
   color:#599bf8;
 }
@@ -389,6 +392,29 @@ img.avatar.img-responsive.img-circle {
 /* ===========================
 SERVICES
 ============================ */
+.growservice:hover {
+  -webkit-transform: scale(1.4);
+  -ms-transform: scale(1.4);
+  transform: scale(1.4);
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.growabout:hover {
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+
+}
+
 .service-icon {
 	margin-bottom: 20px;
 }
@@ -399,7 +425,7 @@ SERVICES
 }
 
 .row.services {
-  margin-top: 24%;
+  margin-top: 10%;
 }
 
 /* ===========================
@@ -451,7 +477,7 @@ SCROLL DOWN
   -webkit-transition: all .5s ease-in 3s;
   transition: all .5s ease-in 3s;
   position: absolute;
-  bottom: 30px;
+  top: 37%;
   left: 50%;
   margin-left: -16px;
   display: block;
