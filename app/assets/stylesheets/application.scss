@@ -1,6 +1,10 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+ .test {
+   color: red;
+ }
+
  html, body, * {
  	-webkit-box-sizing: border-box;
  	-moz-box-sizing: border-box;
@@ -86,9 +90,9 @@
  	line-height: inherit;
  }
 
- @import 'header'
- @import 'footer'
- @import 'home'
- @import 'properties'
- @import 'listings'
- @import 'bids'
+@import 'header';
+@import 'footer';
+@import 'home';
+@import 'properties';
+@import 'listings';
+@import 'bids';
