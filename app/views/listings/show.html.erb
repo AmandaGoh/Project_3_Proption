@@ -214,10 +214,14 @@
               <% end %>
 
               <% else %>
+              <div class="text-left col-md-5">
+              <p><h4>Please login to submit bids</h4></p>
+              <div>
+              <div class="text-right col-md-3">
 
+                  <%= submit_tag "Submit Bid", class: "btn btn-success btn-lg submit-button disabled", title:"Please login to submit bids" %>
+              </div>
 
-
-              <%link_to new_user_session_path, :alert => "Please log in to bid" %>
 
               <%end %>
 
