@@ -85,6 +85,10 @@ section.homebottom {
 /*========================
 HOME PAGE - FEATURED LISTINGS
 ========================*/
+.propertydescription {
+  overflow: hidden;
+}
+
 .homesection {
   position: relative;
   width: 100%;
@@ -280,6 +284,10 @@ a.btn.btn-danger.btn-md.pull-right {
 	float: left;
 	padding: 10px;
 	width: 100%;
+}
+
+.aa-properties-detial {
+  overflow: hidden;
 }
 
 .aa-properties-item .aa-properties-item-content .aa-properties-detial .aa-price {
