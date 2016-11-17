@@ -51,7 +51,7 @@ class ListingsController < ApplicationController
     @property = Property.find(params[:property_id])
     @new_listing = Listing.new()
     @new_listing.auction_date = DateTime.now
-    @new_listing.duration = DateTime.now + 10.minutes
+    @new_listing.duration = DateTime.now + 6.minutes
     @new_listing.property_id = @property.id
     @new_listing.save
     @update_prop_listing =

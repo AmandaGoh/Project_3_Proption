@@ -14,9 +14,6 @@ $( document ).on('turbolinks:load', function() {
   else if ($('#listed-status').text() == 2) {
     disableBidding()
   }
-  else if ($('#listed-status').text() == 3){
-    disableBidding()
-  }
   // console.log($('#duration').text())
 
   function initializeClock (startTime, endTime, listingID) {
@@ -44,12 +41,14 @@ $( document ).on('turbolinks:load', function() {
       $('.bidtime' + listingID).text(hours + ' : ' + minutes + ' : ' + seconds)
 
 
-      if (t.total <= 0 && $('#listed-status').text() == 1) {
+      if (t.total <= 0 ) {
         clearInterval(timeinterval)
         disableBidding()
         // trigger submit of invisible form
-        $('#listed-status-form' +listingID).submit()
-        $('#listed-status').text(2)
+        if ($('#listed-status').text() == 1){
+          $('#listed-status-form' +listingID).submit()
+          $('#listed-status').text(2)
+        }
       }
 
     }, 1000)
