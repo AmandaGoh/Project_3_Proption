@@ -1,9 +1,6 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
-.test {
-  color: red;
-}
  html, body, * {
  	-webkit-box-sizing: border-box;
  	-moz-box-sizing: border-box;
@@ -22,16 +19,17 @@
  .container {
   height: 100%;
   position: relative;
-  margin-bottom: 20%;
+  margin-bottom: 40%;
  }
 
  .heading {
    text-align: center;
-   color: red;
  }
 
  .container.bg-overlay {
-   margin-bottom: 0%;
+   margin-bottom: 0;
+   width: 100%;
+   padding: 0;
  }
 
  /*========================

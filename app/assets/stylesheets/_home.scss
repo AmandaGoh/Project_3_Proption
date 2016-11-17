@@ -66,9 +66,14 @@ MID SECTION TITLE
 .smalltitle {
   text-align: center;
   position: relative;
+  margin-top: 10%;
   width: 100%;
   color: black;
   padding: 0.5%;
+}
+
+.smalltitle.features {
+  margin-top: -10%;
 }
 
 section.homebottom {
@@ -425,7 +430,7 @@ SERVICES
 }
 
 .row.services {
-  margin-top: 10%;
+  margin-top: 20%;
 }
 
 /* ===========================
@@ -477,7 +482,7 @@ SCROLL DOWN
   -webkit-transition: all .5s ease-in 3s;
   transition: all .5s ease-in 3s;
   position: absolute;
-  top: 37%;
+  top: 40%;
   left: 50%;
   margin-left: -16px;
   display: block;
