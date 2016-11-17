@@ -6,7 +6,8 @@ class ListingsController < ApplicationController
   def show
     @listing = Listing.find(params[:id])
     @last_bid = @listing.bids.last
-    @new_bid = Bid.new
+# added to render error message. to remove if causing error
+    # @new_bid = Bid.new
 
     # respond_to do |format|
     #   if @new_bid.save
@@ -17,6 +18,11 @@ class ListingsController < ApplicationController
     #     format.json { render json: @new_bid.errors, status: :unprocessable_entity }
     #   end
     # end
+# added to render error message. to remove if causing error
+    @check_user = user_signed_in?
+    unless @check_user
+      render "show", :notice => "Please log in to bid"
+    end
 
   end
 
@@ -41,7 +47,7 @@ class ListingsController < ApplicationController
     @property = Property.find(params[:property_id])
     @new_listing = Listing.new()
     @new_listing.auction_date = DateTime.now
-    @new_listing.duration = DateTime.now + 3.minutes
+    @new_listing.duration = DateTime.now + 10.minutes
     @new_listing.property_id = @property.id
     @new_listing.save
     @update_prop_listing =

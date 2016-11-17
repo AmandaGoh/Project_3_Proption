@@ -1,6 +1,5 @@
 $(document).on('turbolinks:load', function () {
-  $('#bid-form')
-    .on('ajax:success', function (e, data, status) {
+  $('#bid-form').on('ajax:success', function (e, data, status) {
       // console.log(data.status)
       if (data.status === 'fail') {
         $('#bid-message').html('<p>' + data.message + '</p>').removeClass().addClass('fail-bid-message')

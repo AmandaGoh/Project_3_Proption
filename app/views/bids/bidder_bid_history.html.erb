@@ -68,8 +68,13 @@
                 <td>$<%= number_with_delimiter(@current_user_bids.where(["listing_id = ?", unique_listing.listing_id]).last.bid_amount) %> </td>
                 <td>
 
-                  <% if unique_listing.listing.property.listed == 3 %>
+                  <% if unique_listing.listing.property.listed == 2 %>
+                      <span class="btn btn-success btn-md">Pending Acceptance</span>
+
+                  <% elsif unique_listing.listing.property.listed == 3 %>
                       <span class="btn btn-success btn-md">Bid Accepted By Seller</span>
+
+
 
                   <% else %>
                       <div class="pull-left">
