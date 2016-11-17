@@ -17,7 +17,6 @@ $(document).on('turbolinks:load', function () {
   $('.scroll-top-wrapper').on('click', scrollToTop)
 
   function scrollToTop () {
-    console.log('scroll to top works!')
     verticalOffset = typeof (verticalOffset) != 'undefined' ? verticalOffset : 0
     element = $('body')
     offset = element.offset()

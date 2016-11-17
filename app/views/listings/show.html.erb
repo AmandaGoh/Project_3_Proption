@@ -124,7 +124,7 @@
             <div class="modal-footer">
 
               <div class="text-left col-md-3">
-                Bid's Endding In: <br/>
+                Bid's Ending In: <br/>
                 <span class="h3 text-muted">
                   <div class="bidtime">
                     <div class="<%= "bidtime" + @listing.id.to_s %>">
@@ -139,9 +139,7 @@
                 Last Bid: <br/>
                 <span class="h3 text-muted"><b class="bidlast">
 
-                  <div id= "bid-amount<%=@listing.id%>">$
-
-                    <%= number_with_delimiter(@last_bid.bid_amount) %></b></span>
+                  <div id= "bid-amount<%=@listing.id%>">$ <%= number_with_delimiter(@last_bid.bid_amount) %></b></span>
                   </div>
               </div>
 
@@ -185,19 +183,14 @@
             <% unless current_user.id == @listing.property.seller_id %>
               <%= form_tag listing_path + '/bids', method: :post, remote: true, id: 'bid-form' do %>
               <div class="text-left col-md-2">
-                  <%= label_tag "Bid Amount:"%><br/>
+                  <%= label_tag "Bid Amount: $"%><br/>
                     <div class="input-group bid-input<%=@listing.id %>">
-                      <span class="input-group-btn">
-                        <button type="button" class="btn btn-default">
-                        <span class="glyphicon glyphicon"><b>$</b></span>
-                      </button>
-                      </span>
                       <%= text_field_tag :bid_amount %>
                     </div>
                 </div>
 
               <div class="col-md-3">
-                  <span class="glypicon glyphicon glyphicon-ice-lolly"></span>
+
                   <%= submit_tag "Submit Bid", class: "btn btn-success btn-lg submit-button"+@listing.id.to_s %>
               </div>
                   <!-- invisible form to change listed status from 1 (listed) to 2 (pending acceptance) -->
@@ -215,7 +208,7 @@
 
               <% else %>
               <div class="text-left col-md-5">
-              <p><h4>Please login to submit bids</h4></p>
+              <p><h4 style="color:red;">Please login to submit bids</h4></p>
               <div>
               <div class="text-right col-md-3">
 

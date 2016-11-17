@@ -55,19 +55,29 @@
       <li class="divider"></li>
 
       <li><%= link_to myproperties_path, :class => "dropdowntext" do %>
-      My Properties <span class="badge pull-right">10</span><% end %>
+      My Properties
+      <!-- <span class="badge pull-right">10</span> -->
+      <span class="glyphicon glyphicon-home pull-right"></span>
+      <% end %>
       </li>
 
       <!-- <li><a class="dropdowntext" href="/myproperties">My Properties <span class="badge pull-right">5</span></a></li> -->
 
       <li class="divider"></li>
       <li><%= link_to mylistings_path, :class => "dropdowntext" do %>
-      My Listings <span class="badge pull-right">5</span><% end %>
+      My Listings
+
+      <!-- <span class="badge pull-right">5</span> -->
+      <span class="glyphicon glyphicon-list-alt pull-right"></span>
+      <% end %>
       </li>
 
       <li class="divider"></li>
       <li><%= link_to bidder_bid_history_path, :class => "dropdowntext" do %>
-        My Bids <span class="badge pull-right">7</span><% end %>
+        My Bids
+        <!-- <span class="badge pull-right">7</span> -->
+        <span class="glyphicon glyphicon-list pull-right"></span>
+        <% end %>
       </li>
 
     </ul>
