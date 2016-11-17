@@ -14,6 +14,9 @@ $( document ).on('turbolinks:load', function() {
   else if ($('#listed-status').text() == 2) {
     disableBidding()
   }
+  else if ($('#listed-status').text() == 3) {
+    disableBidding()
+  }
   // console.log($('#duration').text())
 
   function initializeClock (startTime, endTime, listingID) {
