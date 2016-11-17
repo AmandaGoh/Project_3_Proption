@@ -23,17 +23,21 @@ class ListingsController < ApplicationController
     unless @check_user
       render "show", :notice => "Please log in to bid"
     end
-
+      rescue ActiveRecord::RecordNotFound
+      redirect_to root_url, :alert => "Record not found."
   end
 
   def mylistings
-    @current_user_listings = current_user.owned_listings
+    if user_signed_in?
+      @current_user_listings = current_user.owned_listings
+    else
+      redirect_to new_user_session_path, :alert => "Please log in to view"
+    end
   end
 
   def new
     @listing = Listing.new
     @my_properties=current_user.properties
-
   end
 
   def create
@@ -53,9 +57,7 @@ class ListingsController < ApplicationController
     @update_prop_listing =
     @property.listed = 1
     @property.save
-
     @new_listing.errors.full_messages
-
     redirect_to mylistings_path
   end
 
@@ -63,8 +65,7 @@ class ListingsController < ApplicationController
     @property = Property.find(params[:id])
     @property.listed = 3
     @property.save
-
-  redirect_to mylistings_path
+    redirect_to mylistings_path
   end
 
 end
