@@ -1,78 +1,162 @@
-<div class='container'>
-<h3>Property Creation Page</h3>
-
-<!-- form for -->
-<%= form_for @new_property do |f| %>
-
-<% if @new_property.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@new_property.errors.count, "error") %> prohibited this property from being saved:</h2>
-
-      <ul>
-      <% @new_property.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<<<<<<< HEAD
+<div class="container">
+  <div class="heading heading-contact">
+    <div class="col-lg-12">
+      <div class="section-heading">
+        <h2>Create Property</h2>
+        <i class="fa fa-2x fa-angle-down"></i>
+      </div>
     </div>
-<% end %>
+  </div>
 
-<p>
-<%= f.label :'Property Name' %><br>
-<%= f.text_field :name %><br>
-</p>
-
-<p>
-  <%= f.label :'Property Type' %><br>
-  <%= f.select :prop_type, ['Landed', 'Condominium']%>
-</p>
-
-<p>
-<%= f.label :address %><br>
-<%= f.text_field :address %><br>
-</p>
-
-<p>
-<%= f.label :postal_code %><br>
-<%= f.text_field :postal_code %><br>
-</p>
-
-<p>
-  <%= f.label :tenure %><br>
-  <%= f.select :tenure, ['Freehold', '999', '99']%>
-</p>
-
-<p>
-<%= f.label :size %><br>
-<%= f.text_field :size %><br>
-</p>
-
-<p>
-  <%= f.label :'Reserve Price' %><br>
-  <%= f.text_field :reserve_price, :value => number_with_delimiter(f.object.reserve_price) %>
-</p>
-
-<p>
-<%= f.label :description %><br>
-<%= f.text_area :description %><br>
-</p>
-
-<p>
-  <%= f.label :'Property Photographs' %><br>
-  <%= f.file_field :picture %>
-</p>
-
-<p>
-<%= f.hidden_field :seller_id, value: current_user.id %>
-</p>
-
-<p>
-<%= f.hidden_field :listed, value: 0 %>
-</p>
+  <div class="heading col-lg-12">
+    <hr class="marginbot-50">
+  </div>
 
 
-<p>
-  <%= f.submit "Submit", Class: "btn btn-primary" %>
-</p>
-<% end %>
+  <div class="row">
+    <div class="col-md-9 personal-info">
+        <!-- form for -->
+                <%= form_for @new_property do |f| %>
 
-</div>
+                <% if @new_property.errors.any? %>
+                <div id="error_explanation">
+                    <h2><%= pluralize(@new_property.errors.count, "error") %>
+                        prohibited this property from being saved:</h2>
+
+                    <ul>
+                        <% @new_property.errors.full_messages.each do |message| %>
+                        <li><%= message %></li>
+                        <% end %>
+                    </ul>
+                </div>
+                <% end %>
+
+                <form class="form-horizontal" role="form">
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <%= f.label :'Property Name' , class:"col-lg-3 control-label" %>
+                    <div class="col-md-8">
+                        <%= f.text_field :name, autofocus: true, class: "form-control" , placeholder:"Property Name" %>
+                        <br/>
+                    </div>
+                </div>
+
+                <!-- Text input-->
+
+                <div class="form-group">
+                    <%= f.label :'Property Type' , class:"col-lg-3 control-label" %>
+                    <div class="col-md-8">
+                        <%= f.select :prop_type, ['Landed', 'Condominium'], class: "form-control"%>
+                        <br/>
+                    </div>
+                </div>
+
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+
+                <!-- Text input-->
+
+                <div class="form-group">
+                    <%= f.label :address , class:"col-lg-3 control-label" %>
+                    <div class="col-md-8">
+                        <%= f.text_field :address, autofocus: true, class: "form-control" , placeholder:"Address" %>
+                        <br/>
+                    </div>
+                </div>
+
+                <!-- Text input-->
+
+                <div class="form-group">
+                    <%= f.label :postal_code , class:"col-lg-3 control-label" %>
+                    <div class="col-md-8">
+                        <%= f.text_field :postal_code , autofocus: true, class: "form-control" , placeholder:"Postal Code" %>
+                        <br/>
+                    </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <%= f.label :tenure , class:"col-lg-3 control-label" %>
+                    <div class="col-md-8">
+                        <%= f.select :tenure,['Freehold', '999', '99'], autofocus: true, class: "form-control"%>
+                        <br/>
+                    </div>
+                </div>
+
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+
+                <!-- Text input-->
+
+                <div class="form-group">
+                    <%= f.label :size , class:"col-lg-3 control-label"%>
+                    <div class="col-md-8">
+                        <%= f.text_field :size , autofocus: true, class: "form-control" , placeholder:"Size" %>
+                        <br/>
+                    </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <%= f.label :'Reserve Price' , class:"col-lg-3 control-label" %>
+                    <div class="col-md-8">
+                        <%= f.text_field :reserve_price, :value => number_with_delimiter(f.object.reserve_price), autofocus: true, class: "form-control" , placeholder:"Reserve Price" %>
+                        <br/>
+                    </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <%= f.label :description , class:"col-lg-3 control-label" %>
+                    <div class="col-md-8">
+                        <%= f.text_area :description , autofocus: true, class: "form-control" , placeholder:"Description" %>
+                        <br/>
+                    </div>
+                </div>
+
+                <!-- Text input-->
+
+                <div class="form-group">
+                    <%= f.label :'Property Photographs' , class:"col-lg-3 control-label"%>
+                    <div class="col-md-8">
+                        <%= f.file_field :picture, autofocus: true %>
+                        <br/>
+                    </div>
+                </div>
+
+                <p>
+                    <%= f.hidden_field :seller_id, value: current_user.id %>
+                </p>
+
+                <p>
+                    <%= f.hidden_field :listed, value: 0 %>
+                </p>
+
+                <div class="form-group">
+                    <label class="col-md-3 control-label"></label>
+                    <div class="col-md-8">
+                        <div class="pull-right">
+
+                            <%= link_to "Cancel", :back, class: "btn btn-default" %>
+
+                            <%= f.submit "Submit", Class: "btn btn-primary" %>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+        </form>
+        <% end %>
+    </div>

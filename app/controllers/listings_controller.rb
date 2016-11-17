@@ -1,6 +1,6 @@
 class ListingsController < ApplicationController
   def index
-    @listings = Property.where('listed > ?', 0)
+    @listings = Property.where('listed > ?', 0).reverse_order
   end
 
   def show
