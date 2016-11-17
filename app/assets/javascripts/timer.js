@@ -37,13 +37,16 @@ $( document ).on('turbolinks:load', function() {
 
       if (t.total <= 0) {
         clearInterval(timeinterval)
-        $('.bidtime' + listingID).text('Bid has ended')
+        $('.bidtime' + listingID).text('Bidding has ended')
         $('.submit-button' + listingID).prop('disabled', true)
         $('#bid-message').remove()
         $('.bid-input' + listingID).remove()
         $('.modal-content').addClass('listing-greyed-out')
         // trigger submit of invisible form
-        $('#listed-status-form' +listingID).submit()
+        console.log($('#listed-status').text())
+        if ($('#listed-status').text() == 1) {
+          $('#listed-status-form' +listingID).submit()
+        }
       }
 
     }, 1000)

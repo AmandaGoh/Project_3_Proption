@@ -6,7 +6,7 @@
           <div class="modal-content">
             <div class="modal-header">
 
-              <%= link_to "", '/listings', :class => 'close text-danger fa fa-times fa-3x'%>
+              <%= link_to "", :back, :class => 'close text-danger fa fa-times fa-3x'%>
 
               <h2 class="modal-title" id="myModalLabel"> <b><%= @listing.property.name %></b></h2>
             </div>
@@ -124,7 +124,7 @@
               <div class="text-left col-md-2">
                 Last Bid: <br/>
                 <span class="h3 text-muted"><b class="bidlast">
-                  <div id= "bid-amount">$
+                  <div id= "bid-amount<%=@listing.id%>">$
                     <%= number_with_delimiter(@last_bid.bid_amount) %></b></span>
                   </div>
               </div>
@@ -132,7 +132,7 @@
               <div class="text-left col-md-2">
                 By User: <br/>
                 <span class="h3 text-muted"><b class="bidlast">
-                  <div id = "bidder-username">
+                  <div id = "bidder-username<%=@listing.id%>">
                     <%= @last_bid.bidder.username %></b>
                   </div>
                 </span>
@@ -143,7 +143,7 @@
               <div class="text-left col-md-2">
                 Last Bid: <br/>
                 <span class="h3 text-muted"><b class="bidlast">
-                  <div id= "bid-amount">
+                  <div id= "bid-amount<%=@listing.id%>">
                     No bids yet</b></span>
                   </div>
               </div>
@@ -151,13 +151,15 @@
               <div class="text-left col-md-2">
                 By User: <br/>
                 <span class="h3 text-muted"><b class="bidlast">
-                  <div id = "bidder-username">
+                  <div id = "bidder-username<%=@listing.id%>">
                     </b>
                   </div>
                 </span>
               </div>
 
           <% end %>
+
+          <% if user_signed_in? %>
             <% unless current_user.id == @listing.property.seller_id %>
               <%= form_tag listing_path + '/bids', method: :post, remote: true, id: 'bid-form' do %>
               <div class="text-left col-md-2">
@@ -180,10 +182,22 @@
               <% end %>
               <% end %>
 
+              <div id="listed-status", style="display: none">
+                <%= @listing.property.listed %>
+              </div>
+
               <%= form_tag edit_property_path(@listing.property), method: :post, remote: true, id: 'listed-status-form' + @listing.id.to_s do %>
               <%= hidden_field_tag :listed, 2 %>
               <%= submit_tag "", :style => "display: none;"%>
               <% end %>
+
+              <% else %>
+
+
+
+              <%link_to new_user_session_path, :alert => "Please log in to bid" %>
+
+              <%end %>
 
             </div>
           </div>
