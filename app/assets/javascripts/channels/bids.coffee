@@ -10,10 +10,9 @@ App.bids = App.cable.subscriptions.create "BidsChannel",
     listingID = JSON.stringify(data['listingID'])
     # console.log(JSON.stringify(data['bid']))
     listingID = JSON.stringify(data['listingID'])
-    bidAmount = JSON.stringify(data['bid'])
-    # console.log(bidAmount)
-    $('#bid-amount' + listingID).text(bidAmount).addClass('bid-amount')
+    bidAmount = '$ ' + JSON.stringify(data['bid'])
+    $('#bid-amount' + listingID).text(bidAmount.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")).addClass('bid-amount').css("color","green")
     # console.log($('#bid-amount').text())
     bidder = data['user']
     # console.log(bidder)
-    $('#bidder-username' + listingID).text(bidder)
+    $('#bidder-username' + listingID).text(bidder).css("color","green")

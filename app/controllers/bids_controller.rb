@@ -88,7 +88,7 @@ class BidsController < ApplicationController
             }
         else
           render json: {
-            'message' => "Please place a bid amount higher than " + listing.property.reserve_price.to_s,
+            'message' => "Please place a bid amount higher than reserve price " + listing.property.reserve_price.to_s,
             'status' => 'fail'
           }
         end
