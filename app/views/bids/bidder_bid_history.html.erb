@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
 
-    <h1>MY BID HISTORY</h1>
+    <h1>MY BID HISTORY - LISTINGS WHICH I HAVE BIDDED FOR</h1>
 
     <div class="col-md-3">
       <form action="#" method="get">
@@ -55,40 +55,41 @@
             </td>
           </tr> -->
 
-          <% if @current_user.bids.exists? %>
-          <% @current_user_bids.each do |bid| %>
+          <% if @current_user_bids.exists? %>
+
+          <% @unique_bidder_listing.each do |unique_listing| %>
               <tr>
-                <td> <%= bid.listing.property.name %> </td>
-                <td> <%= bid.listing.property.picture %> </td>
-                <td> <%= bid.listing.property.prop_type %> </td>
-                <td> <%= bid.listing.property.address %> </td>
-                <td>$<%= bid.listing.property.reserve_price %> </td>
-                <td>$<%= bid.listing.bids.last.bid_amount %> </td>
-                <td>$<%= bid.bid_amount %> </td>
+                <td> <%= unique_listing.listing.property.name %> </td>
+                <td> <%= unique_listing.listing.property.picture %> </td>
+                <td> <%= unique_listing.listing.property.prop_type %> </td>
+                <td> <%= unique_listing.listing.property.address %> </td>
+                <td>$<%= number_with_delimiter(unique_listing.listing.property.reserve_price) %> </td>
+                <td>$<%= number_with_delimiter(unique_listing.listing.bids.last.bid_amount) %> </td>
+                <td>$<%= number_with_delimiter(@current_user_bids.where(["listing_id = ?", unique_listing.listing_id]).last.bid_amount) %> </td>
                 <td>
-                  <div class="pull-left">
-                    <form method="GET" action="/listings/<%= bid.listing_id %>">
-                      <!-- <button type="button" class="btn btn-success btn-md"> -->
-                      <input type="submit" value="Submit New Bid" class="btn btn-success btn-md">
-                      <!-- <span class="glypicon glyphicon glyphicon-ice-lolly"></span> -->
-                      <!-- </button> -->
-                    </form>
-                  </div>
+
+                  <% if unique_listing.listing.property.listed == 2 %>
+                      <span class="btn btn-success btn-md">Pending Acceptance</span>
+
+                  <% elsif unique_listing.listing.property.listed == 3 %>
+                      <span class="btn btn-success btn-md">Bid Accepted By Seller</span>
+
+
+
+                  <% else %>
+                      <div class="pull-left">
+                        <form method="GET" action="/listings/<%= unique_listing.listing_id %>">
+                          <!-- <button type="button" class="btn btn-success btn-md"> -->
+                          <input type="submit" value="Submit New Bid" class="btn btn-success btn-md">
+                          <!-- <span class="glypicon glyphicon glyphicon-ice-lolly"></span> -->
+                          <!-- </button> -->
+                        </form>
+                      </div>
+                  <% end %>
+
                 </td>
+
               </tr>
-
-
-
-              <div>
-                <%= form_tag bid_history_path, method: :get do %>
-                <%= hidden_field_tag :listing_id, bid.listing_id %>
-                <%= submit_tag "Show Bid History - listing #{bid.listing_id}" %>
-                <% end %>
-              </div>
-
-
-
-
           <% end %>
 
           <% else %>
@@ -100,6 +101,5 @@
         </tbody>
       </table>
     </div>
-
   </div>
 </div>

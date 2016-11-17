@@ -25,53 +25,120 @@
               <th>Picture</th>
               <th>Property Type</th>
               <th>Address</th>
-              <th>Reserve Price</th>
-              <th>Last Bid Price</th>
-              <th>Actions</th>
+              <th>Reserve Price ($)</th>
+              <th>Last Bid Price ($)</th>
+              <th>Status</th>
+              <th>Bids History</th>
+              <th>Accept Bid</th>
             </tr>
           </thead>
           <tbody>
 
 
-<% @current_user_listings.each do |listing| %>
+            <% @current_user_listings.each do |listing| %>
+
 
             <tr>
-              <td><a href="#"><%= listing.property.name %></a></td>
-              <td>
-                <a href="#" width="120">
-                  <%= listing.property.picture %>
-                  <!-- <img src="http://assets.cromly.s3.amazonaws.com/stories/lime%20house/fish%20house/GUZ-SENTOSA-002.jpg" width="120" alt=""> -->
-                </a>
+
+              <td><%= link_to listing.property.name, listing_path(listing) %>
               </td>
+
+              <td>
+                <%= link_to listing_path(listing) do %>
+                  <%= image_tag(listing.property.picture_url, width: 120, height:100) if listing.property.picture.present? %>
+                    <% end %>
+                  <!-- <img src="http://assets.cromly.s3.amazonaws.com/stories/lime%20house/fish%20house/GUZ-SENTOSA-002.jpg" width="120" alt=""> -->
+
+                </td>
+
+
+
               <td><%= listing.property.prop_type %></td>
               <td><%= listing.property.address %></td>
-              <td>$<%= number_with_delimiter(listing.property.reserve_price) %></td>
-              <td>$<%= number_with_delimiter(listing.property.reserve_price) %></td>
-              <td>
-                <div class="pull-left">
-                  <button type="button" class="btn btn-warning btn-md">
-                  <span class="glypicon glyphicon glyphicon-list"></span> Bid History
-                  <!-- <p><%= link_to "Bid History", 'listings', :class => 'btn btn-warning btn-md'%></p> -->
-                  </button>
-                </div>
+              <td><%= number_with_delimiter(listing.property.reserve_price) %></td>
+
+              <td><% if listing.bids.exists? %>
+
+              <%= number_with_delimiter(listing.bids.last.bid_amount) %>
+
+              <% else %>
+
+              <div id= "bid-amount">
+                No bids yet</b></span>
+              </div>
+
+              <% end %>
+
               </td>
+
+
+
+              <% if listing.property.listed == 1 %>
+              <td><span> Listed </span>
+              <% elsif listing.property.listed == 2 %>
+              <td><span> Pending Acceptance </span>
+              <% else listing.property.listed == 3 %>
+              <td><span> Bid Accepted </span>
+              <% end %>
+
+
+              <td>
+                <%= form_tag seller_bid_history_path, method: :get do %>
+                    <%= hidden_field_tag :listing_id, listing.id %>
+
+                    <%= button_tag(type: 'submit', class: 'btn btn-warning btn-md tip-right', title: 'Bid History') do %>
+                    <span class='glyphicon glyphicon-list'></span>
+
+                    <% end %>
+                <% end %>
+              </td>
+
+
+              <td>
+                    <td><% if listing.bids.exists? %>
+
+                <% if listing.property.listed == 2 %>
+                <%= form_tag accept_bid_path, method: :get do %>
+                    <%= hidden_field_tag :id, listing.property.id %>
+
+                    <%= button_tag(type: 'submit', class:"btn btn-success btn-md tip-right", title: 'Accept Bid') do %>
+                    <span class="glyphicon glyphicon-send"></span>
+
+                    <% end %>
+                    <% end %>
+
+                    <% elsif listing.property.listed == 3 %>
+
+                      <span class="btn btn-success btn-md">Bid Accepted</span>
+
+                  <% else  %>
+                    <span class="btn btn-success btn-md">Bidding in progress</span>
+
+                    <% end %>
+
+                    <% else %>
+                    <% if listing.property.listed == 1 %>
+                    <div id= "bid-amount">
+                        <span class="btn btn-success btn-md">Bidding in progress</span>
+
+
+                    <% else listing.property.listed == 2 %>
+                    <div id= "bid-amount">
+                        <span class="btn btn-success btn-md">Bidding not successful</span>
+                    <% end %>
+                    <% end %>
+
+
+              </td>
+
             </tr>
 
 
-
-  <% end %>
-
+          </div>
 
 
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
+          <% end %>
+
           </tbody>
         </table>
       </div>

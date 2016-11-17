@@ -48,10 +48,9 @@
                     <!-- <a class="aa-properties-item-img popular featured_img">
                       <img src="house2.jpg" class="featured_img" alt="img">
                     </a> -->
-                    <%= link_to listing.picture, listing_path(listing) %>
-                    <a class="aa-properties-item-img popular featured_img" alt="property image" width='314' height='200'>
-                    <!-- <%= listing.picture %> -->
-                    </a>
+                    <%= link_to listing_path(listing.listing) do %>
+                      <%= image_tag(listing.picture_url, width: 314, height:200) if listing.picture.present? %>
+                    <% end %>
                     <div class="aa-properties-item-content">
 
                       <!-- <div class="aa-properties-info">
@@ -75,27 +74,57 @@
                       <% if listing.listing.bids.exists? %>
 
                       <div class="aa-properties-detial">
-                        <span>Last Bid: <b class="bidlast"><%= listing.listing.bids.last.bid_amount %></b></span>
+                        <span>Reserve Price ($): <b class="bidlast"><%= number_with_delimiter(listing.reserve_price) %></b></span>
+                        <br>
+                        <span>Last Bid ($): <b class="bidlast"><%= number_with_delimiter(listing.listing.bids.last.bid_amount) %></b></span>
                         <span class="pull-right"><%= listing.listing.bids.length %> Bids</span>
                         <br>
+
+                        <% if listing.listed == 1%>
                         <span>Ends: <b class= "<%= "bidtime" + listing.listing.id.to_s %>"><%= listing.listing.duration.in_time_zone("Singapore") %></b></span>
-                        <button type="button" class="btn btn-danger btn-md pull-right bidnow">
-                        <span class="glypicon glyphicon glyphicon-ice-lolly"></span>
-                        Bid Now
-                        </button>
+
+                        <% elsif listing.listed == 2 %>
+                        <span>Ends :Pending Acceptance</span>
+
+                        <% else listing.listed == 3 %>
+
+                        <span>Ends :Bid Accepted</span>
+
+
+                        <% end %>
+
+
+
+                        <%= link_to 'Bid Now', listing_path(listing.listing), class: "btn btn-danger btn-md pull-right bidnow" %>
+
                       </div>
 
                       <% else %>
 
                   <div class="aa-properties-detial">
-                    <span>Last Bid: <b class="bidlast">No bids yet</b></span>
+
+                    <span>Reserve Price ($): <b class="bidlast"><%= number_with_delimiter(listing.reserve_price) %></b></span>
+                    <br>
+                    <span>Last Bid ($): <b class="bidlast">No bids yet</b></span>
                     <span class="pull-right">0 Bids</span>
                     <br>
+                    <% if listing.listed == 1%>
                     <span>Ends: <b class= "<%= "bidtime" + listing.listing.id.to_s %>"><%= listing.listing.duration.in_time_zone("Singapore") %></b></span>
-                    <button type="button" class="btn btn-danger btn-md pull-right bidnow">
-                    <span class="glypicon glyphicon glyphicon-ice-lolly"></span>
-                    Bid Now
-                    </button>
+
+                    <% elsif listing.listed == 2 %>
+                    <span>Ends :Bidding not successful</span>
+
+                    <% else listing.listed == 3 %>
+
+                    <span>Ends :Bidding not successful</span>
+
+
+                    <% end %>
+
+
+
+
+                    <%= link_to 'Bid Now', listing_path(listing.listing), class: "btn btn-danger btn-md pull-right bidnow" %>
                   </div>
 
                       <% end %>

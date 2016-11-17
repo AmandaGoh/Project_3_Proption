@@ -1,7 +1,10 @@
 class BidsController < ApplicationController
 
-  def index
+  def bidder_bid_history
       @current_user_bids = current_user.bids
+
+      @unique_bidder_listing = current_user.bids.select(:listing_id).uniq
+      # @unique_bidder_listing = current_user.bids.distinct.pluck(:listing_id)
 
       respond_to do |format|
           format.html
@@ -10,7 +13,7 @@ class BidsController < ApplicationController
   end
 
 
-  def history
+  def seller_bid_history
       @bid_info_for_listing = Bid.where(["listing_id = ?", params[:listing_id]])
 
       respond_to do |format|

@@ -6,6 +6,10 @@ class ListingsController < ApplicationController
   def show
     @listing = Listing.find(params[:id])
     @last_bid = @listing.bids.last
+    @check_user = user_signed_in?
+    unless @check_user
+      render "show", :notice => "Please log in to bid"
+    end
   end
 
   def mylistings
@@ -29,7 +33,7 @@ class ListingsController < ApplicationController
     @property = Property.find(params[:property_id])
     @new_listing = Listing.new()
     @new_listing.auction_date = DateTime.now
-    @new_listing.duration = DateTime.now + 2.minutes
+    @new_listing.duration = DateTime.now + 10.minutes
     @new_listing.property_id = @property.id
     @new_listing.save
     @update_prop_listing =
@@ -39,6 +43,14 @@ class ListingsController < ApplicationController
     @new_listing.errors.full_messages
 
     redirect_to mylistings_path
+  end
+
+  def accept_bid
+    @property = Property.find(params[:id])
+    @property.listed = 3
+    @property.save
+
+  redirect_to mylistings_path
   end
 
 end

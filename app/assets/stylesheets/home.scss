@@ -1,34 +1,66 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+/*========================
+JUMBOTRON
+========================*/
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-html, body, * {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	margin: 0;
-	padding: 0;
+.jumbotron {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background:url('./houses/house4.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 0;
+  margin: 0;
 }
 
-.container {
-	min-height: 100%;
-	height: auto !important;
-	height: 100%;
-	margin: 0 auto;
+.bigtitle {
+  position: relative;
+  text-align: center;
+	color: white;
+	margin: 15% auto;
+  z-index: 5;
 }
 
 /*========================
-LISTINGS SMALL
+MID SECTION TITLE
+========================*/
+.smalltitle {
+  text-align: center;
+  position: relative;
+  width: 100%;
+  color: black;
+  padding: 0.5%;
+}
+
+section.homebottom {
+  position: relative;
+  height: 100%;
+  margin-bottom: 20%;
+}
+
+/*========================
+HOME PAGE - FEATURED LISTINGS
+========================*/
+.homesection {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  padding: 0;
+  margin: 0;
+}
+
+/*========================
+INDEX PAGE - FEATURED LISTINGS
 ========================*/
 .propname {
   color:#599bf8;
-}
-
-.propname:hover {
-  color:#5775ed;
 }
 
 .icons img {
@@ -37,122 +69,17 @@ LISTINGS SMALL
 }
 
 .bidtime {
-  font-size: 26px;
+  font-size: 24px;
   color:#ff5252;
 }
 
 .bidlast {
-  font-size: 20px;
+  font-size: 18px;
   color:#16a861;
 }
 
-
-/*========================
-NAVBAR
-========================*/
-
-header {
-	height: 50px;
-	width: 100%;
-}
-
-.navbar-fixed-top {
-	background-color: rgba(0, 0, 0, 0.8);
-}
-
-.navbar-collapse.collapse.in {
-	height: 100%;
-	width: 100%;
-}
-
-.collapse.navbar-collapse {
-	margin-right: 15px;
-}
-
-.dropdown:hover .dropdown-menu {
-display: block;
-}
-
-.navbarlink {
-	color: white;
-}
-
-.navbarlink:hover {
-	color: white;
-}
-
-.nav.navbar-nav.navbar-right li a:hover {
-	background-color: rgba(0, 0, 0, 0.5);
-}
-
-.navbar-brand {
-	padding: 0;
-}
-
-.logolong {
-	height: 25px;
-	margin: 12.5px;
-}
-
-.navbar-brand:hover {
-	background-color: rgba(0, 0, 0, 0.5);
-}
-
-.navbar-login {
-	width: 305px;
-	padding: 10px;
-	padding-bottom: 0px;
-}
-
-.navbar-login-session {
-	padding: 10px;
-	padding-bottom: 0px;
-	padding-top: 0px;
-}
-
-.icon-size {
-	font-size: 87px;
-}
-
-.navbar-toggle .icon-bar {
-	background-color: #fff;
-}
-
-/*========================
-JUMBOTRON
-========================*/
-
-.jumbotron {
-	height: 600px;
-	position: relative;
-	background-image: url('');
-
-	text-align: center;
-	margin: 0 auto;
-	background-color: rgba(0, 0, 0, 0.5);
-	background:
-    /* top, transparent black, faked with gradient */
-    linear-gradient(
-      rgba(0, 0, 0, 0.1),
-      rgba(0, 0, 0, 0.1)
-    ),
-    /* bottom, image */
-    url('./houses/house4.jpg');
-		background-size: cover;
-		background-repeat: no-repeat;
-}
-
-.bigtitle {
-	color: white;
-	margin-top: 150px;
-}
-
-/*========================
-4 FEATURED LISTINGS
-========================*/
-
-.featured_img {
-	height: 200px;
+a.btn.btn-danger.btn-md.pull-right {
+  padding: 5px;
 }
 
 .latesttransaction {
@@ -283,6 +210,7 @@ JUMBOTRON
 	padding: 10px;
 	width: 100%;
 	text-align: left;
+  height: 40px;
 }
 
 .aa-properties-item .aa-properties-item-content .aa-properties-info span {
@@ -329,67 +257,19 @@ JUMBOTRON
 	text-align: center;
 }
 
-/*========================
-ALERT MESSAGE
-========================*/
-.alertMessage {
-	position:absolute;
-	width: 200px;
-	right: 0px;
-	text-align: center;
-	opacity: 0.9;
-	z-index: 99999999;
+.row.featured {
+  margin-top: 100px;
 }
 
 /*========================
-SCROLL TO TOP
-========================*/
-
-.scroll-top-wrapper {
-  position: fixed;
-  opacity: 0;
-  visibility: hidden;
-	overflow: hidden;
-	text-align: center;
-	z-index: 99999999;
-  background-color: rgba(0, 0, 0, 0.2);
-	color: #eeeeee;
-	width: 50px;
-	height: 48px;
-	line-height: 48px;
-	right: 30px;
-	bottom: 30px;
-	padding-top: 2px;
-	border-top-left-radius: 10px;
-	border-top-right-radius: 10px;
-	border-bottom-right-radius: 10px;
-	border-bottom-left-radius: 10px;
-	-webkit-transition: all 0.5s ease-in-out;
-	-moz-transition: all 0.5s ease-in-out;
-	-ms-transition: all 0.5s ease-in-out;
-	-o-transition: all 0.5s ease-in-out;
-	transition: all 0.5s ease-in-out;
-}
-
-.scroll-top-wrapper:hover {
-	background-color: #888888;
-}
-
-.scroll-top-wrapper.show {
-  visibility:visible;
-  cursor:pointer;
-	opacity: 1.0;
-}
-
-.scroll-top-wrapper i.fa {
-	line-height: inherit;
-}
-
-/*========================
-INDEX PAGE - FEATURED LISTINGS
+LISTINGS SMALL
 ========================*/
 .propname {
   color:#599bf8;
+}
+
+.propname:hover {
+  color:#5775ed;
 }
 
 .icons img {
@@ -407,6 +287,8 @@ INDEX PAGE - FEATURED LISTINGS
   color:#16a861;
 }
 
+
+
 /*========================
 LISTING DETAILS
 ========================*/
@@ -414,7 +296,7 @@ LISTING DETAILS
     background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7));
     height: 100%;
     width: 100%;
-    padding-top: 50px;
+    padding: 2% 2% 10% 2%;
 }
 
 /*========================
@@ -422,4 +304,239 @@ PROPERTY DETAILS
 ========================*/
 .reserveprice {
   color: #ff5252;
+}
+
+/*========================
+ABOUT
+========================*/
+.col-lg-12.about {
+  margin-top: 4%;
+}
+
+.scroll-down.black {
+  top: 39%;
+}
+
+.container.about {
+  margin-bottom: 27%;
+}
+
+#about {
+  margin-top: 5%;
+}
+
+.col-md-2 {
+  padding: 10px;
+  margin: 0 2px;
+  width: 230px;
+}
+
+.row.profile {
+  text-align: center;
+}
+
+.boxed-grey {
+	background: #f9f9f9;
+	padding: 20px;
+}
+
+.team h5 {
+	margin-bottom: 10px;
+}
+
+.team p.subtitle {
+	margin-bottom: 10px;
+}
+
+.avatar {
+	margin-bottom: 20px;
+}
+
+.team-social {
+	margin-left: 0;
+	padding-left: 0;
+
+}
+
+.team-social {
+	text-align: center;
+}
+
+.team-social li{
+    display: inline-block;
+	margin:0 !important;
+	padding:0;
+}
+
+
+.team-social a{
+	margin:0;
+	padding:0;
+    display: block;
+	width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background: #3bbec0;
+    -webkit-transition: background .3s ease-in-out;
+    transition: background .3s ease-in-out;
+}
+.team-social a i{
+	text-align: center;
+	margin:0;
+	padding:0;
+}
+
+/* ===========================
+SERVICES
+============================ */
+.service-icon {
+	margin-bottom: 20px;
+}
+
+.icons {
+  width: 100px;
+  height: 100px;
+}
+
+.row.services {
+  margin-top: 6%;
+}
+
+/* ===========================
+CONTACT
+============================ */
+
+.googlemap:hover {
+  -webkit-box-shadow:1px 2px 5px 3px #ccc;
+  -moz-box-shadow:1px 2px 5px 3px #ccc;
+  box-shadow: 1px 2px 5px 3px #ccc;
+}
+
+.container.contact {
+  margin-bottom: 9%;
+}
+
+.col-lg-6.contact {
+  text-align: left;
+  padding-left: 12%;
+  padding-top: 10%;
+}
+
+.col-lg-6.contact a {
+  color: black;
+  text-decoration: none;
+}
+
+.col-lg-6.contact a:hover {
+  font-weight: bolder;
+}
+
+#contact {
+  height: 100%;
+}
+
+/*========================
+SCROLL DOWN
+========================*/
+*,
+:after,
+:before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.scroll-down.black {
+  opacity: 1;
+  -webkit-transition: all .5s ease-in 3s;
+  transition: all .5s ease-in 3s;
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  margin-left: -16px;
+  display: block;
+  width: 32px;
+  height: 32px;
+  // border: 2px solid #FFF;
+  border: 2px solid black;
+  background-size: 14px auto;
+  border-radius: 50%;
+  z-index: 2;
+  -webkit-animation: bounce 2s infinite 2s;
+  animation: bounce 2s infinite 2s;
+  -webkit-transition: all .2s ease-in;
+  transition: all .2s ease-in;
+}
+
+.scroll-down.black:before {
+    position: absolute;
+    top: calc(50% - 8px);
+    left: calc(50% - 6px);
+    transform: rotate(-45deg);
+    display: block;
+    width: 12px;
+    height: 12px;
+    content: "";
+    border: 2px solid black;
+    // border: 2px solid white;
+    border-width: 0px 0 2px 2px;
+}
+
+.scroll-down.white {
+  opacity: 1;
+  -webkit-transition: all .5s ease-in 3s;
+  transition: all .5s ease-in 3s;
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  margin-left: -16px;
+  display: block;
+  width: 32px;
+  height: 32px;
+  border: 2px solid #FFF;
+  // border: 2px solid black;
+  background-size: 14px auto;
+  border-radius: 50%;
+  z-index: 2;
+  -webkit-animation: bounce 2s infinite 2s;
+  animation: bounce 2s infinite 2s;
+  -webkit-transition: all .2s ease-in;
+  transition: all .2s ease-in;
+}
+
+.scroll-down.white:before {
+    position: absolute;
+    top: calc(50% - 8px);
+    left: calc(50% - 6px);
+    transform: rotate(-45deg);
+    display: block;
+    width: 12px;
+    height: 12px;
+    content: "";
+    // border: 2px solid black;
+    border: 2px solid white;
+    border-width: 0px 0 2px 2px;
+}
+
+@keyframes bounce {
+  0%,
+  100%,
+  20%,
+  50%,
+  80% {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+  40% {
+    -webkit-transform: translateY(-10px);
+    -ms-transform: translateY(-10px);
+    transform: translateY(-10px);
+  }
+  60% {
+    -webkit-transform: translateY(-5px);
+    -ms-transform: translateY(-5px);
+    transform: translateY(-5px);
+  }
 }

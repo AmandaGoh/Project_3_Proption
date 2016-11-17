@@ -7,6 +7,7 @@ App.bids = App.cable.subscriptions.create "BidsChannel",
 
   received: (data) ->
     # Called when there's incoming data on the websocket for this channel
+    listingID = JSON.stringify(data['listingID'])
     # console.log(JSON.stringify(data['bid']))
     listingID = JSON.stringify(data['listingID'])
     bidAmount = JSON.stringify(data['bid'])

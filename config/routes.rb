@@ -8,10 +8,11 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  get 'bids', to: 'bids#index'
+  get 'bidder_bid_history', to: 'bids#bidder_bid_history'
 
-  get 'bid_history', to: 'bids#history'
+  get 'seller_bid_history', to: 'bids#seller_bid_history'
 
+  get 'accept_bid', to: 'listings#accept_bid'
 
   get 'about', to: 'home#about'
 

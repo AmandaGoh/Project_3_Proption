@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
 
-      <h1>BID HISTORY FOR LISTING </h1>
+      <h1>HISTORY OF BIDS RECEIVED FOR LISTING </h1>
 
 
       <div class="col-md-3">
@@ -22,7 +22,7 @@
             <tr>
               <th>No.</th>
               <th>Bid Date/Time</th>
-              <th>Bid Amount</th>
+              <th>Bid Amount ($)</th>
               <th>Bidder User Name</th>
             </tr>
           </thead>
@@ -33,7 +33,7 @@
                     <tr>
                       <td> <%= index + 1 %> </td>
                       <td> <%= bid_info.created_at %> </td>
-                      <td>$<%= bid_info.bid_amount %> </td>
+                      <td><%= number_with_delimiter(bid_info.bid_amount) %> </td>
                       <td> <%= bid_info.bidder.username %> </td>
                     </tr>
                   <% end %>
